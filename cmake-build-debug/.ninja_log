@@ -1,0 +1,18 @@
+# ninja log v5
+1	287	6867962751566235	CMakeFiles/untitled.dir/main.cpp.obj	d7260e168e311bb5
+291	452	6867962753176593	untitled.exe	310ba568ef055114
+3	515	6869627728619205	CMakeFiles/untitled.dir/main.cpp.obj	d7260e168e311bb5
+3	393	6869629525663768	CMakeFiles/untitled.dir/main.cpp.obj	d7260e168e311bb5
+4	410	6869635642733587	CMakeFiles/untitled.dir/main.cpp.obj	d7260e168e311bb5
+3	400	6869638745500613	CMakeFiles/untitled.dir/main.cpp.obj	d7260e168e311bb5
+7	581	6869638747300879	CMakeFiles/untitled.dir/Student.cpp.obj	baa256d5765f0aa3
+582	1749	6869638758934484	untitled.exe	4a885c40cfd14561
+3	392	6869638913235406	CMakeFiles/untitled.dir/main.cpp.obj	d7260e168e311bb5
+392	552	6869638914795693	untitled.exe	4a885c40cfd14561
+3	556	6869639186486485	CMakeFiles/untitled.dir/Student.cpp.obj	baa256d5765f0aa3
+557	713	6869639188027035	untitled.exe	4a885c40cfd14561
+3	395	6869640268093937	CMakeFiles/untitled.dir/main.cpp.obj	d7260e168e311bb5
+8	592	6869640270054354	CMakeFiles/untitled.dir/Student.cpp.obj	baa256d5765f0aa3
+592	756	6869640271674914	untitled.exe	4a885c40cfd14561
+3	411	6869640374679450	CMakeFiles/untitled.dir/main.cpp.obj	d7260e168e311bb5
+411	571	6869640376239944	untitled.exe	4a885c40cfd14561
