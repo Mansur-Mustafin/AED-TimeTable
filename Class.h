@@ -16,9 +16,9 @@ using namespace std;
 class Class {
     public:
     private:
-        pair<string, string> Name;
-        string Day;
-
+        pair<string, string> index;
+        string day;
+        Hour hora;
 };
 
 

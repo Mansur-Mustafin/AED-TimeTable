@@ -13,7 +13,7 @@ Student::Student(const std::string &input_line) {
     name = feel;
     getline(input, feel, ','); // reed UCcode
     getline(input, feel1, ','); // reed ClassCode
-    UCs.push_back({feel,feel1});
+    UCs.push_back(Subject(feel, feel1));
 }
 
 string Student::get_name() const {
@@ -31,10 +31,10 @@ void Student::add_class(const std::string &input_line) {
     getline(input, feel, ',');
     getline(input, feel, ',');
     getline(input, feel1, ',');
-    this->UCs.push_back({feel,feel1});
+    this->UCs.push_back(Subject(feel, feel1));
 }
 
-vector<pair<string, string>> Student::getClasses() const {
+vector<Subject> Student::getClasses() const {
     return UCs;
 }
 

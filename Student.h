@@ -9,6 +9,7 @@
 #include <map>
 #include <iostream>
 #include <sstream>
+#include "Subject.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ class Student {
         // getters
         string get_name() const;
         unsigned long get_StudentCode() const;
-        vector<pair<string, string>> getClasses() const;
+        vector<Subject> getClasses() const;
         // to add one more class to student instead create new student
         void add_class(const string& input_line);
         // print to
@@ -30,7 +31,7 @@ class Student {
     private:
         string name;
         unsigned long StudentCode{};
-        vector<pair<string, string>> UCs;
+        vector<Subject> UCs;
 };
 
 
