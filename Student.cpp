@@ -4,21 +4,16 @@
 
 #include "Student.h"
 
-Student::Student(const std::string &parametrs) {
+Student::Student(const std::string &input_line) {
     string feel, feel1;
-    istringstream input (parametrs);
+    istringstream input (input_line);
     getline(input, feel, ','); // reed StudentCode
     StudentCode = stoul(feel);
     getline(input, feel, ','); // reed name
     name = feel;
     getline(input, feel, ','); // reed UCcode
     getline(input, feel1, ','); // reed ClassCode
-    if(UCs.find(feel) == UCs.end()){
-        //pair<string,vector<string>> p ;
-        UCs.insert({feel , {feel1}});
-    }else{
-        UCs[feel].push_back(feel1);
-    }
+    UCs.push_back({feel,feel1});
 }
 
 string Student::get_name() const {
@@ -28,6 +23,35 @@ string Student::get_name() const {
 unsigned long Student::get_StudentCode() const {
     return this->StudentCode;
 }
+
+void Student::add_class(const std::string &input_line) {
+    string feel , feel1;
+    istringstream input (input_line);
+    getline(input, feel, ',');
+    getline(input, feel, ',');
+    getline(input, feel, ',');
+    getline(input, feel1, ',');
+    this->UCs.push_back({feel,feel1});
+}
+
+vector<pair<string, string>> Student::getClasses() const {
+    return UCs;
+}
+
+ostream& operator<< (ostream& out, const Student& s1){
+    out << s1.get_name() << ' ' << s1.get_StudentCode();
+    return out;
+}
+
+bool Student::is_less_than_by_name(const Student& right){
+    return this->name < right.name;
+}
+
+bool Student::is_less_than_by_code(const Student& right){
+    return this->StudentCode < right.StudentCode;
+}
+
+
 
 
 
