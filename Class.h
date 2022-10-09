@@ -10,15 +10,19 @@
 #include <iostream>
 #include <sstream>
 #include "Hour.h"
+#include "Subject.h"
 
 using namespace std;
 
 class Class {
     public:
+        explicit Class(const string& input_line);
     private:
-        pair<string, string> index;
+        Subject index;
         string day;
-        Hour hora;
+        Hour hora_s;
+        Hour duration;
+        string type;
 };
 
 

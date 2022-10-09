@@ -10,6 +10,7 @@ class Hour {
 public:
     // constructor
     explicit Hour(float x);
+    Hour(){hora = 1; minutes = 1;};
     Hour(int x , int y){hora = x; minutes = y;};
     // sum
     Hour operator+(const Hour& right);

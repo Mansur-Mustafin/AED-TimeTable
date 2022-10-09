@@ -15,8 +15,9 @@ using namespace std;
 
 class Subject {
     public:
-        // constructor by string csv format ';'
+        // constructor by string csv format UCcode;ClassCode
         explicit Subject(const string& input_line);
+        Subject(){UCcode = "1";ClassCode = "1";};
         // constructor
         Subject(const string& s1, const string& s2);
         // getters
