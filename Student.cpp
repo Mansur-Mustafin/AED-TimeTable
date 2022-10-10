@@ -24,7 +24,7 @@ unsigned long Student::get_StudentCode() const {
     return this->StudentCode;
 }
 
-void Student::add_class(const std::string &input_line) {
+void Student::add_subject(const std::string &input_line) {
     string feel , feel1;
     istringstream input (input_line);
     getline(input, feel, ',');
@@ -51,7 +51,16 @@ bool Student::is_less_than_by_code(const Student& right){
     return this->StudentCode < right.StudentCode;
 }
 
+void Student::remove_subject(const Subject& subject){
+    vector<Subject>::iterator it;
+    for(it = UCs.begin() ; it != UCs.end(); it++){
+        if((*it == subject)){
+            UCs.erase(it);
+            break;
+        }
+    }
 
+}
 
 
 

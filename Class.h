@@ -17,8 +17,15 @@ using namespace std;
 class Class {
     public:
         explicit Class(const string& input_line);
+        Subject get_Subject() const;
+        string get_day() const;
+        int get_day_index() const; // Monday -> 0, Tuesday -> 1 ....
+        Hour get_hora_s() const;
+        Hour get_hora_f() const; // retorna fim de aula
+        Hour get_duration() const;
+        string get_type() const;
     private:
-        Subject index;
+        Subject subject;
         string day;
         Hour hora_s;
         Hour duration;

@@ -25,6 +25,8 @@ class Subject {
         string get_ClassCode() const;
         // get year of Subject
         int get_year() const;
+        bool operator<(const Subject& right) const; // pode ser errado
+        bool operator==(const Subject& right) const;
     private:
         string UCcode;
         string ClassCode;

@@ -22,12 +22,14 @@ class Student {
         unsigned long get_StudentCode() const;
         vector<Subject> getClasses() const;
         // to add one more class to student instead create new student
-        void add_class(const string& input_line);
+        void add_subject(const string& input_line);
         // print to
         friend ostream& operator<< (ostream& out, const Student& s1);
         // compare function by name or by up
         bool is_less_than_by_name(const Student& right);
         bool is_less_than_by_code(const Student& right);
+        // remove subject from vector UCs
+        void remove_subject(const Subject& subject);
     private:
         string name;
         unsigned long StudentCode{};

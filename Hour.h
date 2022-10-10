@@ -13,7 +13,7 @@ public:
     Hour(){hora = 1; minutes = 1;};
     Hour(int x , int y){hora = x; minutes = y;};
     // sum
-    Hour operator+(const Hour& right);
+    Hour operator+(const Hour& right) const;
     // compare
     bool operator<(const Hour& right) const;
     // getter

@@ -10,14 +10,14 @@ Hour::Hour(float x) {
     this->minutes = m % 60;
 }
 
-Hour Hour::operator+(const Hour &right) {
+Hour Hour::operator+(const Hour &right) const {
     int h = this->hora + right.hora;
     int m = this->minutes + right.minutes;
     if (m >= 60) {
         m %= 60;
         h += 1;
     }
-    return Hour(h,m);
+    return Hour{h,m};
 }
 
 bool Hour::operator<(const Hour& right) const{
