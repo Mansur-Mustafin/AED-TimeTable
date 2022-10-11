@@ -10,6 +10,7 @@
 #include <iostream>
 #include <sstream>
 
+
 using namespace std;
 
 
@@ -23,13 +24,19 @@ class Subject {
         // getters
         string get_UCcode() const;
         string get_ClassCode() const;
+        int get_number_of_student() const;
+        void update_n_students();
         // get year of Subject
         int get_year() const;
         bool operator<(const Subject& right) const; // pode ser errado
+        bool operator>(const Subject& right) const;
         bool operator==(const Subject& right) const;
+        bool UC_is_equal(const Subject& right) const;
+        bool UC_is_less(const Subject& right) const;
     private:
         string UCcode;
         string ClassCode;
+        //int number_of_students;
 };
 
 

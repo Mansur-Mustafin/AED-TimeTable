@@ -25,22 +25,39 @@ string Subject::get_ClassCode() const {
     return ClassCode;
 }
 
-int Subject::get_year() const {
+int Subject::get_year() const { // if UP001
     char year = ClassCode[0];
     return int(year) - 48;
 }
 
 bool Subject::operator<(const Subject& right) const{
     if(this->get_year() > right.get_year()) return false;
+    else if(this->get_year() < right.get_year()) return true;
     else if(this->UCcode < right.UCcode) return true;
-        else if(this->UCcode > right.UCcode) return false;
-        else if(this->UCcode == right.UCcode && this->ClassCode < right.ClassCode) return true;
-        else return false;
-
+    else if(this->UCcode > right.UCcode) return false;
+    else if(this->UCcode == right.UCcode && this->ClassCode < right.ClassCode) return true;
+    else return false;
 }
+
+
 
 bool Subject::operator==(const Subject& right) const{
     if(UCcode == right.UCcode && ClassCode == right.ClassCode) return true;
     return false;
 }
+/*
+int Subject::get_number_of_student() const {
+    return number_of_students;
+}
 
+void Subject::update_n_students() {
+    number_of_students++;
+}
+*/
+bool Subject::UC_is_equal(const Subject &right) const {
+    return UCcode==right.get_UCcode();
+}
+
+bool Subject::UC_is_less(const Subject &right) const {
+    return UCcode<right.get_UCcode();
+}

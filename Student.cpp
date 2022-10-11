@@ -13,7 +13,8 @@ Student::Student(const std::string &input_line) {
     name = feel;
     getline(input, feel, ','); // reed UCcode
     getline(input, feel1, ','); // reed ClassCode
-    UCs.push_back(Subject(feel, feel1));
+    Subject s (feel, feel1);
+    UCs.push_back(s);
 }
 
 string Student::get_name() const {
@@ -31,10 +32,12 @@ void Student::add_subject(const std::string &input_line) {
     getline(input, feel, ',');
     getline(input, feel, ',');
     getline(input, feel1, ',');
-    this->UCs.push_back(Subject(feel, feel1));
+    Subject s (feel, feel1);
+
+    UCs.push_back(s);
 }
 
-vector<Subject> Student::getClasses() const {
+vector<Subject> Student::getSubjects() const {
     return UCs;
 }
 
@@ -50,7 +53,7 @@ bool Student::is_less_than_by_name(const Student& right){
 bool Student::is_less_than_by_code(const Student& right){
     return this->StudentCode < right.StudentCode;
 }
-
+/*
 void Student::remove_subject(const Subject& subject){
     vector<Subject>::iterator it;
     for(it = UCs.begin() ; it != UCs.end(); it++){
@@ -59,8 +62,9 @@ void Student::remove_subject(const Subject& subject){
             break;
         }
     }
-
 }
+*/
+
 
 
 

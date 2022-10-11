@@ -79,6 +79,12 @@ build CMakeFiles/untitled.dir/Subject.cpp.obj: CXX_COMPILER__untitled_Debug C$:/
   OBJECT_DIR = CMakeFiles\untitled.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled.dir
 
+build CMakeFiles/untitled.dir/Read_class_per_uc.cpp.obj: CXX_COMPILER__untitled_Debug C$:/Users/musta/CLionProjects/untitled/Read_class_per_uc.cpp || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles\untitled.dir\Read_class_per_uc.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled
@@ -87,7 +93,7 @@ build CMakeFiles/untitled.dir/Subject.cpp.obj: CXX_COMPILER__untitled_Debug C$:/
 #############################################
 # Link the executable untitled.exe
 
-build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.cpp.obj CMakeFiles/untitled.dir/Student.cpp.obj CMakeFiles/untitled.dir/Class.cpp.obj CMakeFiles/untitled.dir/Hour.cpp.obj CMakeFiles/untitled.dir/Subject.cpp.obj
+build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.cpp.obj CMakeFiles/untitled.dir/Student.cpp.obj CMakeFiles/untitled.dir/Class.cpp.obj CMakeFiles/untitled.dir/Hour.cpp.obj CMakeFiles/untitled.dir/Subject.cpp.obj CMakeFiles/untitled.dir/Read_class_per_uc.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled.dir
