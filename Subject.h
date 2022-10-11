@@ -19,16 +19,11 @@ class Subject {
         // constructor by string csv format UCcode;ClassCode
         explicit Subject(const string& input_line);
         Subject(){UCcode = "1";ClassCode = "1";};
-        // constructor
         Subject(const string& s1, const string& s2);
-        // getters
         string get_UCcode() const;
         string get_ClassCode() const;
-        int get_number_of_student() const;
-        void update_n_students();
-        // get year of Subject
-        int get_year() const;
-        bool operator<(const Subject& right) const; // pode ser errado
+        int get_year() const; // get year of Subject
+        bool operator < (const Subject& right) const; // pode ser errado
         bool operator>(const Subject& right) const;
         bool operator==(const Subject& right) const;
         bool UC_is_equal(const Subject& right) const;
@@ -36,7 +31,6 @@ class Subject {
     private:
         string UCcode;
         string ClassCode;
-        //int number_of_students;
 };
 
 

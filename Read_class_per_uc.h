@@ -10,6 +10,7 @@ class Read_class_per_uc {
 public:
     explicit Read_class_per_uc(const string& input_name_file); // constr
     vector<Subject> get_subjects() const;
+    int Binary_search(const Subject& key) const;
 private:
     vector<Subject> subjects;
 };

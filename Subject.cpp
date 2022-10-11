@@ -26,6 +26,7 @@ string Subject::get_ClassCode() const {
 }
 
 int Subject::get_year() const { // if UP001
+    if(ClassCode == "UP001") return 1;
     char year = ClassCode[0];
     return int(year) - 48;
 }
@@ -39,12 +40,20 @@ bool Subject::operator<(const Subject& right) const{
     else return false;
 }
 
-
+bool Subject::operator>(const Subject &right) const {
+    if(get_year() > right.get_year()) return true;
+    else if(get_year() < right.get_year()) return false;
+    else if(UCcode < right.UCcode) return false;
+    else if(UCcode > right.UCcode) return true;
+    else if(ClassCode > right.ClassCode) return true;
+    return false;
+}
 
 bool Subject::operator==(const Subject& right) const{
     if(UCcode == right.UCcode && ClassCode == right.ClassCode) return true;
     return false;
 }
+
 /*
 int Subject::get_number_of_student() const {
     return number_of_students;
@@ -54,6 +63,7 @@ void Subject::update_n_students() {
     number_of_students++;
 }
 */
+
 bool Subject::UC_is_equal(const Subject &right) const {
     return UCcode==right.get_UCcode();
 }
