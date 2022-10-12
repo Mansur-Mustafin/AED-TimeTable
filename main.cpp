@@ -9,17 +9,15 @@
 
 int main() {
     Read_classes a ("classes.csv");
-    Subject s ("L.EIC023,3LEIC06");
-    //for(auto p : a.get_classes_T()) cout << p.get_day();
+    Subject s ("L.EIC003,1LEIC01");
 
+    for(auto p : a.get_classes_T()) {
+        cout << p.get_Subject().get_UCcode() << ' ' << p.get_Subject().get_ClassCode() <<  endl;
+    }
 
-    int index_T = a.Binary_search_of_class_T(s);
-    int index_TP = a.Binary_search_of_class_TP(s);
-    int index_PL = a.Binary_search_of_class_PL(s);
+    vector<Class> index_T = a.Binary_search_of_class_T(s);
 
-    cout << index_T ;
-    //cout << a.get_classes_TP()[index_TP].get_day();
-    cout << a.get_classes_T()[index_T].get_day() << ' ' << a.get_classes_PL()[index_PL].get_day();
+    for(auto p : index_T){cout << p.get_day()<< p.get_hora_s().get_hora()<< p.get_hora_s().get_minutes() << endl;}
 
 
     return 0;

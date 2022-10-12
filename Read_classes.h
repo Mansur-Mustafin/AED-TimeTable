@@ -9,13 +9,13 @@
 
 class Read_classes {
 public:
-    Read_classes(const string& input_name_file);
+    explicit Read_classes(const string& input_name_file);
     vector<Class> get_classes_T() const;
     vector<Class> get_classes_TP() const;
     vector<Class> get_classes_PL() const;
-    int Binary_search_of_class_T(Subject key);
-    int Binary_search_of_class_TP(Subject key);
-    int Binary_search_of_class_PL(Subject key);
+    vector <Class> Binary_search_of_class_T(Subject key); // pode ser 2 teoricas, pode ser vasio
+    Class Binary_search_of_class_TP(Subject key);
+    Class Binary_search_of_class_PL(Subject key);
 
 private:
     vector<Class> classes_T;

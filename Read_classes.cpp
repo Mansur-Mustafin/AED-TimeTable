@@ -6,28 +6,70 @@
 #include <fstream>
 #include <algorithm>
 Read_classes::Read_classes(const std::string &input_name_file) {
-    ifstream in(input_name_file);
     string line;
-    getline(in, line);
-    while (getline(in, line)) {
+    vector<Class> vectorT;
+    vector<Class> vectorTP;
+    vector<Class> vectorPL;
+    bool f1 = true, f2 = true,f3 = true;
+
+    ifstream inn(input_name_file);
+    getline(inn, line);
+    int Ti = 1, TPi = 1, PLi = 1;
+    while(getline(inn, line)){
         Class s(line);
-        if (s.get_type() == "T") {
-            classes_T.push_back(s);
+
+        if (s.get_type() == "T"){
+            if(f1){
+                vectorT.push_back(s);
+                f1 = false;
+                continue;
+            }
+            vectorT.push_back(s);
+            int i;
+            for(i = Ti ; i > 0 && s.get_Subject() < vectorT[i - 1].get_Subject(); i-- ){
+                vectorT[i] = vectorT[i - 1];
+            }
+            vectorT[i] = s;
+            Ti++;
         }
-        if (s.get_type() == "TP") {
-            classes_TP.push_back(s);
+
+        if (s.get_type() == "TP"){
+            if(f2){
+                vectorTP.push_back(s);
+                f2 = false;
+                continue;
+            }
+            vectorTP.push_back(s);
+            int i;
+            for(i = TPi ; i > 0 && s.get_Subject() < vectorTP[i - 1].get_Subject(); i-- ){
+                vectorTP[i] = vectorTP[i - 1];
+            }
+            vectorTP[i] = s;
+            TPi++;
         }
-        if (s.get_type() == "PL") {
-            classes_PL.push_back(s);
+
+
+        if (s.get_type() == "PL"){
+            if(f3){
+                vectorPL.push_back(s);
+                f3 = false;
+                continue;
+            }
+            vectorPL.push_back(s);
+            int i;
+            for(i = PLi ; i > 0 && s.get_Subject() < vectorPL[i - 1].get_Subject(); i-- ){
+                vectorPL[i] = vectorPL[i - 1];
+            }
+            vectorPL[i] = s;
+            PLi++;
         }
     }
-    sort(classes_T.begin(),classes_T.end(), [ ]( const Class& lhs, const Class& rhs ){return lhs.is_less(rhs);} );
-    sort(classes_TP.begin(),classes_TP.end(), [ ]( const Class& lhs, const Class& rhs ){return lhs.is_less(rhs);} );
-    sort(classes_PL.begin(),classes_PL.end(), [ ]( const Class& lhs, const Class& rhs ){return lhs.is_less(rhs);} );
-    // reescrever estes 3 funcoes!!!!!!!
+    inn.close();
+    classes_T = vectorT;
+    classes_TP = vectorTP;
+    classes_PL = vectorPL;
+
 }
-
-
 
 vector<Class> Read_classes::get_classes_T() const{
     return classes_T;
@@ -41,23 +83,37 @@ vector<Class> Read_classes::get_classes_PL() const{
     return classes_PL;
 }
 
-int Read_classes::Binary_search_of_class_T(Subject key){
+vector <Class> Read_classes::Binary_search_of_class_T(Subject key){
+    vector <Class> v;
     int low = 0;
     int high = classes_T.size() - 1;
+    int middle;
     while(low <= high){
-        int middle = low + (high - low) / 2;
+
+        middle = low + (high - low) / 2;
         if(key < classes_T[middle].get_Subject()){
             high = middle - 1;
         }
         else if(key > classes_T[middle].get_Subject()){
             low = middle + 1;
         }
-        else return middle;
+        else break;
     }
-    return -1;
+
+    v.push_back(classes_T[middle]);
+
+    if(middle > 1){
+        if(classes_T[middle - 1].get_Subject() == key) v.push_back(classes_T[middle - 1]);
+    }
+    if(middle < classes_T.size() - 1){
+        if(classes_T[middle + 1].get_Subject() == key) v.push_back(classes_T[middle + 1]);
+    }
+
+    return v;
 }
 
-int Read_classes::Binary_search_of_class_TP(Subject key){
+
+Class Read_classes::Binary_search_of_class_TP(Subject key){
     int low = 0;
     int high = classes_TP.size() - 1;
     while(low <= high){
@@ -68,12 +124,13 @@ int Read_classes::Binary_search_of_class_TP(Subject key){
         else if(key > classes_TP[middle].get_Subject()){
             low = middle + 1;
         }
-        else return middle;
+        else return classes_TP[middle];
     }
-    return -1;
+    Class s ("1LEIC02,L.EIC002,Monday,10.5,2,TP");
+    return s;
 }
 
-int Read_classes::Binary_search_of_class_PL(Subject key){
+Class Read_classes::Binary_search_of_class_PL(Subject key){
     int low = 0;
     int high = classes_PL.size() - 1;
     while(low <= high){
@@ -84,8 +141,9 @@ int Read_classes::Binary_search_of_class_PL(Subject key){
         else if(key > classes_PL[middle].get_Subject()){
             low = middle + 1;
         }
-        else return middle;
+        else return classes_PL[middle];
     }
-    return -1;
+    Class s ("1LEIC02,L.EIC002,Monday,10.5,2,TP");
+    return s;
 }
 
