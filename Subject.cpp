@@ -26,13 +26,18 @@ string Subject::get_ClassCode() const {
 }
 
 int Subject::get_year() const { // if UP001
-    if(ClassCode == "UP001") return 1;
+    if(UCcode == "UP001") return 1;
     char year = ClassCode[0];
     return int(year) - 48;
 }
 
 bool Subject::operator<(const Subject& right) const{
-    if(this->get_year() > right.get_year()) return false;
+    if(UCcode == "UP001" && right.UCcode != "UP001") return false;
+    else if(UCcode != "UP001" && right.UCcode == "UP001") return true;
+    else if(UCcode == "UP001" && right.UCcode == "UP001"){
+        return ClassCode < right.ClassCode;
+    }
+    else if(this->get_year() > right.get_year()) return false;
     else if(this->get_year() < right.get_year()) return true;
     else if(this->UCcode < right.UCcode) return true;
     else if(this->UCcode > right.UCcode) return false;
@@ -41,6 +46,11 @@ bool Subject::operator<(const Subject& right) const{
 }
 
 bool Subject::operator>(const Subject &right) const {
+    if(UCcode == "UP001" && right.UCcode != "UP001") return true;
+    else if(UCcode != "UP001" && right.UCcode == "UP001") return false;
+    else if(UCcode == "UP001" && right.UCcode == "UP001"){
+        return ClassCode > right.ClassCode;
+    }
     if(get_year() > right.get_year()) return true;
     else if(get_year() < right.get_year()) return false;
     else if(UCcode < right.UCcode) return false;

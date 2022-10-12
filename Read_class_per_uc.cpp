@@ -3,7 +3,7 @@
 //
 
 #include <fstream>
-#include <algorithm>
+
 #include "Read_class_per_uc.h"
 
 
@@ -15,7 +15,6 @@ Read_class_per_uc::Read_class_per_uc(const string& input_name_file){
         Subject s (line);
         subjects.push_back(s);
     }
-
 }
 
 vector<Subject> Read_class_per_uc::get_subjects() const {

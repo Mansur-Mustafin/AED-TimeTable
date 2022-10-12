@@ -47,3 +47,12 @@ string Class::get_type() const{
 }
 
 
+bool Class::is_less(Class right) const{
+    return subject < right.subject;
+}
+bool Class::is_more(Class right) const{
+    return subject > right.subject;
+}
+bool Class::is_equal(Class right) const{
+    return subject == right.subject;
+}

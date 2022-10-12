@@ -24,6 +24,10 @@ class Class {
         Hour get_hora_f() const; // retorna fim de aula
         Hour get_duration() const;
         string get_type() const;
+        bool is_less(Class right) const;
+        bool is_more(Class right) const;
+        bool is_equal(Class right) const;
+
     private:
         Subject subject;
         string day;

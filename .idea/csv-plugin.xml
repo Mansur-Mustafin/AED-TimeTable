@@ -3,21 +3,7 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\classes.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\classes_per_uc.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\students_classes.csv">
+        <entry key="\cmake-build-debug\students_classes.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
