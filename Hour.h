@@ -4,7 +4,9 @@
 
 #ifndef UNTITLED_HOUR_H
 #define UNTITLED_HOUR_H
-
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
 class Hour {
 public:
@@ -19,6 +21,7 @@ public:
     // getter
     int get_hora() const;
     int get_minutes() const;
+    friend ostream& operator<< (ostream& out, const Hour& s1);
 private:
     int hora;
     int minutes;

@@ -8,7 +8,7 @@ Student::Student(const std::string &input_line) {
     string feel, feel1;
     istringstream input (input_line);
     getline(input, feel, ','); // reed StudentCode
-    StudentCode = stoul(feel);
+    StudentCode = stoi(feel);
     getline(input, feel, ','); // reed name
     name = feel;
     getline(input, feel, ','); // reed UCcode
@@ -21,7 +21,7 @@ string Student::get_name() const {
     return this->name;
 }
 
-unsigned long Student::get_StudentCode() const {
+int Student::get_StudentCode() const {
     return this->StudentCode;
 }
 
@@ -50,7 +50,7 @@ bool Student::is_less_than_by_name(const Student& right){
     return this->name < right.name;
 }
 
-bool Student::is_less_than_by_code(const Student& right){
+bool Student::is_less_than_by_code(const Student& right) const{
     return this->StudentCode < right.StudentCode;
 }
 /*

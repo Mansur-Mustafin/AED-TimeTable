@@ -11,7 +11,7 @@
 #include <sstream>
 #include "Hour.h"
 #include "Subject.h"
-
+#include <iostream>
 using namespace std;
 
 class Class {

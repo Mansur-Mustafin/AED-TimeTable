@@ -10,7 +10,7 @@
 Read_class_per_uc::Read_class_per_uc(const string& input_name_file){
     ifstream in(input_name_file);
     string line;
-    getline(in, line);
+    getline(in, line);       // to - first line
     while (getline(in, line)){
         Subject s (line);
         subjects.push_back(s);

@@ -10,12 +10,14 @@ Subject::Subject(const string& input_line){
     getline(input, feel, ',');
     getline(input, feel1, ',');
     UCcode = feel;
-    ClassCode = feel1;
+    ClassCode =  feel1;
+    number_of_student = 0;
 }
 
 Subject::Subject(const string& s1, const string& s2){
     UCcode = s1;
     ClassCode = s2;
+    number_of_student = 0;
 }
 
 string Subject::get_UCcode() const {
@@ -64,20 +66,22 @@ bool Subject::operator==(const Subject& right) const{
     return false;
 }
 
-/*
-int Subject::get_number_of_student() const {
-    return number_of_students;
-}
-
-void Subject::update_n_students() {
-    number_of_students++;
-}
-*/
-
 bool Subject::UC_is_equal(const Subject &right) const {
     return UCcode==right.get_UCcode();
 }
 
 bool Subject::UC_is_less(const Subject &right) const {
     return UCcode<right.get_UCcode();
+}
+
+void Subject::plus_student_n() {
+    number_of_student++;
+}
+
+void Subject::minus_student_n() {
+    number_of_student--;
+}
+
+int Subject::get_number_of_student() const {
+    return number_of_student;
 }

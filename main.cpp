@@ -5,19 +5,24 @@
 #include "Read_class_per_uc.h"
 #include <fstream>
 #include <algorithm>
-#include "Read_classes.h"
+#include "Read_student.h"
 
 int main() {
-    Read_classes a ("classes.csv");
-    Subject s ("L.EIC003,1LEIC01");
+    /*
+    Student s ("202071557,Ludovico,L.EIC022,3LEIC02");
+    cout << s.get_StudentCode();
+    */
 
-    for(auto p : a.get_classes_T()) {
-        cout << p.get_Subject().get_UCcode() << ' ' << p.get_Subject().get_ClassCode() <<  endl;
+    Read_student a ("students_classes.csv", "classes_per_uc.csv");
+    for(auto p : a.get_subjects()) cout <<p.get_UCcode() << ' ' << p.get_number_of_student() << endl;
+    cout << "-----------------------------" << endl;
+
+    for(auto p : a.get_students()){
+        cout << p.get_StudentCode() << ' ';
+        for(auto i : p.getSubjects()) cout << i.get_UCcode() << ' ' << i.get_ClassCode() << " ; ";
+        cout << endl;
     }
 
-    vector<Class> index_T = a.Binary_search_of_class_T(s);
-
-    for(auto p : index_T){cout << p.get_day()<< p.get_hora_s().get_hora()<< p.get_hora_s().get_minutes() << endl;}
 
 
     return 0;

@@ -34,5 +34,10 @@ int Hour::get_minutes() const{
     return minutes;
 }
 
+ostream& operator<< (ostream& out, const Hour& s1){
+    out << s1.hora << ':' << setfill('0') << setw(2) <<  s1.minutes;
+    return out;
+}
+
 
 

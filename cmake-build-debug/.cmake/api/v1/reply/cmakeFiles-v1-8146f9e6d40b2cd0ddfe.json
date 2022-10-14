@@ -149,8 +149,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/musta/CLionProjects/untitled/cmake-build-debug",
-		"source" : "C:/Users/musta/CLionProjects/untitled"
+		"build" : "C:/FEUP/AED/Project/cmake-build-debug",
+		"source" : "C:/FEUP/AED/Project"
 	},
 	"version" : 
 	{
