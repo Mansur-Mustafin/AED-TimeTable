@@ -1,5 +1,5 @@
 //
-// Created by musta on 08.10.2022.
+// Created by Mansur on 08.10.2022.
 //
 
 #include "Subject.h"
@@ -36,9 +36,7 @@ int Subject::get_year() const { // if UP001
 bool Subject::operator<(const Subject& right) const{
     if(UCcode == "UP001" && right.UCcode != "UP001") return false;
     else if(UCcode != "UP001" && right.UCcode == "UP001") return true;
-    else if(UCcode == "UP001" && right.UCcode == "UP001"){
-        return ClassCode < right.ClassCode;
-    }
+    else if(UCcode == "UP001" && right.UCcode == "UP001") return ClassCode < right.ClassCode;
     else if(this->get_year() > right.get_year()) return false;
     else if(this->get_year() < right.get_year()) return true;
     else if(this->UCcode < right.UCcode) return true;
@@ -50,9 +48,7 @@ bool Subject::operator<(const Subject& right) const{
 bool Subject::operator>(const Subject &right) const {
     if(UCcode == "UP001" && right.UCcode != "UP001") return true;
     else if(UCcode != "UP001" && right.UCcode == "UP001") return false;
-    else if(UCcode == "UP001" && right.UCcode == "UP001"){
-        return ClassCode > right.ClassCode;
-    }
+    else if(UCcode == "UP001" && right.UCcode == "UP001") return ClassCode > right.ClassCode;
     if(get_year() > right.get_year()) return true;
     else if(get_year() < right.get_year()) return false;
     else if(UCcode < right.UCcode) return false;

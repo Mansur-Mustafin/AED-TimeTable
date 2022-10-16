@@ -27,7 +27,7 @@ class Class {
         bool is_less(Class right) const;
         bool is_more(Class right) const;
         bool is_equal(Class right) const;
-
+        friend ostream& operator<< (ostream& out, const Class& s1);
     private:
         Subject subject;
         string day;

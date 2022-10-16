@@ -1,5 +1,5 @@
 //
-// Created by musta on 11.10.2022.
+// Created by Mansur on 11.10.2022.
 //
 
 #ifndef UNTITLED_READ_CLASS_PER_UC_H

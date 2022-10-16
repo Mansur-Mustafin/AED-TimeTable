@@ -1,5 +1,5 @@
 //
-// Created by musta on 12.10.2022.
+// Created by Mansur on 12.10.2022.
 //
 
 #include "Read_classes.h"
@@ -69,6 +69,12 @@ Read_classes::Read_classes(const std::string &input_name_file) {
     classes_TP = vectorTP;
     classes_PL = vectorPL;
 
+}
+
+Read_classes::Read_classes() {
+    classes_T = {};
+    classes_TP = {};
+    classes_PL = {};
 }
 
 vector<Class> Read_classes::get_classes_T() const{

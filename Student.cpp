@@ -53,17 +53,7 @@ bool Student::is_less_than_by_name(const Student& right){
 bool Student::is_less_than_by_code(const Student& right) const{
     return this->StudentCode < right.StudentCode;
 }
-/*
-void Student::remove_subject(const Subject& subject){
-    vector<Subject>::iterator it;
-    for(it = UCs.begin() ; it != UCs.end(); it++){
-        if((*it == subject)){
-            UCs.erase(it);
-            break;
-        }
-    }
-}
-*/
+
 
 
 

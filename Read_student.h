@@ -1,5 +1,5 @@
 //
-// Created by musta on 14.10.2022.
+// Created by Mansur on 14.10.2022.
 //
 
 #ifndef UNTITLED_READ_STUDENT_H
@@ -9,9 +9,11 @@
 
 class Read_student {
 public:
-    Read_student(const string& fm_student, const string& UC_student);
+    explicit Read_student(const string& fm_student, const string& UC_student);
+    Read_student();
     vector<Student> get_students() const;
     vector<Subject> get_subjects() const;
+    Student Bynary_serch_of_student(const string& key); // encontra estudante em vetor dos estudantes por numero UP
 private:
     vector<Student> v;
     vector<Subject> s;

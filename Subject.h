@@ -1,5 +1,5 @@
 //
-// Created by musta on 08.10.2022.
+// Created by Mansur on 08.10.2022.
 //
 
 #ifndef UNTITLED_SUBJECT_H
@@ -18,7 +18,7 @@ class Subject {
     public:
         // constructor by string csv format UCcode;ClassCode
         explicit Subject(const string& input_line);
-        Subject(){UCcode = "1";ClassCode = "1";};
+        Subject(){UCcode = "1";ClassCode = "1";number_of_student = 0;};
         Subject(const string& s1, const string& s2);
         string get_UCcode() const;
         string get_ClassCode() const;

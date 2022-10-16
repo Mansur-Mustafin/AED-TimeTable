@@ -56,3 +56,9 @@ bool Class::is_more(Class right) const{
 bool Class::is_equal(Class right) const{
     return subject == right.subject;
 }
+
+
+ostream& operator<< (ostream& out, const Class& aula){
+    out <<'(' <<aula.subject.get_ClassCode() << ';' << aula.subject.get_UCcode() << ')' << ' ' << aula.day << "  Start: "<<aula.hora_s << ' ' << "Stop : " << aula.get_hora_f() << " Type:" << aula.type;
+    return out;
+}
