@@ -30,6 +30,7 @@ class Student {
         bool is_less_than_by_code(const Student& right) const;
         // remove subject from vector UCs
         //void remove_subject(const Subject& subject); // acho que nao vale a pena esta funcao, porque vamos so trocar os esudantes.
+
     private:
         string name;
         int StudentCode;
