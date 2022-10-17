@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/FEUP/AED/Project/cmake-build-debug",
-		"source" : "C:/FEUP/AED/Project"
+		"build" : "C:/Users/ianbe/Documents/AED/AED_Proj1/AED/cmake-build-debug",
+		"source" : "C:/Users/ianbe/Documents/AED/AED_Proj1/AED"
 	},
 	"version" : 
 	{

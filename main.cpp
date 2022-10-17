@@ -4,32 +4,53 @@
 #include "Hour.h"
 int main() {
 
-    /*
-    Read_student a ("students_classes.csv", "classes_per_uc.csv");
-    for(auto p : a.get_subjects()) cout << p.get_UCcode() << ' ' << p.get_ClassCode() <<  ' ' << p.get_number_of_student() << endl;
-    cout << "-----------------------------" << endl;
-
-    for(auto p : a.get_students()){
-        cout << p.get_StudentCode() << ' ';
-        for(auto i : p.getSubjects()) cout << i.get_UCcode() << ' ' << i.get_ClassCode() << " ; ";
-        cout << endl;
-    }
-    */
-
     Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
 
-    //vector<Class> aulas =  op.GetTimeTable("202027952");
+    vector<Class> aulas =  op.GetTimeTable("202055237");
 
 
-    //sort(aulas.begin(),aulas.end(),[ ] (const Class& c1, class Class& c2) {return c1.get_day_index() < c2.get_day_index();});
-    //sort(aulas.begin(),aulas.end(),[ ] (const Class& c1, class Class& c2) {return c1.get_hora_s() < c2.get_hora_s();});
+    cout <<  setw(17) << "Monday" << setw(17) << "Tuesday" << setw(19) << "Wednesday" << setw(16) << "Thursday" << setw(16) << "Friday" << endl;
+    for(int i = 0; i < 91; i++){cout << '_';}
+    cout << endl;
+    Hour h1(8);
+    Hour max(23.5);
+    Hour step(0.5);
 
-    //Subject s ("L.EIC015,2LEIC13");
-    //cout << op.N_of_students_in_class(s) << endl;
-    //Subject s2 ("L.EIC015,xXXXXxx");
-    //cout << op.N_of_students_in_UC(s2);
+    for(h1; h1 < max; h1 = h1 + step){
+        if ( h1 < Hour(10)){
+            cout << ' ' << h1;
+        }else{
+            cout << h1;
+        }
+        cout << '|';
+        string R = "";
+        for(int i = 0; i <= 4; i++){
+            bool f1 = true;
+            for(auto aula: aulas){
+                if(aula.get_day_index() == i && (aula.get_hora_s() == h1)){
+                    f1 = false;
+                    R += aula.get_Subject().get_UCcode() +";" + aula.get_Subject().get_ClassCode();
+                }
+                if(aula.get_day_index() == i && (h1 > aula.get_hora_s() && h1 < aula.get_hora_f() - step ) ){
+                    f1 = false;
+                    R += "................";
+                }
+                if(aula.get_day_index() == i && ( h1 > aula.get_hora_s() && h1 == aula.get_hora_f() - step )){
+                    f1 = false;
+                    R += "________________";
+                }
+            }
+            if(f1){
+                R += "                ";
+            }
+            R += '|';
+        }
+        cout << R;
+        cout << endl;
+    }
 
-    //for(const auto& aula : aulas) cout << aula << endl;
+
+
     return 0;
 }
 
