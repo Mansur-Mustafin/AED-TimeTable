@@ -6,7 +6,7 @@ int main() {
 
     Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
 
-    op.print_time_table(op.GetTimeTable("202059062"));
+    op.print_time_table(op.GetTimeTable("202020897"));
 
 
     Hour h1(16.5);
