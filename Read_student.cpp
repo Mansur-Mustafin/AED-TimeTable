@@ -59,10 +59,11 @@ vector<Student> Read_student::get_students() const {
 Student Read_student::Bynary_serch_of_student(const std::string &keystr) {
 
     int key = stoi(keystr);
+
     int low = 0;
-    int high = get_students().size();
-    //cout << high;
-    while(low < high){
+    int high = get_students().size() - 1;
+
+    while(low <= high){
         //cout << low << high << endl;
         int middle = low + (high - low) / 2;
         if(key < v[middle].get_StudentCode()){

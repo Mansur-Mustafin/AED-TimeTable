@@ -17,20 +17,17 @@ int main() {
     */
 
     Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
+    op.print_time_table(op.GetTimeTable("202059062"));
 
-    //vector<Class> aulas =  op.GetTimeTable("202027952");
 
+    Hour h1(16.5);
+    Hour h2(16);
+    bool a = h1 > h2;
 
-    //sort(aulas.begin(),aulas.end(),[ ] (const Class& c1, class Class& c2) {return c1.get_day_index() < c2.get_day_index();});
-    //sort(aulas.begin(),aulas.end(),[ ] (const Class& c1, class Class& c2) {return c1.get_hora_s() < c2.get_hora_s();});
+    //cout << a;
 
-    //Subject s ("L.EIC015,2LEIC13");
-    //cout << op.N_of_students_in_class(s) << endl;
-    //Subject s2 ("L.EIC015,xXXXXxx");
-    //cout << op.N_of_students_in_UC(s2);
-
-    //for(const auto& aula : aulas) cout << aula << endl;
     return 0;
 }
+
 
 

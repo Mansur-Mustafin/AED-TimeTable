@@ -20,10 +20,43 @@ Hour Hour::operator+(const Hour &right) const {
     return Hour{h,m};
 }
 
+Hour Hour::operator-(const Hour &right) const {
+    int h = hora * 60 + minutes;
+    int m = right.hora * 60 + right.minutes;
+    int r = h - m;
+    h = r / 60;
+    m = r % 60;
+    return Hour{h,m};
+}
+
 bool Hour::operator<(const Hour& right) const{
     int h1 = hora * 60 + minutes;
     int h2 = right.hora * 60 + right.minutes;
     return h1 < h2;
+}
+
+bool Hour::operator>(const Hour& right) const{
+    int h1 = hora * 60 + minutes;
+    int h2 = right.hora * 60 + right.minutes;
+    return h1 > h2;
+}
+
+bool Hour::operator>=(const Hour& right) const{
+    int h1 = hora * 60 + minutes;
+    int h2 = right.hora * 60 + right.minutes;
+    return h1 >= h2;
+}
+
+bool Hour::operator<=(const Hour& right) const{
+    int h1 = hora * 60 + minutes;
+    int h2 = right.hora * 60 + right.minutes;
+    return h1 <= h2;
+}
+
+bool Hour::operator==(const Hour& right) const{
+    int h1 = hora * 60 + minutes;
+    int h2 = right.hora * 60 + right.minutes;
+    return h1 == h2;
 }
 
 int Hour::get_hora() const {

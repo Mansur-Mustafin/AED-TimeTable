@@ -16,8 +16,13 @@ public:
     Hour(int x , int y){hora = x; minutes = y;};
     // sum
     Hour operator+(const Hour& right) const;
+    Hour operator-(const Hour& right) const;
     // compare
     bool operator<(const Hour& right) const;
+    bool operator>(const Hour& right) const;
+    bool operator>=(const Hour& right) const;
+    bool operator<=(const Hour& right) const;
+    bool operator==(const Hour& right) const;
     // getter
     int get_hora() const;
     int get_minutes() const;
