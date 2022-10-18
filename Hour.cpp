@@ -10,6 +10,12 @@ Hour::Hour(float x) {
     this->minutes = m % 60;
 }
 
+bool Hour::operator==(const Hour& right) const{
+    int h1 = hora * 60 + minutes;
+    int h2 = right.hora * 60 + right.minutes;
+    return h1 == h2;
+}
+
 Hour Hour::operator+(const Hour &right) const {
     int h = this->hora + right.hora;
     int m = this->minutes + right.minutes;
@@ -40,6 +46,7 @@ bool Hour::operator>(const Hour& right) const{
     int h2 = right.hora * 60 + right.minutes;
     return h1 > h2;
 }
+
 
 bool Hour::operator>=(const Hour& right) const{
     int h1 = hora * 60 + minutes;

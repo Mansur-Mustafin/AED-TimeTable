@@ -20,8 +20,10 @@ public:
     // compare
     bool operator<(const Hour& right) const;
     bool operator>(const Hour& right) const;
+
     bool operator>=(const Hour& right) const;
     bool operator<=(const Hour& right) const;
+
     bool operator==(const Hour& right) const;
     // getter
     int get_hora() const;
