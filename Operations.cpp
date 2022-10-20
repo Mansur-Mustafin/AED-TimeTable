@@ -224,3 +224,17 @@ vector<Student> Operations::students_in_class(Subject s) const {
     }
     return R;
 }
+
+vector<Student> Operations::students_in_year(int n) const{
+    vector<Student> students = rs.get_students();
+    vector<Student> R = {};
+    for(auto p : students){
+        for(auto sub : p.getSubjects()){
+            if(sub.get_year() == n){
+                R.push_back(p);
+                break;
+            }
+        }
+    }
+    return R;
+}
