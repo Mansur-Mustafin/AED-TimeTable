@@ -207,9 +207,7 @@ vector<Student> Operations::students_in_class(Subject s) const {
     vector<Student> students = rs.get_students();
     vector<Student> R = {};
     for(auto st : students){
-
         vector<Subject> sub_st = st.getSubjects();
-
         int low = 0;
         int high = sub_st.size() - 1;
         while(low <= high){
@@ -226,15 +224,45 @@ vector<Student> Operations::students_in_class(Subject s) const {
 }
 
 vector<Student> Operations::students_in_year(int n) const{
+
     vector<Student> students = rs.get_students();
     vector<Student> R = {};
     for(auto p : students){
-        for(auto sub : p.getSubjects()){
-            if(sub.get_year() == n){
+        vector<Subject> subjects = p.getSubjects();
+        if(n == 1){
+            if(subjects[0].get_year() == n){
                 R.push_back(p);
-                break;
+                continue;
             }
+            continue;
         }
+        if(n == 3){
+            if(subjects[subjects.size() - 1].get_year() == n){
+                R.push_back(p);
+                continue;
+            }
+            continue;
+        }
+
+        if(n == 2){
+            int low = 0;
+            int high = subjects.size() - 1;
+            while(low <= high){
+                int mid = low + (high - low ) / 2;
+                if( n < subjects[mid].get_year()){
+                    high = mid - 1;
+                }
+                else if(n > subjects[mid].get_year()){
+                    low = mid + 1;
+                }
+                else{
+                    R.push_back(p);
+                    break;
+                }
+            }
+
+        }
+
     }
     return R;
 }
