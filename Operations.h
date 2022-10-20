@@ -1,5 +1,5 @@
 //
-// Created by musta on 16.10.2022.
+// Created by Mansur on 16.10.2022.
 //
 
 #ifndef UNTITLED_OPERATIONS_H

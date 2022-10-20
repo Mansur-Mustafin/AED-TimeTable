@@ -53,10 +53,3 @@ bool Student::is_less_than_by_name(const Student& right){
 bool Student::is_less_than_by_code(const Student& right) const{
     return this->StudentCode < right.StudentCode;
 }
-
-
-
-
-
-
-

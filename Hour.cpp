@@ -60,11 +60,6 @@ bool Hour::operator<=(const Hour& right) const{
     return h1 <= h2;
 }
 
-bool Hour::operator==(const Hour& right) const{
-    int h1 = hora * 60 + minutes;
-    int h2 = right.hora * 60 + right.minutes;
-    return h1 == h2;
-}
 
 int Hour::get_hora() const {
     return hora;
