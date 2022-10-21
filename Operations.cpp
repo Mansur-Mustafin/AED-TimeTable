@@ -297,3 +297,32 @@ vector<Student> Operations::students_with_more_UC(int n) const {
     }
     return R;
 }
+
+vector<Student> Operations::students_with_name(const std::string &name) const {
+    vector<Student> students = rs.get_students();
+    vector<Student> R = {};
+
+
+    for(auto st : students){
+        string temp = "";
+        for(int i = 0; i < st.get_name().length(); i++){
+            if(st.get_name()[i] == ' '){
+                if(name == temp){
+                    R.push_back(st);
+                    temp = "";
+                    break;
+                }else{
+                    temp = "";
+                }
+            }
+            else{
+                temp += st.get_name()[i];
+            }
+        }
+        if(name == temp){
+            R.push_back(st);
+            temp = "";
+        }
+    }
+    return R;
+}

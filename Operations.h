@@ -19,6 +19,7 @@ public:
     vector<Student> students_in_year(int n) const;
     vector<Student> students_in_UC(Subject s) const;
     vector<Student> students_with_more_UC(int n) const;
+    vector<Student> students_with_name(const string& name) const;
 private:
     Read_classes rc;
     Read_student rs;
