@@ -286,3 +286,14 @@ vector<Student> Operations::students_in_UC(Subject s) const {
     }
     return R;
 }
+
+vector<Student> Operations::students_with_more_UC(int n) const {
+    vector<Student> students = rs.get_students();
+    vector<Student> R = {};
+    for(auto st : students){
+        if(st.getSubjects().size() > n){
+            R.push_back(st);
+        }
+    }
+    return R;
+}
