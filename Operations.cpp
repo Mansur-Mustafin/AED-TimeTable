@@ -266,3 +266,23 @@ vector<Student> Operations::students_in_year(int n) const{
     }
     return R;
 }
+
+vector<Student> Operations::students_in_UC(Subject s) const {
+    vector<Student> students = rs.get_students();
+    vector<Student> R = {};
+    for(auto st: students){
+        vector<Subject> subjects = st.getSubjects();
+        int low = 0;
+        int high = subjects.size() - 1;
+        while(low <= high){
+            int middle = low + (high - low) / 2;
+            if(s.get_UCcode() < subjects[middle].get_UCcode()) high = middle - 1;
+            else if(s.get_UCcode() > subjects[middle].get_UCcode()) low = middle + 1;
+            else{
+                R.push_back(st);
+                break;
+            }
+        }
+    }
+    return R;
+}

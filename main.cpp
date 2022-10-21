@@ -10,17 +10,18 @@ int main() {
     //cout << op.N_of_students_in_UC(Subject("L.EIC001,xXXXXxx"));
     //cout << op.N_of_students_in_class(Subject("L.EIC001,1LEIC01"));
     //cout << op.N_of_students_in_year(2);
-    /*
-    vector<Student> v = op.students_in_class(Subject("L.EIC001,1LEIC01"));
-    for(auto s : v){
-        cout << s << endl;
-    }
-    */
-    vector<Student> v = op.students_in_year(1);
+
+    vector<Student> v = op.students_in_UC(Subject("L.EIC005,xXXXXxx"));
     for(auto s : v){
         cout << s << endl;
     }
 
+    /*
+    vector<Student> v = op.students_in_year(1);
+    for(auto s : v){
+        cout << s << endl;
+    }
+    */
     //cout << a;
 
 
