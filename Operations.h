@@ -10,6 +10,7 @@
 class Operations {
 public:
     Operations(const string& fm_student, const string& UC_student,const string& fm_classes);
+    Operations();
     vector<Class> GetTimeTable(const string& number); // encontra horario por numero up recebe string mesmo
     void print_time_table(vector<Class> v) const;
     int N_of_students_in_class(Subject s) const; // input: uma turma, output: numero de estudantes inscritos testa turma

@@ -11,8 +11,19 @@ Operations::Operations(const std::string &fm_student, const std::string &UC_stud
     this->rc = rc;
 }
 
+Operations::Operations() {
+    Read_classes rc = Read_classes ("classes.csv");
+    Read_student rs = Read_student ("students_classes.csv", "classes_per_uc.csv");
+    this->rs = rs;
+    this->rc = rc;
+}
+
 vector<Class> Operations::GetTimeTable(const std::string &number)  {
     vector<Subject> subjects =  rs.Bynary_serch_of_student(number).getSubjects();
+
+    if(rs.Bynary_serch_of_student(number).get_name() == "Mansur"){
+        return {};
+    }
 
     //cout << rs.Bynary_serch_of_student(number).get_name() << endl;
 
@@ -229,18 +240,14 @@ vector<Student> Operations::students_in_year(int n) const{
     vector<Student> R = {};
     for(auto p : students){
         vector<Subject> subjects = p.getSubjects();
-        if(n == 1){
-            if(subjects[0].get_year() == n){
-                R.push_back(p);
-                continue;
-            }
+
+        if(subjects[0].get_year() == n){
+            R.push_back(p);
             continue;
         }
-        if(n == 3){
-            if(subjects[subjects.size() - 1].get_year() == n){
-                R.push_back(p);
-                continue;
-            }
+
+        if(subjects[subjects.size() - 1].get_year() == n){
+            R.push_back(p);
             continue;
         }
 
