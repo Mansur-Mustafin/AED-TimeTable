@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <list>
 #include "Operations.h"
 Operations::Operations(const std::string &fm_student, const std::string &UC_student, const std::string &fm_classes) {
     Read_classes rc = Read_classes (fm_classes);
@@ -11,25 +12,68 @@ Operations::Operations(const std::string &fm_student, const std::string &UC_stud
     this->rc = rc;
 }
 
-vector<Class> Operations::GetTimeTable(const std::string &number)  {
-    set<Subject> subjects =  rs.Bynary_serch_of_student(number).getSubjects();
 
-    //cout << rs.Bynary_serch_of_student(number).get_name() << endl;
+list<Class> Operations::GetTimeTable(const std::string &number)  {
+    string str = number + ",Mansur,L.EIC001,1LEIC01";
+    Student s (str);
+    set<Subject> subjects = rs.get_students().find(s)->getSubjects();
 
-    vector <Class> Aulas = {};
+    list<Class> Aulas = {};
     for(const auto& subject : subjects){
-        for(const auto& cT : rc.get_classes_T()){
-            if(cT.get_Subject() == subject) Aulas.push_back(cT);
+
+        string str = subject.get_ClassCode()+',' + subject.get_UCcode()+ ",Monday,8.0,2,T";
+        Class c (str);
+        auto it = rc.get_classes_T().lower_bound(c);
+        if(it->get_Subject() == subject){
+            Aulas.push_back(*it);
+            it++;
+            if(it->get_Subject() == subject){
+                Aulas.push_back(*it);
+            }
         }
-        for(const auto& cTP : rc.get_classes_TP()){
-            if(cTP.get_Subject() == subject) Aulas.push_back(cTP);
+        it = rc.get_classes_TP().lower_bound(c);
+        if(it->get_Subject() == subject){
+            Aulas.push_back(*it);
         }
-        for(const auto& cPL : rc.get_classes_PL()){
-            if(cPL.get_Subject() == subject) Aulas.push_back(cPL);
+        it = rc.get_classes_PL().lower_bound(c);
+        if(it->get_Subject() == subject){
+            Aulas.push_back(*it);
         }
+
     }
     return Aulas;
 }
+
+list<Class> Operations::GetTimeTableforUC(const std::string &UC)  {
+    list<Class> Aulas = {};
+
+    Class s1 ("3LEIC01,"+ UC+ ",Monday,8.0,2,T");
+    if(UC <= "L.EIC010"){
+        s1 = Class  ("1LEIC01," + UC+ ",Monday,8.0,2,T");
+    }
+    else if(UC <= "L.EIC020"){
+        s1 = Class ("2LEIC01,"+ UC+ ",Monday,8.0,2,T");
+    }
+
+    auto it = rc.get_classes_T().lower_bound(s1);
+    while(it->get_Subject().get_UCcode() == UC){
+        Aulas.push_back(*it);
+        it++;
+    }
+    it = rc.get_classes_TP().lower_bound(s1);
+    while(it->get_Subject().get_UCcode() == UC){
+        Aulas.push_back(*it);
+        it++;
+    }
+    it = rc.get_classes_PL().lower_bound(s1);
+    while(it->get_Subject().get_UCcode() == UC){
+        Aulas.push_back(*it);
+        it++;
+    }
+
+    return Aulas;
+}
+
 
 int Operations::N_of_students_in_class(Subject key) const{
 
@@ -43,8 +87,6 @@ int Operations::N_of_students_in_class(Subject key) const{
         else return subjects[middle].get_number_of_student();
     }
     return -1;
-
-
 }
 
 int Operations::N_of_students_in_UC(Subject key) const{
@@ -61,12 +103,12 @@ int Operations::N_of_students_in_UC(Subject key) const{
             break;
         }
     }
-    int m = i;
-    for(m; subjects[m].UC_is_equal(key) ;m++){
+
+    for(int m = i; subjects[m].UC_is_equal(key) ;m++){
         R+= subjects[m].get_number_of_student();
     }
     i--;
-    for(i; subjects[i].UC_is_equal(key) ;i--){
+    for(; subjects[i].UC_is_equal(key) ;i--){
         R+= subjects[i].get_number_of_student();
     }
     return R;
@@ -131,9 +173,7 @@ bool check_overlapping(vector<Class> classes){
     return true;
 }
 
-void Operations::print_time_table(vector<Class> aulas) const {
-    //sort(aulas.begin(),aulas.end(),[ ] (const Class& c1, class Class& c2) {return c1.get_hora_s() < c2.get_hora_s();});
-    //sort(aulas.begin(),aulas.end(),[ ] (const Class& c1, class Class& c2) {return c1.get_day_index() < c2.get_day_index();});
+void Operations::print_time_table(list<Class> aulas) const {
 
     vector<Class> overlap;
     cout <<  setw(18) << "Monday" << setw(20) << "Tuesday" << setw(22) << "Wednesday" << setw(19) << "Thursday" << setw(19) << "Friday" << endl;
@@ -203,9 +243,9 @@ void Operations::print_time_table(vector<Class> aulas) const {
     }
 }
 
-vector<Student> Operations::students_in_class(Subject s) const {
-    vector<Student> students = rs.get_students();
-    vector<Student> R = {};
+list<Student> Operations::students_in_class(Subject s) const {
+    set<Student> students = rs.get_students();
+    list<Student> R = {};
     for(auto st : students){
         set<Subject> sub_st = st.getSubjects();
         auto src = sub_st.find(s);
@@ -216,10 +256,10 @@ vector<Student> Operations::students_in_class(Subject s) const {
     return R;
 }
 
-vector<Student> Operations::students_in_year(int n) const{
+list<Student> Operations::students_in_year(int n) const{
 
-    vector<Student> students = rs.get_students();
-    vector<Student> R = {};
+    set<Student> students = rs.get_students();
+    list<Student> R = {};
     for(auto p : students){
         set<Subject> subjects = p.getSubjects();
 
@@ -244,7 +284,7 @@ vector<Student> Operations::students_in_year(int n) const{
 }
 
 
-vector<Student> Operations::students_in_UC(Subject s) const {
+list<Student> Operations::students_in_UC(Subject s) const {
     Subject s1;
     if(s.get_UCcode() <= "L.EIC010"){
         s1 = Subject  (s.get_UCcode(), "1LEIC01");
@@ -254,8 +294,8 @@ vector<Student> Operations::students_in_UC(Subject s) const {
     } else{
          s1 = Subject (s.get_UCcode(), "3LEIC01");
     }
-    vector<Student> students = rs.get_students();
-    vector<Student> R = {};
+    set<Student> students = rs.get_students();
+    list<Student> R = {};
     for(auto st: students){
         set<Subject> subjects = st.getSubjects();
         auto it = subjects.lower_bound(s1);
@@ -267,9 +307,9 @@ vector<Student> Operations::students_in_UC(Subject s) const {
 }
 
 
-vector<Student> Operations::students_with_more_UC(int n) const {
-    vector<Student> students = rs.get_students();
-    vector<Student> R = {};
+list<Student> Operations::students_with_more_UC(int n) const {
+    set<Student> students = rs.get_students();
+    list<Student> R = {};
     for(auto st : students){
         if(st.getSubjects().size() > n){
             R.push_back(st);
@@ -278,11 +318,9 @@ vector<Student> Operations::students_with_more_UC(int n) const {
     return R;
 }
 
-vector<Student> Operations::students_with_name(const std::string &name) const {
-    vector<Student> students = rs.get_students();
-    vector<Student> R = {};
-
-
+list<Student> Operations::students_with_name(const std::string &name) const {
+    set<Student> students = rs.get_students();
+    list<Student> R = {};
     for(auto st : students){
         string temp = "";
         for(int i = 0; i < st.get_name().length(); i++){

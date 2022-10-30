@@ -26,6 +26,9 @@ class Class {
         string get_type() const;
         bool is_less(Class right) const;
         bool is_more(Class right) const;
+        bool operator<(const Class& right) const;
+        bool operator>(const Class& right) const;
+        bool operator==(const Class& right) const;
         bool is_equal(Class right) const;
         friend ostream& operator<< (ostream& out, const Class& s1);
     private:

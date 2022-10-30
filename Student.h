@@ -26,6 +26,11 @@ class Student {
         void add_subject(const string& input_line);
         // print to
         friend ostream& operator<< (ostream& out, const Student& s1);
+        bool operator<(const Student& right) const;
+        bool operator>(const Student& right) const;
+        bool operator<=(const Student& right) const;
+        bool operator>=(const Student& right) const;
+        bool operator==(const Student& right) const;
         // compare function by name or by up
         bool is_less_than_by_name(const Student& right);
         bool is_less_than_by_code(const Student& right) const;

@@ -11,11 +11,11 @@ class Read_student {
 public:
     explicit Read_student(const string& fm_student, const string& UC_student);
     Read_student();
-    vector<Student> get_students() const;
+    set<Student> get_students() const;
     vector<Subject> get_subjects() const;
     Student Bynary_serch_of_student(const string& key); // encontra estudante em vetor dos estudantes por numero UP
 private:
-    vector<Student> v;
+    set<Student> v;
     vector<Subject> s;
 };
 

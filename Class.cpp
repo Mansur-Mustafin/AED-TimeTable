@@ -47,16 +47,37 @@ string Class::get_type() const{
 }
 
 
+bool Class::operator<(const Class& right) const{
+    if(subject < right.get_Subject()){return true;}
+    else if(subject > right.get_Subject()){return false;}
+    else if(get_day_index() < right.get_day_index()){return true;}
+    else if(get_day_index() > right.get_day_index()){return false;}
+    else if(hora_s < right.hora_s){return true;}
+    else return false;
+}
+
+bool Class::operator>(const Class& right) const{
+    if(subject > right.get_Subject()){return true;}
+    else if(subject < right.get_Subject()){return false;}
+    else if(get_day_index() > right.get_day_index()){return true;}
+    else if(get_day_index() < right.get_day_index()){return false;}
+    else if(hora_s > right.hora_s){return true;}
+    else return false;
+}
+
+bool Class::operator==(const Class& right) const{
+    return subject == right.get_Subject() && get_day_index() == right.get_day_index() && hora_s == right.hora_s;
+}
+
+bool Class::is_equal(Class right) const{
+    return subject == right.get_Subject();
+}
 bool Class::is_less(Class right) const{
     return subject < right.subject;
 }
 bool Class::is_more(Class right) const{
     return subject > right.subject;
 }
-bool Class::is_equal(Class right) const{
-    return subject == right.subject;
-}
-
 
 ostream& operator<< (ostream& out, const Class& aula){
     out <<'(' <<aula.subject.get_ClassCode() << ';' << aula.subject.get_UCcode() << ')' << ' ' << aula.day << "  Start: "<<aula.hora_s << ' ' << "Stop : " << aula.get_hora_f() << " Type:" << aula.type;

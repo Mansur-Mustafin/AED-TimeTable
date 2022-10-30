@@ -7,68 +7,22 @@
 #include <algorithm>
 Read_classes::Read_classes(const std::string &input_name_file) {
     string line;
-    vector<Class> vectorT;
-    vector<Class> vectorTP;
-    vector<Class> vectorPL;
-    bool f1 = true, f2 = true,f3 = true;
-
     ifstream inn(input_name_file);
     getline(inn, line);
     int Ti = 1, TPi = 1, PLi = 1;
     while(getline(inn, line)){
         Class s(line);
-
         if (s.get_type() == "T"){
-            if(f1){
-                vectorT.push_back(s);
-                f1 = false;
-                continue;
-            }
-            vectorT.push_back(s);
-            int i;
-            for(i = Ti ; i > 0 && s.get_Subject() < vectorT[i - 1].get_Subject(); i-- ){
-                vectorT[i] = vectorT[i - 1];
-            }
-            vectorT[i] = s;
-            Ti++;
+            classes_T.insert(s);
         }
-
         if (s.get_type() == "TP"){
-            if(f2){
-                vectorTP.push_back(s);
-                f2 = false;
-                continue;
-            }
-            vectorTP.push_back(s);
-            int i;
-            for(i = TPi ; i > 0 && s.get_Subject() < vectorTP[i - 1].get_Subject(); i-- ){
-                vectorTP[i] = vectorTP[i - 1];
-            }
-            vectorTP[i] = s;
-            TPi++;
+            classes_TP.insert(s);
         }
-
-
         if (s.get_type() == "PL"){
-            if(f3){
-                vectorPL.push_back(s);
-                f3 = false;
-                continue;
-            }
-            vectorPL.push_back(s);
-            int i;
-            for(i = PLi ; i > 0 && s.get_Subject() < vectorPL[i - 1].get_Subject(); i-- ){
-                vectorPL[i] = vectorPL[i - 1];
-            }
-            vectorPL[i] = s;
-            PLi++;
+            classes_PL.insert(s);
         }
     }
     inn.close();
-    classes_T = vectorT;
-    classes_TP = vectorTP;
-    classes_PL = vectorPL;
-
 }
 
 Read_classes::Read_classes() {
@@ -77,17 +31,19 @@ Read_classes::Read_classes() {
     classes_PL = {};
 }
 
-vector<Class> Read_classes::get_classes_T() const{
+set<Class> Read_classes::get_classes_T() const{
     return classes_T;
 }
 
-vector<Class> Read_classes::get_classes_TP() const{
+set<Class> Read_classes::get_classes_TP() const{
     return classes_TP;
 }
 
-vector<Class> Read_classes::get_classes_PL() const{
+set<Class> Read_classes::get_classes_PL() const{
     return classes_PL;
 }
+
+/*
 
 vector <Class> Read_classes::Binary_search_of_class_T(Subject key){
     vector <Class> v;
@@ -153,3 +109,4 @@ Class Read_classes::Binary_search_of_class_PL(Subject key){
     return s;
 }
 
+*/

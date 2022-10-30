@@ -33,12 +33,12 @@ Read_student::Read_student(const string& fname, const string& UC_student) { // v
         if(s_new.get_StudentCode() == s_old.get_StudentCode()){
             s_old.add_subject(line);
         }else{
-            v.push_back(s_old);
+            v.insert(s_old);
             s_old = s_new;
         }
     }
-    v.push_back(s_old);
-    sort(v.begin(),v.end(), [ ] (const Student& s1, const Student& s2) {return s1.get_StudentCode() < s2.get_StudentCode();});
+    v.insert(s_old);
+    //sort(v.begin(),v.end(), [ ] (const Student& s1, const Student& s2) {return s1.get_StudentCode() < s2.get_StudentCode();});
 }
 
 
@@ -52,10 +52,11 @@ vector<Subject> Read_student::get_subjects() const {
     return s;
 }
 
-vector<Student> Read_student::get_students() const {
+set<Student> Read_student::get_students() const {
     return v;
 }
 
+/*
 Student Read_student::Bynary_serch_of_student(const std::string &keystr) {
 
     int key = stoi(keystr);
@@ -76,3 +77,4 @@ Student Read_student::Bynary_serch_of_student(const std::string &keystr) {
     }
     return Student("202102355,Mansur,L.EIC014,2LEIC04");
 }
+ */
