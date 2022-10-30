@@ -7,8 +7,8 @@ int main() {
 
     Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
 
-    //op.print_time_table(op.GetTimeTable("202030247"));
-    op.print_time_table(op.GetTimeTableforUC("L.EIC014"));
+    //op.print_time_table(op.GetTimeTable("202071557"));
+    for(auto i : op.GetTimeTableforUC("L.EIC014")) cout << i << endl;
     //cout << op.N_of_students_in_UC(Subject("L.EIC014,xXXXXxx"));
     //cout << op.N_of_students_in_class(Subject("L.EIC022,3LEIC07"));
     //cout << op.N_of_students_in_year(3);

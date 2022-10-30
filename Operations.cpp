@@ -18,34 +18,53 @@ list<Class> Operations::GetTimeTable(const std::string &number)  {
     Student s (str);
     set<Subject> subjects = rs.get_students().find(s)->getSubjects();
 
-    list<Class> Aulas = {};
-    for(const auto& subject : subjects){
 
-        string str = subject.get_ClassCode()+',' + subject.get_UCcode()+ ",Monday,8.0,2,T";
+    list<Class> Aulas = {};
+    set<Class> T = rc.get_classes_T();
+    set<Class> TP = rc.get_classes_TP();
+    set<Class> PL = rc.get_classes_PL();
+    for(const auto& subject : subjects){
+        string str = subject.get_ClassCode()+',' + subject.get_UCcode()+ ",Monday,8.0,2,0";
         Class c (str);
-        auto it = rc.get_classes_T().lower_bound(c);
-        if(it->get_Subject() == subject){
-            Aulas.push_back(*it);
-            it++;
+
+        auto it = T.lower_bound(c);
+        if(it != T.end()){
+            if(it->get_Subject() == subject){
+                Aulas.push_back(*it);
+                it++;
+                if(it != T.end()){
+                    if( it->get_Subject() == subject){
+                        Aulas.push_back(*it);
+                    }
+                }
+            }
+        }
+
+        it = TP.lower_bound(c);
+        if(it != TP.end()){
+            if( it->get_Subject() == subject){
+                Aulas.push_back(*it);
+            }
+        }
+
+        it = PL.lower_bound(c);
+        if(it != PL.end()){
             if(it->get_Subject() == subject){
                 Aulas.push_back(*it);
             }
         }
-        it = rc.get_classes_TP().lower_bound(c);
-        if(it->get_Subject() == subject){
-            Aulas.push_back(*it);
-        }
-        it = rc.get_classes_PL().lower_bound(c);
-        if(it->get_Subject() == subject){
-            Aulas.push_back(*it);
-        }
-
     }
+
     return Aulas;
 }
 
+
 list<Class> Operations::GetTimeTableforUC(const std::string &UC)  {
     list<Class> Aulas = {};
+
+    set<Class> T = rc.get_classes_T();
+    set<Class> TP = rc.get_classes_TP();
+    set<Class> PL = rc.get_classes_PL();
 
     Class s1 ("3LEIC01,"+ UC+ ",Monday,8.0,2,T");
     if(UC <= "L.EIC010"){
@@ -55,17 +74,28 @@ list<Class> Operations::GetTimeTableforUC(const std::string &UC)  {
         s1 = Class ("2LEIC01,"+ UC+ ",Monday,8.0,2,T");
     }
 
-    auto it = rc.get_classes_T().lower_bound(s1);
+    auto it = T.lower_bound(s1);
+    if(it != T.end()){
+        while(it->get_Subject().get_UCcode() == UC && it != T.end()){
+            Aulas.push_back(*it);
+            auto it_new = it;
+            it_new++;
+            while(it->get_day_index() == it_new->get_day_index() && it->get_hora_s() == it_new->get_hora_s() && it != T.end()){
+                it_new++;
+                it++;
+            }
+            it++;
+        }
+    }
+
+    it = TP.lower_bound(s1);
     while(it->get_Subject().get_UCcode() == UC){
+
         Aulas.push_back(*it);
         it++;
     }
-    it = rc.get_classes_TP().lower_bound(s1);
-    while(it->get_Subject().get_UCcode() == UC){
-        Aulas.push_back(*it);
-        it++;
-    }
-    it = rc.get_classes_PL().lower_bound(s1);
+
+    it = PL.lower_bound(s1);
     while(it->get_Subject().get_UCcode() == UC){
         Aulas.push_back(*it);
         it++;
@@ -176,7 +206,7 @@ bool check_overlapping(vector<Class> classes){
 void Operations::print_time_table(list<Class> aulas) const {
 
     vector<Class> overlap;
-    cout <<  setw(18) << "Monday" << setw(20) << "Tuesday" << setw(22) << "Wednesday" << setw(19) << "Thursday" << setw(19) << "Friday" << endl;
+    cout << "            Monday             Tuesday             Wednesday           Thursday             Friday" << endl;
     for(int i = 0; i < 106; i++){cout << '_';}
     cout << endl;
     Hour h1(8);
