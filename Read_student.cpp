@@ -37,7 +37,7 @@ Read_student::Read_student(const string& fname, const string& UC_student) { // v
             s_old = s_new;
         }
     }
-
+    v.push_back(s_old);
     sort(v.begin(),v.end(), [ ] (const Student& s1, const Student& s2) {return s1.get_StudentCode() < s2.get_StudentCode();});
 }
 

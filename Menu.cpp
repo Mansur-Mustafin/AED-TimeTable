@@ -3,6 +3,7 @@
 //
 
 #include "Menu.h"
+#include <fstream>
 
 
 Menu::Menu() {
@@ -188,6 +189,59 @@ void Menu::students_with_more_uc() {
     }
 }
 
+
+
+void Menu::request_change_class() {
+    string current_class, uc_code, student_code, request_class, request_uc;
+
+    cout << "Please enter the UC Code of the classes you want to change: ";
+    cin >> uc_code;
+    cout << endl;
+
+    cout << "Please enter your current class code: ";
+    cin >> current_class;
+    cout << endl;
+
+    cout << "Please enter your current student code: ";
+    cin >> student_code;
+    cout << endl;
+
+    cout << "Please enter the code of the class you want to go: ";
+    cin >> request_class;
+    cout << endl;
+
+    string choice;
+    cout << "Would you like to create a new file? (y/n): ";
+    cin >> choice;
+
+    if (choice == "y" || choice == "Y") {
+        ofstream request_file("requests.csv");
+
+        request_file << uc_code << "," << current_class << "\n" << student_code << "\n" << uc_code << "," << request_class << "\n";
+
+        request_file.close();
+    }
+    else if (choice == "n" || choice == "N") {
+        fstream request_file;
+
+        request_file.open("requests.csv", ios::app);
+
+        request_file << uc_code << "," << current_class << "\n" << student_code << "\n" << uc_code << "," << request_class << "\n";
+
+        request_file.close();
+    }else {
+        cout << "Invalid input" << endl;
+        request_change_class();
+    }
+
+
+    //request_file << uc_code << "," << current_class << "\n" << student_code << "\n" << uc_code << "," << request_class;
+
+    //request_file.close();
+
+    //So faz 1 pedido por vez
+}
+
 void Menu::main_menu(){
 
 
@@ -203,7 +257,7 @@ void Menu::main_menu(){
             "|=============================================|=============================================|\n"
             "|                    UC's                     |                   Requests                  |\n"
             "|=============================================|=============================================|\n"
-            "|  See data from specific UC             [31] |                                             |\n"
+            "|  See data from specific UC             [31] |  Request to change class               [41] |\n"
             "|  Show students with more than 'X' UCs  [32] |                                             |\n"
             "|=============================================|=============================================|\n"
             "|               Other operations              |                                              \n"
@@ -215,6 +269,7 @@ void Menu::main_menu(){
         cout << "Please choose an option: ";
         int option;
         cin >> option;
+        cout << endl;
 
         if (cin.fail() || cin.peek() != '\n') {
             cin.clear();
@@ -245,6 +300,9 @@ void Menu::main_menu(){
                 break;
             case 32:
                 students_with_more_uc();
+                break;
+            case 41:
+                request_change_class();
                 break;
             default: cout << "Invalid input" << endl;
 

@@ -33,6 +33,10 @@ public:
     void uc_operations();
 
     void students_with_more_uc();
+
+    void request_change_class();
+
+
 private:
 
     //void students_operations();
