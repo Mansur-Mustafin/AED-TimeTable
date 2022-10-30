@@ -12,12 +12,24 @@ Operations::Operations(const std::string &fm_student, const std::string &UC_stud
     this->rc = rc;
 }
 
+Operations::Operations() {
+    Read_classes rc = Read_classes ("classes.csv");
+    Read_student rs = Read_student ("students_classes.csv", "classes_per_uc.csv");
+    this->rs = rs;
+    this->rc = rc;
+}
+
+
+
 
 list<Class> Operations::GetTimeTable(const std::string &number)  {
     string str = number + ",Mansur,L.EIC001,1LEIC01";
     Student s (str);
     set<Subject> subjects = rs.get_students().find(s)->getSubjects();
 
+    if(rs.get_students().find(s)->get_name() == "Mansur"){
+        return {};
+    }
 
     list<Class> Aulas = {};
     set<Class> T = rc.get_classes_T();
@@ -291,9 +303,11 @@ list<Student> Operations::students_in_year(int n) const{
     set<Student> students = rs.get_students();
     list<Student> R = {};
     for(auto p : students){
+
         set<Subject> subjects = p.getSubjects();
 
         if((*subjects.begin()).get_year() == n){
+
             R.push_back(p);
             continue;
         }
