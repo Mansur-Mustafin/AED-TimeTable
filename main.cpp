@@ -4,31 +4,30 @@
 #include "Operations.h"
 #include "Hour.h"
 #include "Menu.h"
+//#include "SortFunctions.cpp"
+#include "Change.h"
+
 int main() {
 
-    //Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
-
-
+    Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
+    //op.processChanges("requests.csv");
     //op.print_time_table(op.GetTimeTable("202020897"));
-    //cout << op.N_of_students_in_UC(Subject("L.EIC022,xXXXXxx"));
-    //cout << op.N_of_students_in_class(Subject("L.EIC022,3LEIC07"));
-    //cout << op.N_of_students_in_year(1);
+    //cout << op.N_of_students_in_UC(Subject("L.EIC014,xXXXXxx"));
+    //cout << op.N_of_students_in_class(Subject("L.EIC002,1LEIC01"));
+    //cout << op.N_of_students_in_year(3);
+
+    //Subject s("L.EIC025,xXXXXxx");
     /*
-    Subject s("L.EIC022,1LEIC01");
-    vector<Student> v = op.students_in_UC(s);
+    list<Student> v = op.students_in_year(1);
     for(auto s : v){
         cout << s << endl;
     }*/
 
-    /*
-    vector<Student> v = op.students_in_year(1);
-    for(auto s : v){
-        cout << s << endl;
-    }
-    */
-    //cout << a;
-    Menu menu = Menu();
-    menu.main_menu();
+    Change c ("L.EIC015,2LEIC10,202030247,L.EIC015,2LEIC11");
+
+
+    //Menu menu = Menu();
+    //menu.main_menu();
 
     return 0;
 }

@@ -19,9 +19,6 @@ Operations::Operations() {
     this->rc = rc;
 }
 
-
-
-
 list<Class> Operations::GetTimeTable(const std::string &number)  {
     string str = number + ",Mansur,L.EIC001,1LEIC01";
     Student s (str);
@@ -66,10 +63,8 @@ list<Class> Operations::GetTimeTable(const std::string &number)  {
             }
         }
     }
-
     return Aulas;
 }
-
 
 list<Class> Operations::GetTimeTableforUC(const std::string &UC)  {
     list<Class> Aulas = {};
@@ -116,9 +111,7 @@ list<Class> Operations::GetTimeTableforUC(const std::string &UC)  {
     return Aulas;
 }
 
-
 int Operations::N_of_students_in_class(Subject key) const{
-
     vector<Subject> subjects =  rs.get_subjects();
     int low = 0;
     int high = subjects.size() - 1;
@@ -158,44 +151,35 @@ int Operations::N_of_students_in_UC(Subject key) const{
 
 int Operations::N_of_students_in_year(int n) const {
     int R  = 0;
-    vector<Subject> subjects =  rs.get_subjects();
-    if(n == 1){
+    set<Student> students = rs.get_students();
+    for(auto s : students){
+        set<Subject> classes = s.getSubjects();
+        auto it_e = classes.end();
+        it_e --;
+        auto it_i = classes.begin();
 
-        for(int i = 0; subjects[i].get_year() == 1; i++){
-            R+=subjects[i].get_number_of_student();
+        if(it_i->get_year() == n){
+            R++;
+            continue;
         }
-        return R;
-    }
-    if(n == 3){
 
-        for(int i = subjects.size() - 1; subjects[i].get_year() == 3; i--){
-            R += subjects[i].get_number_of_student();
+        if(it_e->get_year() == n){
+            R++;
+            continue;
         }
-        return R;
-    }
 
-    int low = 0;
-    int high = subjects.size() - 1;
-    int mid;
-    while(low < high){
-        mid = low + (high - low) / 2;
-        //cout << low << ' ' << mid << ' ' << high << endl;
-        if(n <= subjects[mid].get_year()){
-            high = mid;
-        }else{
-            low = mid + 1;
+        for(it_i; it_i != it_e; it_i++){
+            if(it_i->get_year() == n){
+                R++;
+                break;
+            }
         }
-    }
-    for(int i = low; subjects[i].get_year() == 2; i++){
-        R += subjects[i].get_number_of_student();
-    }
 
-
+    }
     return R;
 }
 
 bool check_overlapping(vector<Class> classes){
-
     for(int j = 0; j < classes.size(); j++){
         for(int k = j + 1; k < classes.size(); k++){
             if(classes[j].get_day_index() == classes[k].get_day_index() ){
@@ -299,34 +283,30 @@ list<Student> Operations::students_in_class(Subject s) const {
 }
 
 list<Student> Operations::students_in_year(int n) const{
-
     set<Student> students = rs.get_students();
     list<Student> R = {};
-    for(auto p : students){
-
-        set<Subject> subjects = p.getSubjects();
-
-        if((*subjects.begin()).get_year() == n){
-
-            R.push_back(p);
+    for(auto s : students){
+        set<Subject> classes = s.getSubjects();
+        auto it_e = classes.end();
+        it_e --;
+        auto it_i = classes.begin();
+        if(it_i->get_year() == n){
+            R.push_back(s);
             continue;
         }
-
-        if((*subjects.end()).get_year() == n){
-            R.push_back(p);
+        if(it_e->get_year() == n){
+            R.push_back(s);
             continue;
         }
-
-        auto it = subjects.begin();
-        while(it->get_year() != 2) it++;
-        if(it != subjects.end() && it->get_year() == 2){
-            R.push_back(p);
-            continue;
+        for(it_i; it_i != it_e; it_i++){
+            if(it_i->get_year() == n){
+                R.push_back(s);
+                break;
+            }
         }
     }
     return R;
 }
-
 
 list<Student> Operations::students_in_UC(Subject s) const {
     Subject s1;
@@ -349,7 +329,6 @@ list<Student> Operations::students_in_UC(Subject s) const {
     }
     return R;
 }
-
 
 list<Student> Operations::students_with_more_UC(int n) const {
     set<Student> students = rs.get_students();
@@ -387,4 +366,11 @@ list<Student> Operations::students_with_name(const std::string &name) const {
         }
     }
     return R;
+}
+
+void Operations::processChanges(const std::string &fn) const {
+    ReadRequests rq (fn);
+    queue<Change> Changes = rq.getChanges();
+    Changes.front().getSudent().get_name();
+    //cout << c.getSudent().get_name();
 }

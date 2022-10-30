@@ -12,12 +12,14 @@
 #include <set>
 #include "Subject.h"
 
+
 using namespace std;
 
 class Student {
     public:
         //constructor by string csv format ';'
         explicit Student(const string& input_line); // tem que mudar o subject method
+        Student();
         // getters
         string get_name() const;
         int get_StudentCode() const;

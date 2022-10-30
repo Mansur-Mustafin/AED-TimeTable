@@ -217,7 +217,7 @@ void Menu::request_change_class() {
     if (choice == "y" || choice == "Y") {
         ofstream request_file("requests.csv");
 
-        request_file << uc_code << "," << current_class << "\n" << student_code << "\n" << uc_code << "," << request_class << "\n";
+        request_file << uc_code << "," << current_class << "," << student_code << "," << uc_code << "," << request_class << "\n";
 
         request_file.close();
     }
@@ -226,7 +226,7 @@ void Menu::request_change_class() {
 
         request_file.open("requests.csv", ios::app);
 
-        request_file << uc_code << "," << current_class << "\n" << student_code << "\n" << uc_code << "," << request_class << "\n";
+        request_file << uc_code << "," << current_class << "," << student_code << "," << uc_code << "," << request_class << "\n";
 
         request_file.close();
     }else {

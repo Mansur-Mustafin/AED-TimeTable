@@ -17,6 +17,11 @@ Student::Student(const std::string &input_line) {
     UCs.insert(s);
 }
 
+Student::Student() {
+    StudentCode = 0;
+    name = "mansur";
+}
+
 string Student::get_name() const {
     return this->name;
 }
