@@ -14,7 +14,7 @@ Student::Student(const std::string &input_line) {
     getline(input, feel, ','); // reed UCcode
     getline(input, feel1, ','); // reed ClassCode
     Subject s (feel, feel1);
-    UCs.push_back(s);
+    UCs.insert(s);
 }
 
 string Student::get_name() const {
@@ -34,10 +34,10 @@ void Student::add_subject(const std::string &input_line) {
     getline(input, feel1, ',');
     Subject s (feel, feel1);
 
-    UCs.push_back(s);
+    UCs.insert(s);
 }
 
-vector<Subject> Student::getSubjects() const {
+set<Subject> Student::getSubjects() const {
     return UCs;
 }
 

@@ -12,7 +12,7 @@ Operations::Operations(const std::string &fm_student, const std::string &UC_stud
 }
 
 vector<Class> Operations::GetTimeTable(const std::string &number)  {
-    vector<Subject> subjects =  rs.Bynary_serch_of_student(number).getSubjects();
+    set<Subject> subjects =  rs.Bynary_serch_of_student(number).getSubjects();
 
     //cout << rs.Bynary_serch_of_student(number).get_name() << endl;
 
@@ -207,17 +207,10 @@ vector<Student> Operations::students_in_class(Subject s) const {
     vector<Student> students = rs.get_students();
     vector<Student> R = {};
     for(auto st : students){
-        vector<Subject> sub_st = st.getSubjects();
-        int low = 0;
-        int high = sub_st.size() - 1;
-        while(low <= high){
-            int middle = low + (high - low) / 2;
-            if(s < sub_st[middle]) high = middle - 1;
-            else if(s > sub_st[middle]) low = middle + 1;
-            else{
-                R.push_back(st);
-                break;
-            }
+        set<Subject> sub_st = st.getSubjects();
+        auto src = sub_st.find(s);
+        if(src != sub_st.end()){
+            R.push_back(st);
         }
     }
     return R;
@@ -228,64 +221,51 @@ vector<Student> Operations::students_in_year(int n) const{
     vector<Student> students = rs.get_students();
     vector<Student> R = {};
     for(auto p : students){
-        vector<Subject> subjects = p.getSubjects();
-        if(n == 1){
-            if(subjects[0].get_year() == n){
-                R.push_back(p);
-                continue;
-            }
-            continue;
-        }
-        if(n == 3){
-            if(subjects[subjects.size() - 1].get_year() == n){
-                R.push_back(p);
-                continue;
-            }
+        set<Subject> subjects = p.getSubjects();
+
+        if((*subjects.begin()).get_year() == n){
+            R.push_back(p);
             continue;
         }
 
-        if(n == 2){
-            int low = 0;
-            int high = subjects.size() - 1;
-            while(low <= high){
-                int mid = low + (high - low ) / 2;
-                if( n < subjects[mid].get_year()){
-                    high = mid - 1;
-                }
-                else if(n > subjects[mid].get_year()){
-                    low = mid + 1;
-                }
-                else{
-                    R.push_back(p);
-                    break;
-                }
-            }
-
+        if((*subjects.end()).get_year() == n){
+            R.push_back(p);
+            continue;
         }
 
+        auto it = subjects.begin();
+        while(it->get_year() != 2) it++;
+        if(it != subjects.end() && it->get_year() == 2){
+            R.push_back(p);
+            continue;
+        }
     }
     return R;
 }
 
+
 vector<Student> Operations::students_in_UC(Subject s) const {
+    Subject s1;
+    if(s.get_UCcode() <= "L.EIC010"){
+        s1 = Subject  (s.get_UCcode(), "1LEIC01");
+    }
+    else if(s.get_UCcode() <= "L.EIC020"){
+         s1 = Subject (s.get_UCcode(), "2LEIC01");
+    } else{
+         s1 = Subject (s.get_UCcode(), "3LEIC01");
+    }
     vector<Student> students = rs.get_students();
     vector<Student> R = {};
     for(auto st: students){
-        vector<Subject> subjects = st.getSubjects();
-        int low = 0;
-        int high = subjects.size() - 1;
-        while(low <= high){
-            int middle = low + (high - low) / 2;
-            if(s.get_UCcode() < subjects[middle].get_UCcode()) high = middle - 1;
-            else if(s.get_UCcode() > subjects[middle].get_UCcode()) low = middle + 1;
-            else{
-                R.push_back(st);
-                break;
-            }
+        set<Subject> subjects = st.getSubjects();
+        auto it = subjects.lower_bound(s1);
+        if(it != subjects.end() && it->get_UCcode() == s.get_UCcode()){
+            R.push_back(st);
         }
     }
     return R;
 }
+
 
 vector<Student> Operations::students_with_more_UC(int n) const {
     vector<Student> students = rs.get_students();

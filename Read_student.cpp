@@ -21,13 +21,13 @@ Read_student::Read_student(const string& fname, const string& UC_student) { // v
     getline(inn, line);
     Student s_old(line);
 
-    int i = UC.Binary_search(s_old.getSubjects()[0]);
+    int i = UC.Binary_search(*s_old.getSubjects().begin());
     s[i].plus_student_n();
 
     while (getline(inn, line)){
         Student s_new(line);
 
-        i = UC.Binary_search(s_new.getSubjects()[0]);
+        i = UC.Binary_search(*s_new.getSubjects().begin());
         s[i].plus_student_n();
 
         if(s_new.get_StudentCode() == s_old.get_StudentCode()){
@@ -37,7 +37,7 @@ Read_student::Read_student(const string& fname, const string& UC_student) { // v
             s_old = s_new;
         }
     }
-
+    v.push_back(s_old);
     sort(v.begin(),v.end(), [ ] (const Student& s1, const Student& s2) {return s1.get_StudentCode() < s2.get_StudentCode();});
 }
 

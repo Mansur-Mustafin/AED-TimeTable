@@ -45,6 +45,16 @@ bool Subject::operator<(const Subject& right) const{
     else return false;
 }
 
+bool Subject::operator<=(const Subject& right) const{
+    if(this->get_UCcode() == right.get_UCcode()){return true;}
+    return *this < right;
+}
+
+bool Subject::operator>=(const Subject& right) const{
+    if(this->get_UCcode() == right.get_UCcode()){return true;}
+    return *this > right;
+}
+
 bool Subject::operator>(const Subject &right) const {
     if(UCcode == "UP001" && right.UCcode != "UP001") return true;
     else if(UCcode != "UP001" && right.UCcode == "UP001") return false;
@@ -60,6 +70,10 @@ bool Subject::operator>(const Subject &right) const {
 bool Subject::operator==(const Subject& right) const{
     if(UCcode == right.UCcode && ClassCode == right.ClassCode) return true;
     return false;
+}
+
+bool Subject::operator!=(const Subject& right) const{
+    return not(*this == right);
 }
 
 bool Subject::UC_is_equal(const Subject &right) const {

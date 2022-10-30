@@ -24,9 +24,12 @@ class Subject {
         string get_ClassCode() const;
         int get_year() const; // get year of Subject
         int get_number_of_student() const;
-        bool operator < (const Subject& right) const; // pode ser errado
+        bool operator<(const Subject& right) const; // pode ser errado
+        bool operator<=(const Subject& right) const;
         bool operator>(const Subject& right) const;
+        bool operator>=(const Subject& right) const;
         bool operator==(const Subject& right) const;
+        bool operator!=(const Subject& right) const;
         bool UC_is_equal(const Subject& right) const;
         bool UC_is_less(const Subject& right) const;
         void plus_student_n();
