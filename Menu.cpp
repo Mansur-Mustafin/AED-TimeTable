@@ -291,7 +291,7 @@ void Menu::uc_operations() {
     switch (choice) {
 
         case 1:
-            cout << op.N_of_students_in_UC(s) << endl;
+            //cout << op.N_of_students_in_UC(s) << endl;
             break;
         case 2:
             cout << "How would you like to sort the list?" << endl;

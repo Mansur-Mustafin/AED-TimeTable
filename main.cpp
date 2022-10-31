@@ -9,7 +9,7 @@
 
 int main() {
 
-    //Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
+    Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
     //op.processChanges("requests.csv");
 
     //op.print_time_table(op.GetTimeTable("202020897"));
@@ -23,10 +23,18 @@ int main() {
     for(auto s : v){
         cout << s << endl;
     }*/
+    /*
+    list<Subject> s = op.N_of_students_in_UC(Subject("L.EIC014,xXXXXxx"));
+    int R = 0;
+    for(auto i : s){
+        cout << i.get_UCcode() << ',' << i.get_ClassCode() << ' ' << i.get_number_of_student() << endl;
+        R += i.get_number_of_student();
+    }
+    cout << R << " total";
+    */
 
-
-    Menu menu = Menu();
-    menu.main_menu();
+    //Menu menu = Menu();
+    //menu.main_menu();
 
     return 0;
 }

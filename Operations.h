@@ -68,7 +68,7 @@ public:
      * @param s -> Subject.
      * @return Number of students.
      */
-    int N_of_students_in_UC(Subject s) const;  // input : Subject("L.EIC001,xXXXXxx") se quiseres a UC L.EIC001
+    list<Subject> N_of_students_in_UC(Subject s) const;  // input : Subject("L.EIC001,xXXXXxx") se quiseres a UC L.EIC001
 
     /**
      * @brief Gets students in a class.

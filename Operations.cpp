@@ -135,8 +135,10 @@ int Operations::N_of_students_in_class(Subject key) const{
     return -1;
 }
 
-int Operations::N_of_students_in_UC(Subject key) const{
+list<Subject> Operations::N_of_students_in_UC(Subject key) const{
     int i,R = 0;
+    list<Subject> R_l = {};
+
     vector<Subject> subjects =  rs.get_subjects();
     int low = 0;
     int high = subjects.size() - 1;
@@ -152,12 +154,14 @@ int Operations::N_of_students_in_UC(Subject key) const{
 
     for(int m = i; subjects[m].UC_is_equal(key) ;m++){
         R+= subjects[m].get_number_of_student();
+        R_l.push_back(subjects[m]);
     }
     i--;
     for(; subjects[i].UC_is_equal(key) ;i--){
         R+= subjects[i].get_number_of_student();
+        R_l.push_back(subjects[i]);
     }
-    return R;
+    return R_l;
 }
 
 int Operations::N_of_students_in_year(int n) const {
@@ -382,28 +386,42 @@ list<Student> Operations::students_with_name(const std::string &name) const {
 
 void Operations::processChanges(const std::string &fn) const {
     vector<Subject> subjects =  rs.get_subjects();   // aqui todos turmas com cap de cada
-
+    ofstream log_file("LOGS.txt");
     ReadRequests rq (fn);
     queue<Change> Changes = rq.getChanges();  // fila de pedidos de mudanca
 
-    Subject cur = Changes.front().getCurSub();
-    Subject next = Changes.front().getNextSub();
-    Student st = Changes.front().getSudent();
+    while(!Changes.empty()){
+
+        Subject cur = Changes.front().getCurSub();
+        Subject next = Changes.front().getNextSub();
+        Student st = Changes.front().getSudent();
+
+        // test para numero numa turma.
+        int low = 0;
+        int high = subjects.size() - 1;
+        while(low <= high){
+            int middle = low + (high - low) / 2;
+            if(next < subjects[middle]) high = middle - 1;
+            else if(next > subjects[middle]) low = middle + 1;
+            else if(subjects[middle].get_number_of_student() > Cap){
+                log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque na turma " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << " valor atual de estudantes: " << subjects[middle].get_number_of_student() <<  "\n" ;
+                log_file << "WARNING " << "turma " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << " tem valor max de estudantes: " << subjects[middle].get_number_of_student() <<  "\n" ;
+                return;
+            }else if(subjects[middle].get_number_of_student() == Cap){
+                log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque na turma " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << " valor atual de estudantes: " << subjects[middle].get_number_of_student() <<  "\n" ;
+            }else break;
+        }
 
 
-    int low = 0;
-    int high = subjects.size() - 1;
-    while(low <= high){
-        int middle = low + (high - low) / 2;
-        if(next < subjects[middle]) high = middle - 1;
-        else if(next > subjects[middle]) low = middle + 1;
-        else if(subjects[middle].get_number_of_student() > Cap){
-            cout << "O numero de turma pretendida tem valor maxima de estudantes";
-            return;
-        }else break;
+
+
+        log_file << "Estudante com numero: " << st.get_StudentCode() << ": " << '(' << cur.get_UCcode() << ',' << cur.get_ClassCode() << ')' << " --> " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << "\n";
+
+
+        Changes.pop();
     }
 
-    cout << "FOI CARALHO";
+    log_file.close();
 
 }
 
