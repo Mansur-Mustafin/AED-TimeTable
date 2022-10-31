@@ -2,25 +2,26 @@
 // Created by ianbe on 27/10/2022.
 //
 
+#include "SortFunctions.cpp"
 #include "Menu.h"
 #include <fstream>
-
+#include <algorithm>
 
 Menu::Menu() {
 
     cout << "File names are students_classes.csv, classes_per_uc.csv and classes.csv" << endl;
     cout << "Do you want to change file names?" << endl;
-    cout << "y/n: ";
+    cout << "y/n:";
     string file_choice;
     cin >> file_choice;
 
     if (file_choice == "y" || file_choice == "Y") {
         string students_classes, classes_per_uc, classes;
-        cout << "Please enter the name of the file with students and classes (with .csv): ";
+        cout << "Please enter the name of the file with students and classes (with .csv):";
         cin >> students_classes;
-        cout << "Please enter the name of the file with classes and UCs (with .csv): ";
+        cout << "Please enter the name of the file with classes and UCs (with .csv):";
         cin >> classes_per_uc;
-        cout << "Please enter the name of the file with classes only (with .csv): ";
+        cout << "Please enter the name of the file with classes only (with .csv):";
         cin >> classes;
         cout << endl;
 
@@ -38,7 +39,7 @@ Menu::Menu() {
 
 
 void Menu::students_operations() {
-    cout << "Enter an student code: ";
+    cout << "Enter an student code:";
     string studentCode;
     cin >> studentCode;
 
@@ -62,7 +63,7 @@ void Menu::students_operations() {
 }
 
 void Menu::number_of_students_in_year() {
-    cout << "Please enter the year (1, 2 or 3): ";
+    cout << "Please enter the year (1, 2 or 3):";
     int year;
     cin >> year;
 
@@ -76,41 +77,126 @@ void Menu::number_of_students_in_year() {
 }
 
 void Menu::students_with_name() {
-    cout << "Please enter the name you are searching (with first capital letter): ";
+    cout << "Please enter the name you are searching (with first capital letter):";
     string name;
     cin >> name;
 
     list<Student> v = op.students_with_name(name);
-    for(auto s : v){
-        cout << s << endl;
+
+    cout << "How would you like to sort the list?" << endl;
+    cout << "1 - Default list" << endl;
+    cout << "2 - Sort by name ascending" << endl;
+    cout << "3 - Sort by name descending" << endl;
+    cout << "4 - Sort by student code ascending" << endl;
+    cout << "5 - Sort by student code descending" << endl;
+
+    int choice;
+    cin >> choice;
+
+    switch (choice) {
+        case 1:
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        case 2:
+            v.sort(sortStudentsByNameAscending);
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        case 3:
+            v.sort(sortStudentsByNameDescending);
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        case 4:
+            v.sort(sortStudentsbyStCodeAscending);
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        case 5:
+            v.sort(sortStudentsbyStCodeDescending);
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        default:
+            cout << "Invalid input" << endl;
+            show_students_in_year();
     }
 }
 
 void Menu::show_students_in_year() {
-    cout << "Please enter the year (1, 2 or 3): ";
+    cout << "Please enter the year (1, 2 or 3):";
     int year;
     cin >> year;
 
     if (year == 1 || year == 2 || year == 3) {
         list<Student> v = op.students_in_year(year);
-        for(auto s : v){
-            cout << s << endl;
+
+        cout << "How would you like to sort the list?" << endl;
+        cout << "1 - Default list" << endl;
+        cout << "2 - Sort by name ascending" << endl;
+        cout << "3 - Sort by name descending" << endl;
+        cout << "4 - Sort by student code ascending" << endl;
+        cout << "5 - Sort by student code descending" << endl;
+
+        int choice;
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                for(auto s : v){
+                    cout << s << endl;
+                }
+                break;
+            case 2:
+                v.sort(sortStudentsByNameAscending);
+                for(auto s : v){
+                    cout << s << endl;
+                }
+                break;
+            case 3:
+                v.sort(sortStudentsByNameDescending);
+                for(auto s : v){
+                    cout << s << endl;
+                }
+                break;
+            case 4:
+                v.sort(sortStudentsbyStCodeAscending);
+                for(auto s : v){
+                    cout << s << endl;
+                }
+                break;
+            case 5:
+                v.sort(sortStudentsbyStCodeDescending);
+                for(auto s : v){
+                    cout << s << endl;
+                }
+                break;
+            default:
+                cout << "Invalid input" << endl;
+                show_students_in_year();
         }
+
     }
     else {
         cout << "Invalid input" << endl;
         show_students_in_year();
     }
 
-    //FALTA FAZER SORTS AQUI
+
 }
 
 void Menu::classes_operations() {
-    cout << "Enter an class code: ";
+    cout << "Enter an class code:";
     string classCode;
     cin >> classCode;
 
-    cout << "Enter an UC code: ";
+    cout << "Enter an UC code:";
     string ucCode;
     cin >> ucCode;
 
@@ -132,8 +218,49 @@ void Menu::classes_operations() {
             cout << op.N_of_students_in_class(s) << endl;
             break;
         case 2:
-            for (auto s : v){
-                cout << s << endl;
+            cout << "How would you like to sort the list?" << endl;
+            cout << "1 - Default list" << endl;
+            cout << "2 - Sort by name ascending" << endl;
+            cout << "3 - Sort by name descending" << endl;
+            cout << "4 - Sort by student code ascending" << endl;
+            cout << "5 - Sort by student code descending" << endl;
+
+            int choice;
+            cin >> choice;
+
+            switch (choice) {
+                case 1:
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                case 2:
+                    v.sort(sortStudentsByNameAscending);
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                case 3:
+                    v.sort(sortStudentsByNameDescending);
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                case 4:
+                    v.sort(sortStudentsbyStCodeAscending);
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                case 5:
+                    v.sort(sortStudentsbyStCodeDescending);
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                default:
+                    cout << "Invalid input" << endl;
+                    classes_operations();
             }
             break;
         default:
@@ -145,7 +272,7 @@ void Menu::classes_operations() {
 void Menu::uc_operations() {
     string classCode = "1LEIC01";
 
-    cout << "Enter an UC code: ";
+    cout << "Enter an UC code:";
     string ucCode;
     cin >> ucCode;
 
@@ -167,8 +294,49 @@ void Menu::uc_operations() {
             cout << op.N_of_students_in_UC(s) << endl;
             break;
         case 2:
-            for (auto s : v){
-                cout << s << endl;
+            cout << "How would you like to sort the list?" << endl;
+            cout << "1 - Default list" << endl;
+            cout << "2 - Sort by name ascending" << endl;
+            cout << "3 - Sort by name descending" << endl;
+            cout << "4 - Sort by student code ascending" << endl;
+            cout << "5 - Sort by student code descending" << endl;
+
+            int choice;
+            cin >> choice;
+
+            switch (choice) {
+                case 1:
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                case 2:
+                    v.sort(sortStudentsByNameAscending);
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                case 3:
+                    v.sort(sortStudentsByNameDescending);
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                case 4:
+                    v.sort(sortStudentsbyStCodeAscending);
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                case 5:
+                    v.sort(sortStudentsbyStCodeDescending);
+                    for(auto s : v){
+                        cout << s << endl;
+                    }
+                    break;
+                default:
+                    cout << "Invalid input" << endl;
+                    uc_operations();
             }
             break;
         default:
@@ -178,14 +346,55 @@ void Menu::uc_operations() {
 }
 
 void Menu::students_with_more_uc() {
-    cout << "Please enter base number of UC (the program will show students with more UCs than that number): " << endl;
+    cout << "Please enter base number of UC (the program will show students with more UCs than that number):" << endl;
     int n;
     cin >> n;
 
     list<Student> v = op.students_with_more_UC(n);
 
-    for (auto s : v) {
-        cout << s << endl;
+    cout << "How would you like to sort the list?" << endl;
+    cout << "1 - Default list" << endl;
+    cout << "2 - Sort by name ascending" << endl;
+    cout << "3 - Sort by name descending" << endl;
+    cout << "4 - Sort by student code ascending" << endl;
+    cout << "5 - Sort by student code descending" << endl;
+
+    int choice;
+    cin >> choice;
+
+    switch (choice) {
+        case 1:
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        case 2:
+            v.sort(sortStudentsByNameAscending);
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        case 3:
+            v.sort(sortStudentsByNameDescending);
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        case 4:
+            v.sort(sortStudentsbyStCodeAscending);
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        case 5:
+            v.sort(sortStudentsbyStCodeDescending);
+            for(auto s : v){
+                cout << s << endl;
+            }
+            break;
+        default:
+            cout << "Invalid input" << endl;
+            show_students_in_year();
     }
 }
 
@@ -194,24 +403,24 @@ void Menu::students_with_more_uc() {
 void Menu::request_change_class() {
     string current_class, uc_code, student_code, request_class, request_uc;
 
-    cout << "Please enter the UC Code of the classes you want to change: ";
+    cout << "Please enter the UC Code of the classes you want to change:";
     cin >> uc_code;
     cout << endl;
 
-    cout << "Please enter your current class code: ";
+    cout << "Please enter your current class code:";
     cin >> current_class;
     cout << endl;
 
-    cout << "Please enter your current student code: ";
+    cout << "Please enter your current student code:";
     cin >> student_code;
     cout << endl;
 
-    cout << "Please enter the code of the class you want to go: ";
+    cout << "Please enter the code of the class you want to go:";
     cin >> request_class;
     cout << endl;
 
     string choice;
-    cout << "Would you like to create a new file? (y/n): ";
+    cout << "Would you like to create a new file? (y/n):";
     cin >> choice;
 
     if (choice == "y" || choice == "Y") {
@@ -234,12 +443,6 @@ void Menu::request_change_class() {
         request_change_class();
     }
 
-
-    //request_file << uc_code << "," << current_class << "\n" << student_code << "\n" << uc_code << "," << request_class;
-
-    //request_file.close();
-
-    //So faz 1 pedido por vez
 }
 
 void Menu::main_menu(){
@@ -266,7 +469,7 @@ void Menu::main_menu(){
             "|=============================================|\n";
 
         cout << endl;
-        cout << "Please choose an option: ";
+        cout << "Please choose an option:";
         int option;
         cin >> option;
         cout << endl;

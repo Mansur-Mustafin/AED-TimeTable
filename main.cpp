@@ -9,7 +9,7 @@
 
 int main() {
 
-    Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
+    //Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
     //op.processChanges("requests.csv");
     //op.print_time_table(op.GetTimeTable("202020897"));
     //cout << op.N_of_students_in_UC(Subject("L.EIC014,xXXXXxx"));
@@ -23,11 +23,11 @@ int main() {
         cout << s << endl;
     }*/
 
-    Change c ("L.EIC015,2LEIC10,202030247,L.EIC015,2LEIC11");
+    //Change c ("L.EIC015,2LEIC10,202030247,L.EIC015,2LEIC11");
 
 
-    //Menu menu = Menu();
-    //menu.main_menu();
+    Menu menu = Menu();
+    menu.main_menu();
 
     return 0;
 }
