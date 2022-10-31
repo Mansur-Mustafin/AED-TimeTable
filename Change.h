@@ -24,7 +24,7 @@ public:
     explicit Change(const string& s);
 
     /// @brief Gets student requesting the change
-    Student getSudent() const;
+    Student getStudent() const;
 
     /// @brief Gets current class of the student.
     Subject getCurSub() const;

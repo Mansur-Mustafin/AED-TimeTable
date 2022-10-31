@@ -19,8 +19,8 @@ public:
 
     /**
      * @brief Constructor.
-     * @param fm_student -> Name of the csv file.
-     * @param UC_student
+     * @param fm_student -> Name of the csv file student_classes.
+     * @param UC_student ->  Name of the csv file classes_per_uc.
      */
     explicit Read_student(const string& fm_student, const string& UC_student);
 

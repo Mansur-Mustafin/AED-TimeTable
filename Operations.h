@@ -107,11 +107,14 @@ public:
 
 
     void processChanges(const string& fn) const;
+
+    /// @brief Gets maximum capacity of a class;
     int getCap() const;
-    int Cap;
+
+    int Cap; /// @brief Maximum capacity of a class.
 private:
-    Read_classes rc;
-    Read_student rs;
+    Read_classes rc; /// @brief Read_classes object with 3 sets containing classes.
+    Read_student rs; /// @brief Read_student object with 1 set with all students and 1 vector with with all subjects.
 
 };
 

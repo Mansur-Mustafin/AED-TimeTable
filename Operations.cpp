@@ -390,11 +390,12 @@ void Operations::processChanges(const std::string &fn) const {
     ReadRequests rq (fn);
     queue<Change> Changes = rq.getChanges();  // fila de pedidos de mudanca
 
+
     while(!Changes.empty()){
 
         Subject cur = Changes.front().getCurSub();
         Subject next = Changes.front().getNextSub();
-        Student st = Changes.front().getSudent();
+        Student st = Changes.front().getStudent();
 
         // test para numero numa turma.
         int low = 0;
@@ -411,6 +412,8 @@ void Operations::processChanges(const std::string &fn) const {
                 log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque na turma " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << " valor atual de estudantes: " << subjects[middle].get_number_of_student() <<  "\n" ;
             }else break;
         }
+
+
 
 
 
