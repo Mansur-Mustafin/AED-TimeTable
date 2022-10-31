@@ -62,17 +62,49 @@ void Menu::students_operations() {
     }
 }
 
-void Menu::number_of_students_in_year() {
+void Menu::number_of_students_in_year_per_uc() {
     cout << "Please enter the year (1, 2 or 3):";
     int year;
     cin >> year;
 
     if (year == 1 || year == 2 || year == 3) {
-        //cout << op.N_of_students_in_year(year) << endl;
+        map<string, int> m = op.N_of_students_in_year(year);
+
+        cout << "How would you like to sort the list?" << endl;
+        cout << "1 - Sort by number of students ascending" << endl;
+        cout << "2 - Sort by number of students descending" << endl;
+
+        int sort_choice;
+        cin >> sort_choice;
+        cout << endl;
+
+        vector<pair<string, int>> A;
+
+        for (auto& it : m) {
+            A.push_back(it);
+        }
+
+        switch (sort_choice) {
+            case 1:
+                sort(A.begin(), A.end(), sortUCsbyStudentNumberAscending);
+                break;
+            case 2:
+                sort(A.begin(), A.end(), sortUCsbyStudentNumberDescending);
+                break;
+            default:
+                cout << "Invalid input";
+                number_of_students_in_year_per_uc();
+        }
+
+
+
+        for(auto i : A){
+            cout << i.first << ':' << i.second << endl;
+        }
     }
     else {
         cout << "Invalid input" << endl;
-        number_of_students_in_year();
+        number_of_students_in_year_per_uc();
     }
 }
 
@@ -203,7 +235,7 @@ void Menu::classes_operations() {
     switch (choice) {
 
         case 1:
-            cout << op.N_of_students_in_class(s) << endl;
+            cout << "Number of students:" << op.N_of_students_in_class(s) << endl;
             break;
         case 2:
             cout << "How would you like to sort the list?" << endl;
@@ -274,6 +306,26 @@ void Menu::uc_operations() {
     switch (choice) {
 
         case 1:
+            cout << "How would you like to sort the list?" << endl;
+            cout << "1 - Sort by number of students ascending" << endl;
+            cout << "2 - Sort by number of students descending" << endl;
+
+            int sort_choice;
+            cin >> sort_choice;
+            cout << endl;
+
+            switch (sort_choice) {
+                case 1:
+                    sub.sort(sortClassesByStudentNumberAscending);
+                    break;
+                case 2:
+                    sub.sort(sortClassesByStudentNumberDescending);
+                    break;
+                default:
+                    cout << "Invalid input" << endl;
+                    uc_operations();
+
+            }
             for(auto i : sub){
                 cout << i.get_UCcode() << ',' << i.get_ClassCode() << ' ' << i.get_number_of_student() << endl;
                 R += i.get_number_of_student();
@@ -462,7 +514,7 @@ void Menu::main_menu(){
                 students_operations();
                 break;
             case 12:
-                number_of_students_in_year();
+                number_of_students_in_year_per_uc();
                 break;
             case 13:
                 students_with_name();

@@ -16,10 +16,7 @@ int main() {
     //cout << op.N_of_students_in_UC(Subject("L.EIC014,xXXXXxx"));
     //cout << op.N_of_students_in_class(Subject("L.EIC015,2LEIC11"));
 
-    map<string, int> m = op.N_of_students_in_year(3);
-    for(auto i : m){
-        cout << i.first << ',' << i.second << endl;
-    }
+
     //Subject s("L.EIC025,xXXXXxx");
     /*
     list<Student> v = op.students_in_year(1);
@@ -36,8 +33,8 @@ int main() {
     cout << R << " total";
     */
 
-//    Menu menu = Menu();
-  //  menu.main_menu();
+    Menu menu = Menu();
+    menu.main_menu();
 
     return 0;
 }
