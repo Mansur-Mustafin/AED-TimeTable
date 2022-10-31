@@ -269,11 +269,16 @@ void Menu::uc_operations() {
     cin >> choice;
 
     list<Student> v = op.students_in_UC(s);
-
+    list<Subject> sub = op.N_of_students_in_UC(s);
+    int R = 0;
     switch (choice) {
 
         case 1:
-            //cout << op.N_of_students_in_UC(s) << endl;
+            for(auto i : sub){
+                cout << i.get_UCcode() << ',' << i.get_ClassCode() << ' ' << i.get_number_of_student() << endl;
+                R += i.get_number_of_student();
+            }
+            cout << "Total students in the UC: " << R;
             break;
         case 2:
             cout << "How would you like to sort the list?" << endl;
