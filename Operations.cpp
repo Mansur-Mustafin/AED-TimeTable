@@ -5,11 +5,18 @@
 #include <algorithm>
 #include <list>
 #include "Operations.h"
+#include <fstream>
+
+
 Operations::Operations(const std::string &fm_student, const std::string &UC_student, const std::string &fm_classes) {
     Read_classes rc = Read_classes (fm_classes);
     Read_student rs = Read_student (fm_student, UC_student);
     this->rs = rs;
     this->rc = rc;
+    ifstream in("Settings.csv");
+    string line;
+    getline(in, line);
+    Cap = stoi(line);
 }
 
 Operations::Operations() {
@@ -17,6 +24,10 @@ Operations::Operations() {
     Read_student rs = Read_student ("students_classes.csv", "classes_per_uc.csv");
     this->rs = rs;
     this->rc = rc;
+}
+
+int Operations::getCap() const {
+    return Cap;
 }
 
 list<Class> Operations::GetTimeTable(const std::string &number)  {
@@ -368,9 +379,31 @@ list<Student> Operations::students_with_name(const std::string &name) const {
     return R;
 }
 
+
 void Operations::processChanges(const std::string &fn) const {
+    vector<Subject> subjects =  rs.get_subjects();   // aqui todos turmas com cap de cada
+
     ReadRequests rq (fn);
-    queue<Change> Changes = rq.getChanges();
-    Changes.front().getSudent().get_name();
-    //cout << c.getSudent().get_name();
+    queue<Change> Changes = rq.getChanges();  // fila de pedidos de mudanca
+
+    Subject cur = Changes.front().getCurSub();
+    Subject next = Changes.front().getNextSub();
+    Student st = Changes.front().getSudent();
+
+
+    int low = 0;
+    int high = subjects.size() - 1;
+    while(low <= high){
+        int middle = low + (high - low) / 2;
+        if(next < subjects[middle]) high = middle - 1;
+        else if(next > subjects[middle]) low = middle + 1;
+        else if(subjects[middle].get_number_of_student() > Cap){
+            cout << "O numero de turma pretendida tem valor maxima de estudantes";
+            return;
+        }else break;
+    }
+
+    cout << "FOI CARALHO";
+
 }
+

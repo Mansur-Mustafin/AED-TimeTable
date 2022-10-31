@@ -8,7 +8,6 @@
 ReadRequests::ReadRequests(const std::string &inputline) {
     ifstream in(inputline);
     string line;
-    getline(in, line);       // to - first line
     while (getline(in, line)){
         Change c (line);
         Changes.push(c);

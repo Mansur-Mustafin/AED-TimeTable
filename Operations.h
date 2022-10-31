@@ -25,9 +25,12 @@ public:
     list<Student> students_with_more_UC(int n) const;
     list<Student> students_with_name(const string& name) const;
     void processChanges(const string& fn) const;
+    int getCap() const;
+    int Cap;
 private:
     Read_classes rc;
     Read_student rs;
+
 };
 
 #endif //UNTITLED_OPERATIONS_H
