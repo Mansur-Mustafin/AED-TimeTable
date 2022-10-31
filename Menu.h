@@ -58,7 +58,7 @@ private:
 
     //void students_operations();
 
-    Operations op ;
+    Operations op; /// @brief Operations object with functions to proccess data.
 };
 
 

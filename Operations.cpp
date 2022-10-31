@@ -388,7 +388,7 @@ void Operations::processChanges(const std::string &fn) const {
 
     Subject cur = Changes.front().getCurSub();
     Subject next = Changes.front().getNextSub();
-    Student st = Changes.front().getSudent();
+    Student st = Changes.front().getStudent();
 
 
     int low = 0;

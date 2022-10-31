@@ -18,7 +18,7 @@ Change::Change(const std::string &input_line) {
     next = Subject(UCcode,Classcode);
 }
 
-Student Change::getSudent() const{
+Student Change::getStudent() const{
     return student;
 }
 

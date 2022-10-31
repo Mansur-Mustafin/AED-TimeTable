@@ -61,12 +61,8 @@ class Student {
         void add_subject(const string& input_line);
 
         // FALTA AQUI!!!
-        /**
-         *
-         * @param out
-         * @param s1
-         * @return
-         */
+
+        ///@brief Overload of <em>operator<< </em>
         friend ostream& operator<< (ostream& out, const Student& s1);
 
         /// @brief Overload of <em>operator< </em>.

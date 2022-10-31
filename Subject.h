@@ -21,11 +21,20 @@ using namespace std;
  */
 class Subject {
     public:
-        // constructor by string csv format UCcode;ClassCode
+        /**
+         * @brief Constructor.
+         * @param input_line -> Line from csv file.
+         */
         explicit Subject(const string& input_line);
 
+        /// @brief Default constructor.
         Subject(){UCcode = "1";ClassCode = "1";number_of_student = 0;};
 
+        /**
+         * @brief Constructor.
+         * @param s1 -> UC code
+         * @param s2 -> Class code
+         */
         Subject(const string& s1, const string& s2);
 
         /// @brief gets UC code.

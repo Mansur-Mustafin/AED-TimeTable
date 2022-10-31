@@ -84,40 +84,34 @@ void Menu::students_with_name() {
     list<Student> v = op.students_with_name(name);
 
     cout << "How would you like to sort the list?" << endl;
-    cout << "1 - Default list" << endl;
-    cout << "2 - Sort by name ascending" << endl;
-    cout << "3 - Sort by name descending" << endl;
-    cout << "4 - Sort by student code ascending" << endl;
-    cout << "5 - Sort by student code descending" << endl;
+    cout << "1 - Sort by name ascending" << endl;
+    cout << "2 - Sort by name descending" << endl;
+    cout << "3 - Sort by student code ascending" << endl;
+    cout << "4 - Sort by student code descending" << endl;
 
     int choice;
     cin >> choice;
 
     switch (choice) {
         case 1:
-            for(auto s : v){
-                cout << s << endl;
-            }
-            break;
-        case 2:
             v.sort(sortStudentsByNameAscending);
             for(auto s : v){
                 cout << s << endl;
             }
             break;
-        case 3:
+        case 2:
             v.sort(sortStudentsByNameDescending);
             for(auto s : v){
                 cout << s << endl;
             }
             break;
-        case 4:
+        case 3:
             v.sort(sortStudentsbyStCodeAscending);
             for(auto s : v){
                 cout << s << endl;
             }
             break;
-        case 5:
+        case 4:
             v.sort(sortStudentsbyStCodeDescending);
             for(auto s : v){
                 cout << s << endl;
@@ -138,40 +132,34 @@ void Menu::show_students_in_year() {
         list<Student> v = op.students_in_year(year);
 
         cout << "How would you like to sort the list?" << endl;
-        cout << "1 - Default list" << endl;
-        cout << "2 - Sort by name ascending" << endl;
-        cout << "3 - Sort by name descending" << endl;
-        cout << "4 - Sort by student code ascending" << endl;
-        cout << "5 - Sort by student code descending" << endl;
+        cout << "1 - Sort by name ascending" << endl;
+        cout << "2 - Sort by name descending" << endl;
+        cout << "3 - Sort by student code ascending" << endl;
+        cout << "4 - Sort by student code descending" << endl;
 
         int choice;
         cin >> choice;
 
         switch (choice) {
             case 1:
-                for(auto s : v){
-                    cout << s << endl;
-                }
-                break;
-            case 2:
                 v.sort(sortStudentsByNameAscending);
                 for(auto s : v){
                     cout << s << endl;
                 }
                 break;
-            case 3:
+            case 2:
                 v.sort(sortStudentsByNameDescending);
                 for(auto s : v){
                     cout << s << endl;
                 }
                 break;
-            case 4:
+            case 3:
                 v.sort(sortStudentsbyStCodeAscending);
                 for(auto s : v){
                     cout << s << endl;
                 }
                 break;
-            case 5:
+            case 4:
                 v.sort(sortStudentsbyStCodeDescending);
                 for(auto s : v){
                     cout << s << endl;
@@ -219,40 +207,34 @@ void Menu::classes_operations() {
             break;
         case 2:
             cout << "How would you like to sort the list?" << endl;
-            cout << "1 - Default list" << endl;
-            cout << "2 - Sort by name ascending" << endl;
-            cout << "3 - Sort by name descending" << endl;
-            cout << "4 - Sort by student code ascending" << endl;
-            cout << "5 - Sort by student code descending" << endl;
+            cout << "1 - Sort by name ascending" << endl;
+            cout << "2 - Sort by name descending" << endl;
+            cout << "3 - Sort by student code ascending" << endl;
+            cout << "4 - Sort by student code descending" << endl;
 
             int choice;
             cin >> choice;
 
             switch (choice) {
                 case 1:
-                    for(auto s : v){
-                        cout << s << endl;
-                    }
-                    break;
-                case 2:
                     v.sort(sortStudentsByNameAscending);
                     for(auto s : v){
                         cout << s << endl;
                     }
                     break;
-                case 3:
+                case 2:
                     v.sort(sortStudentsByNameDescending);
                     for(auto s : v){
                         cout << s << endl;
                     }
                     break;
-                case 4:
+                case 3:
                     v.sort(sortStudentsbyStCodeAscending);
                     for(auto s : v){
                         cout << s << endl;
                     }
                     break;
-                case 5:
+                case 4:
                     v.sort(sortStudentsbyStCodeDescending);
                     for(auto s : v){
                         cout << s << endl;
@@ -295,40 +277,34 @@ void Menu::uc_operations() {
             break;
         case 2:
             cout << "How would you like to sort the list?" << endl;
-            cout << "1 - Default list" << endl;
-            cout << "2 - Sort by name ascending" << endl;
-            cout << "3 - Sort by name descending" << endl;
-            cout << "4 - Sort by student code ascending" << endl;
-            cout << "5 - Sort by student code descending" << endl;
+            cout << "1 - Sort by name ascending" << endl;
+            cout << "2 - Sort by name descending" << endl;
+            cout << "3 - Sort by student code ascending" << endl;
+            cout << "4 - Sort by student code descending" << endl;
 
             int choice;
             cin >> choice;
 
             switch (choice) {
                 case 1:
-                    for(auto s : v){
-                        cout << s << endl;
-                    }
-                    break;
-                case 2:
                     v.sort(sortStudentsByNameAscending);
                     for(auto s : v){
                         cout << s << endl;
                     }
                     break;
-                case 3:
+                case 2:
                     v.sort(sortStudentsByNameDescending);
                     for(auto s : v){
                         cout << s << endl;
                     }
                     break;
-                case 4:
+                case 3:
                     v.sort(sortStudentsbyStCodeAscending);
                     for(auto s : v){
                         cout << s << endl;
                     }
                     break;
-                case 5:
+                case 4:
                     v.sort(sortStudentsbyStCodeDescending);
                     for(auto s : v){
                         cout << s << endl;
@@ -353,40 +329,34 @@ void Menu::students_with_more_uc() {
     list<Student> v = op.students_with_more_UC(n);
 
     cout << "How would you like to sort the list?" << endl;
-    cout << "1 - Default list" << endl;
-    cout << "2 - Sort by name ascending" << endl;
-    cout << "3 - Sort by name descending" << endl;
-    cout << "4 - Sort by student code ascending" << endl;
-    cout << "5 - Sort by student code descending" << endl;
+    cout << "1 - Sort by name ascending" << endl;
+    cout << "2 - Sort by name descending" << endl;
+    cout << "3 - Sort by student code ascending" << endl;
+    cout << "4 - Sort by student code descending" << endl;
 
     int choice;
     cin >> choice;
 
     switch (choice) {
         case 1:
-            for(auto s : v){
-                cout << s << endl;
-            }
-            break;
-        case 2:
             v.sort(sortStudentsByNameAscending);
             for(auto s : v){
                 cout << s << endl;
             }
             break;
-        case 3:
+        case 2:
             v.sort(sortStudentsByNameDescending);
             for(auto s : v){
                 cout << s << endl;
             }
             break;
-        case 4:
+        case 3:
             v.sort(sortStudentsbyStCodeAscending);
             for(auto s : v){
                 cout << s << endl;
             }
             break;
-        case 5:
+        case 4:
             v.sort(sortStudentsbyStCodeDescending);
             for(auto s : v){
                 cout << s << endl;
