@@ -2,6 +2,11 @@
 // Created by Mansur on 08.10.2022.
 //
 
+/**
+ * @file Student.h
+ */
+
+
 #ifndef UNTITLED_STUDENT_H
 #define UNTITLED_STUDENT_H
 #include <string>
@@ -15,34 +20,81 @@
 
 using namespace std;
 
+/**
+ * @Class containing student information.
+ */
 class Student {
     public:
-        //constructor by string csv format ';'
+
+        /**
+         * @brief Constructor.
+         * @param input_line -> line from csv file containing student
+         */
         explicit Student(const string& input_line); // tem que mudar o subject method
+
+        /// @brief Empty constructor
         Student();
-        // getters
+
+        /**
+         * @brief Gets student's name.
+         * @return Name
+         */
         string get_name() const;
+
+        /**
+         * @brief Gets student's code.
+         * @return Student code
+         */
         int get_StudentCode() const;
+
+        /**
+         * @brief Gets student's subjects
+         * @return Subjects
+         */
         set<Subject> getSubjects() const;
-        // to add one more class to student instead create new student
+
+
+        /**
+         * @brief Adds subject to a existing student
+         * @param input_line -> line in the format of csv file
+         */
         void add_subject(const string& input_line);
-        // print to
+
+        // FALTA AQUI!!!
+        /**
+         *
+         * @param out
+         * @param s1
+         * @return
+         */
         friend ostream& operator<< (ostream& out, const Student& s1);
+
+        /// @brief Overload of <em>operator< </em>.
         bool operator<(const Student& right) const;
+
+        /// @brief Overload of <em>operator> </em>.
         bool operator>(const Student& right) const;
+
+        /// @brief Overload of <em>operator<= </em>.
         bool operator<=(const Student& right) const;
+
+        /// @brief Overload of <em>operator=> </em>.
         bool operator>=(const Student& right) const;
+
+        /// @brief Overload of <em>operator== </em>.
         bool operator==(const Student& right) const;
-        // compare function by name or by up
+
+        /// @brief Compares students by name
         bool is_less_than_by_name(const Student& right);
+
+        /// @brief Compares students by student code
         bool is_less_than_by_code(const Student& right) const;
-        // remove subject from vector UCs
-        //void remove_subject(const Subject& subject); // acho que nao vale a pena esta funcao, porque vamos so trocar os esudantes.
+
 
     private:
-        string name;
-        int StudentCode;
-        set<Subject> UCs;
+        string name;  /// @brief Student name
+        int StudentCode; /// @brief Student code
+        set<Subject> UCs; /// @brief student UC's
 };
 
 #endif //UNTITLED_STUDENT_H

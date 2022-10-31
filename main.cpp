@@ -4,13 +4,13 @@
 #include "Operations.h"
 #include "Hour.h"
 #include "Menu.h"
-//#include "SortFunctions.cpp"
+#include "SortFunctions.cpp"
 #include "Change.h"
 
 int main() {
 
-    Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
-    op.processChanges("requests.csv");
+    //Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
+    //op.processChanges("requests.csv");
 
     //op.print_time_table(op.GetTimeTable("202020897"));
     //cout << op.N_of_students_in_UC(Subject("L.EIC014,xXXXXxx"));
@@ -25,8 +25,8 @@ int main() {
     }*/
 
 
-    //Menu menu = Menu();
-    //menu.main_menu();
+    Menu menu = Menu();
+    menu.main_menu();
 
     return 0;
 }

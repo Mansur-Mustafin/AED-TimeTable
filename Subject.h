@@ -2,6 +2,9 @@
 // Created by Mansur on 08.10.2022.
 //
 
+/**
+ * @file Subject.h
+ */
 #ifndef UNTITLED_SUBJECT_H
 #define UNTITLED_SUBJECT_H
 #include <string>
@@ -13,7 +16,9 @@
 
 using namespace std;
 
-
+/**
+ * @Class containing class information.
+ */
 class Subject {
     public:
         // constructor by string csv format UCcode;ClassCode
