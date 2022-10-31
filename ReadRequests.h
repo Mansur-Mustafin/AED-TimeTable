@@ -10,7 +10,7 @@
 
 class ReadRequests {
 public:
-    ReadRequests(const string& inputline);
+    explicit ReadRequests(const string& inputline);
     queue<Change> getChanges() const;
 private:
     queue<Change> Changes;
