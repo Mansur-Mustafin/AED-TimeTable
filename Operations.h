@@ -61,7 +61,7 @@ public:
      * @param n -> Year to search.
      * @return Number of Students in year.
      */
-    int N_of_students_in_year(int n) const; // input year
+    map<string, int> N_of_students_in_year(int n) const; // input year
 
     /**
      * @brief Gets number of student in all UCs and list of all classes in uc.

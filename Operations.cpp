@@ -162,8 +162,8 @@ list<Subject> Operations::N_of_students_in_UC(Subject key) const{
     return R_l;
 }
 
-int Operations::N_of_students_in_year(int n) const {
-    list<pair<string,int>> R_l = {};
+map<string, int> Operations::N_of_students_in_year(int n) const {
+    map<string, int> R_l = {};
     int R  = 0;
     set<Student> students = rs.get_students();
     for(auto s : students){
@@ -186,17 +186,51 @@ int Operations::N_of_students_in_year(int n) const {
             }
         }
     }
-
     vector<Subject> subjects =  rs.get_subjects();
     for(auto i : subjects) cout << i.get_UCcode() << ' ' << i.get_ClassCode() << endl;
     if(n == 1){
+        R_l.insert({"Total students in year: ",R});
         for(int i = 0; subjects[i].get_year()==1; i++ ){
-            //
+            if(R_l.find(subjects[i].get_UCcode()) != R_l.end()){
+                R_l[subjects[i].get_UCcode()] += subjects[i].get_number_of_student();
+            }else{
+                R_l.insert({subjects[i].get_UCcode(),subjects[i].get_number_of_student()});
+            }
         }
     }
-
-
-    return R;
+    if(n == 3){
+        R_l.insert({"Total students in year: ",R});
+        for(int i = subjects.size() - 1; subjects[i].get_year() == 3; i--){
+            if(R_l.find(subjects[i].get_UCcode()) != R_l.end()){
+                R_l[subjects[i].get_UCcode()] += subjects[i].get_number_of_student();
+            }else{
+                R_l.insert({subjects[i].get_UCcode(),subjects[i].get_number_of_student()});
+            }
+        }
+    }
+    if(n == 2){
+        R_l.insert({"Total students in year: ",R});
+        int low = 0;
+        int high = subjects.size() - 1;
+        int mid;
+        while(low < high){
+            mid = low + (high - low) / 2;
+            //cout << low << ' ' << mid << ' ' << high << endl;
+            if(n <= subjects[mid].get_year()){
+                high = mid;
+            }else{
+                low = mid + 1;
+            }
+        }
+        for(int i = low; subjects[i].get_year() == 2; i++){
+            if(R_l.find(subjects[i].get_UCcode()) != R_l.end()){
+                R_l[subjects[i].get_UCcode()] += subjects[i].get_number_of_student();
+            }else{
+                R_l.insert({subjects[i].get_UCcode(),subjects[i].get_number_of_student()});
+            }
+        }
+    }
+    return R_l;
 }
 
 bool check_overlapping(vector<Class> classes){

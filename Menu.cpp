@@ -68,7 +68,7 @@ void Menu::number_of_students_in_year() {
     cin >> year;
 
     if (year == 1 || year == 2 || year == 3) {
-        cout << op.N_of_students_in_year(year) << endl;
+        //cout << op.N_of_students_in_year(year) << endl;
     }
     else {
         cout << "Invalid input" << endl;
