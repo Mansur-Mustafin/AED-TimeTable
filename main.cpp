@@ -15,7 +15,7 @@ int main() {
     //op.print_time_table(op.GetTimeTable("202020897"));
     //cout << op.N_of_students_in_UC(Subject("L.EIC014,xXXXXxx"));
     //cout << op.N_of_students_in_class(Subject("L.EIC015,2LEIC11"));
-    //cout << op.N_of_students_in_year(3);
+    cout << op.N_of_students_in_year(3);
 
     //Subject s("L.EIC025,xXXXXxx");
     /*

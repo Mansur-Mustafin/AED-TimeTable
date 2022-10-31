@@ -138,7 +138,6 @@ int Operations::N_of_students_in_class(Subject key) const{
 list<Subject> Operations::N_of_students_in_UC(Subject key) const{
     int i,R = 0;
     list<Subject> R_l = {};
-
     vector<Subject> subjects =  rs.get_subjects();
     int low = 0;
     int high = subjects.size() - 1;
@@ -151,7 +150,6 @@ list<Subject> Operations::N_of_students_in_UC(Subject key) const{
             break;
         }
     }
-
     for(int m = i; subjects[m].UC_is_equal(key) ;m++){
         R+= subjects[m].get_number_of_student();
         R_l.push_back(subjects[m]);
@@ -165,6 +163,7 @@ list<Subject> Operations::N_of_students_in_UC(Subject key) const{
 }
 
 int Operations::N_of_students_in_year(int n) const {
+    list<pair<string,int>> R_l = {};
     int R  = 0;
     set<Student> students = rs.get_students();
     for(auto s : students){
@@ -172,25 +171,31 @@ int Operations::N_of_students_in_year(int n) const {
         auto it_e = classes.end();
         it_e --;
         auto it_i = classes.begin();
-
         if(it_i->get_year() == n){
             R++;
             continue;
         }
-
         if(it_e->get_year() == n){
             R++;
             continue;
         }
-
         for(it_i; it_i != it_e; it_i++){
             if(it_i->get_year() == n){
                 R++;
                 break;
             }
         }
-
     }
+
+    vector<Subject> subjects =  rs.get_subjects();
+    for(auto i : subjects) cout << i.get_UCcode() << ' ' << i.get_ClassCode() << endl;
+    if(n == 1){
+        for(int i = 0; subjects[i].get_year()==1; i++ ){
+            //
+        }
+    }
+
+
     return R;
 }
 
