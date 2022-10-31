@@ -21,16 +21,16 @@
 using namespace std;
 
 /**
- * @Class containing student information.
+ * @class containing student information.
  */
 class Student {
     public:
 
         /**
          * @brief Constructor.
-         * @param input_line -> line from csv file containing student
+         * @param input_line -> Line from csv file containing student.
          */
-        explicit Student(const string& input_line); // tem que mudar o subject method
+        explicit Student(const string& input_line);
 
         /// @brief Empty constructor
         Student();
