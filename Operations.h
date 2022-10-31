@@ -64,9 +64,9 @@ public:
     int N_of_students_in_year(int n) const; // input year
 
     /**
-     * @brief Gets number of student in a UC.
+     * @brief Gets number of student in all UCs and list of all classes in uc.
      * @param s -> Subject.
-     * @return Number of students.
+     * @return List of subjects with the number of students
      */
     list<Subject> N_of_students_in_UC(Subject s) const;  // input : Subject("L.EIC001,xXXXXxx") se quiseres a UC L.EIC001
 

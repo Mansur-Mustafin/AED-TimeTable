@@ -9,7 +9,7 @@
 
 int main() {
 
-    Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
+    //Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
     //op.processChanges("requests.csv");
 
     //op.print_time_table(op.GetTimeTable("202020897"));
@@ -33,8 +33,8 @@ int main() {
     cout << R << " total";
     */
 
-    //Menu menu = Menu();
-    //menu.main_menu();
+    Menu menu = Menu();
+    menu.main_menu();
 
     return 0;
 }
