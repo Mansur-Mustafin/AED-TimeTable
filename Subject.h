@@ -34,8 +34,9 @@ class Subject {
          * @brief Constructor.
          * @param s1 -> UC code
          * @param s2 -> Class code
+         * @param i -> number_of_student
          */
-        Subject(const string& s1, const string& s2);
+        Subject(const string& s1, const string& s2, int i = 0);
 
         /// @brief gets UC code.
         string get_UCcode() const;

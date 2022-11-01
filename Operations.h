@@ -106,7 +106,7 @@ public:
     list<Student> students_with_name(const string& name) const;
 
 
-    void processChanges(const string& fn) const;
+    void processChanges(const string& fn);
 
     /// @brief Gets maximum capacity of a class;
     int getCap() const;
@@ -115,7 +115,6 @@ public:
 private:
     Read_classes rc; /// @brief Read_classes object with 3 sets containing classes.
     Read_student rs; /// @brief Read_student object with 1 set with all students and 1 vector with with all subjects.
-
 };
 
 #endif //UNTITLED_OPERATIONS_H

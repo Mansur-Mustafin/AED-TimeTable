@@ -17,6 +17,12 @@ Student::Student(const std::string &input_line) {
     UCs.insert(s);
 }
 
+Student::Student(const std::string &name, int code, set<Subject>& UC) {
+    UCs = UC;
+    this->name = name;
+    StudentCode = code;
+}
+
 Student::Student() {
     StudentCode = 0;
     name = "mansur";
@@ -44,6 +50,10 @@ void Student::add_subject(const std::string &input_line) {
 
 set<Subject> Student::getSubjects() const {
     return UCs;
+}
+
+void Student::setSubjects(set<Subject>& s ) {
+    UCs = s;
 }
 
 ostream& operator<< (ostream& out, const Student& s1){

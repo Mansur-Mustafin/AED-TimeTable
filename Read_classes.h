@@ -28,13 +28,13 @@ public:
     Read_classes();
 
     /// @brief Gets classes of type T
-    set<Class> get_classes_T();
+    set<Class> get_classes_T() const;
 
     /// @brief Gets classes of type TP
-    set<Class> get_classes_TP();
+    set<Class> get_classes_TP() const;
 
     /// @brief Gets classes of type PL
-    set<Class> get_classes_PL();
+    set<Class> get_classes_PL() const;
 
 private:
     set<Class> classes_T; /// @brief Classes of type T

@@ -27,6 +27,9 @@ public:
     /// @brief Empty constructor.
     Read_student();
 
+    void setStudents(set<Student>& vnew);
+    void setSubjects(vector<Subject>& snew);
+
     /// @brief Gets students.
     set<Student> get_students() const;
 

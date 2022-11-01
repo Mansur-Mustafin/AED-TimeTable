@@ -5,6 +5,7 @@
 #include "Read_student.h"
 #include <fstream>
 #include <algorithm>
+#include <utility>
 
 #include "Read_class_per_uc.h"
 
@@ -55,6 +56,14 @@ vector<Subject> Read_student::get_subjects() const {
 
 set<Student> Read_student::get_students() const {
     return v;
+}
+
+void Read_student::setStudents(set<Student>& vnew) {
+    this->v = vnew;
+}
+
+void Read_student::setSubjects(vector<Subject>& snew) {
+    this->s = snew;
 }
 
 /*

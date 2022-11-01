@@ -9,10 +9,10 @@
 
 
 Operations::Operations(const std::string &fm_student, const std::string &UC_student, const std::string &fm_classes) {
-    Read_classes rc = Read_classes (fm_classes);
-    Read_student rs = Read_student (fm_student, UC_student);
-    this->rs = rs;
-    this->rc = rc;
+    Read_classes resdc = Read_classes (fm_classes);
+    Read_student readrs = Read_student (fm_student, UC_student);
+    rs = readrs;
+    rc = resdc;
     ifstream in("Settings.csv");
     string line;
     getline(in, line);
@@ -233,29 +233,27 @@ map<string, int> Operations::N_of_students_in_year(int n) const {
     return R_l;
 }
 
-bool check_overlapping(vector<Class> classes){
-    for(int j = 0; j < classes.size(); j++){
-        for(int k = j + 1; k < classes.size(); k++){
-            if(classes[j].get_day_index() == classes[k].get_day_index() ){
-                if(classes[k].is_equal(classes[j]) && classes[k].get_type() == classes[j].get_type()) continue;
-                if(classes[k].get_hora_s() > classes[j].get_hora_f()){
-                    cout << classes[j].get_hora_s() << '>' << classes[k].get_hora_f()<< endl;
-                    return false;
-                }
-                if(classes[k].get_hora_f() > classes[j].get_hora_s()) {
-                    cout << classes[j].get_hora_f() << '>' << classes[k].get_hora_s() << endl;
-                    return false;
-                }
-            }
-        }
-    }
+bool compare(const Class& s1, const Class& s2){
+    return s1.get_hora_s() < s2.get_hora_f();
+}
+bool compare2(const Class& s1, const Class& s2){
+    return s1.get_day_index() < s2.get_day_index();
+}
 
-    return true;
+bool have_overlapping(vector<Class> classes){
+    std::sort(classes.begin(), classes.end(), compare);
+    std::sort(classes.begin(), classes.end(), compare2);
+    for (int i = 1; i < classes.size(); i++)
+        if (classes[i - 1].get_hora_f() > classes[i].get_hora_s())
+            if(classes[i - 1].get_day_index() == classes[i].get_day_index()){
+                return true;
+            }
+    return false;
 }
 
 void Operations::print_time_table(list<Class> aulas) const {
 
-    vector<Class> overlap;
+    list<Class> overlap;
     cout << "            Monday             Tuesday             Wednesday           Thursday             Friday" << endl;
     for(int i = 0; i < 106; i++){cout << '_';}
     cout << endl;
@@ -276,6 +274,7 @@ void Operations::print_time_table(list<Class> aulas) const {
             bool f1 = true;
 
             for(const auto& aula: aulas){
+
                 if(aula.get_day_index() == i && (aula.get_hora_s() == h1)){
                     f1 = false;
                     if(R.empty()){
@@ -287,6 +286,7 @@ void Operations::print_time_table(list<Class> aulas) const {
 
                     }else{
                         overlap.push_back(aula);
+
                     }
                 }
                 if(aula.get_day_index() == i && (h1 > aula.get_hora_s() && h1 < aula.get_hora_f() - step ) ){
@@ -297,7 +297,9 @@ void Operations::print_time_table(list<Class> aulas) const {
                 }
                 if(aula.get_day_index() == i && ( h1 > aula.get_hora_s() && h1 == aula.get_hora_f() - step )){
                     f1 = false;
+
                     if(R != ""){
+
                         overlap.push_back(aula);
                         continue;
                     }
@@ -318,6 +320,8 @@ void Operations::print_time_table(list<Class> aulas) const {
         cout << endl;
     }
 
+    overlap.sort();
+    overlap.unique();
     for(const auto& aula : overlap){
         cout << aula << endl;
     }
@@ -422,25 +426,44 @@ list<Student> Operations::students_with_name(const std::string &name) const {
     return R;
 }
 
+int Notdesequilibrio(list<Subject> lst){
+    int min = lst.begin()->get_number_of_student();
+    int max = lst.begin()->get_number_of_student();
+    for(auto sub : lst){
+        if(sub.get_number_of_student() > max){
+            max = sub.get_number_of_student();
+        }
+        if(sub.get_number_of_student() < min){
+            min = sub.get_number_of_student();
+        }
+    }
+    return max - min;
+}
 
-void Operations::processChanges(const std::string &fn) const {
+void Operations::processChanges(const std::string &fn) {
+
     vector<Subject> subjects =  rs.get_subjects();   // aqui todos turmas com cap de cada
+    set<Student> students = rs.get_students();
+
     ofstream log_file("LOGS.txt");
     ReadRequests rq (fn);
     queue<Change> Changes = rq.getChanges();  // fila de pedidos de mudanca
 
+    //for(auto i : subjects) {cout << i.get_UCcode() << ',' << i.get_ClassCode() << endl;}
 
     while(!Changes.empty()){
 
         Subject cur = Changes.front().getCurSub();
         Subject next = Changes.front().getNextSub();
         Student st = Changes.front().getStudent();
+        string UC = cur.get_UCcode();
 
         // test para numero numa turma.
+        int middle;
         int low = 0;
         int high = subjects.size() - 1;
         while(low <= high){
-            int middle = low + (high - low) / 2;
+            middle = low + (high - low) / 2;
             if(next < subjects[middle]) high = middle - 1;
             else if(next > subjects[middle]) low = middle + 1;
             else if(subjects[middle].get_number_of_student() > Cap){
@@ -449,21 +472,147 @@ void Operations::processChanges(const std::string &fn) const {
                 return;
             }else if(subjects[middle].get_number_of_student() == Cap){
                 log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque na turma " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << " valor atual de estudantes: " << subjects[middle].get_number_of_student() <<  "\n" ;
+                return;
             }else break;
         }
 
+        // test para Equilibrio
+        list<Subject> subjectsOfUC = {};          // os subjects in this UC
+        int i = middle;
+        for(int m = i; subjects[m].UC_is_equal(cur) ;m++){
+            subjectsOfUC.push_back(subjects[m]);
+        }
+        i--;
+        for(; subjects[i].UC_is_equal(cur) ;i--){
+            subjectsOfUC.push_back(subjects[i]);
+        }
+        int c, n;
+
+        for(auto j : subjectsOfUC){
+            if(j.get_ClassCode() == cur.get_ClassCode()) c = j.get_number_of_student();
+            if(j.get_ClassCode() == next.get_ClassCode()) n = j.get_number_of_student();
+        }
+
+
+        if(Notdesequilibrio(subjectsOfUC) > 4){
+            log_file << "WARNING, the UC: " << cur.get_UCcode() << " has a desequilibrio" << "\n";
+            if(c < n){
+                log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque provoca desequilibrio na UC";
+                return;
+            }
+        }
+
+        if(Notdesequilibrio(subjectsOfUC) <= 4){
+            list<Subject> aux;
+            for(auto i : subjectsOfUC){
+                if(i.get_ClassCode() != next.get_ClassCode() && i.get_ClassCode() != cur.get_ClassCode()) aux.push_back(i);
+                if(i.get_ClassCode() == cur.get_ClassCode()){
+                    aux.push_back(Subject(cur.get_UCcode(),cur.get_ClassCode(),i.get_number_of_student() - 1));
+                }
+                if(i.get_ClassCode() == next.get_ClassCode()){
+                    aux.push_back(Subject(next.get_UCcode(),next.get_ClassCode(),i.get_number_of_student() + 1));
+                }
+            }
+            if(Notdesequilibrio(aux) > 4){
+                log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque vai criar desequilibrio na turma";
+                return;
+            }
+        }
+
+        //test horario
+        set<Subject> subjectsOfStudent = students.find(st)->getSubjects();
+        vector<Class> Aulas = {};
+        set<Class> TP = rc.get_classes_TP();
+        set<Class> PL = rc.get_classes_PL();
+        for(const auto& subject : subjectsOfStudent){
+            if(subject != cur){
+                string str = subject.get_ClassCode()+',' + subject.get_UCcode()+ ",Monday,8.0,2,0";
+                Class c (str);
+
+                auto it = TP.lower_bound(c);
+                if(it != TP.end()){
+                    if( it->get_Subject() == subject){
+                        Aulas.push_back(*it);
+                    }
+                }
+
+                it = PL.lower_bound(c);
+                if(it != PL.end()){
+                    if(it->get_Subject() == subject){
+                        Aulas.push_back(*it);
+                    }
+                }
+            }
+        }
+        string str = next.get_ClassCode()+',' + next.get_UCcode()+ ",Monday,8.0,2,0";
+        Class cl (str);
+        auto it = TP.lower_bound(cl);
+        if(it != TP.end()){
+            if( it->get_Subject() == next){
+                Aulas.push_back(*it);
+            }
+        }
+        it = PL.lower_bound(cl);
+        if(it != PL.end()){
+            if(it->get_Subject() == next){
+                Aulas.push_back(*it);
+            }
+        }
+
+        if(have_overlapping(Aulas)){
+            log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque vai ser overlapping de aulas TP ou PL";
+            return;
+        }
+
+        // agora alteramos
+
+
+        auto sst = students.find(st);
+        set<Subject> aux2 = sst->getSubjects();
+        auto itt = aux2.find(cur);
+        string name = sst->get_name();
+        int number = sst->get_StudentCode();
+        aux2.erase(itt);
+        aux2.insert(next);
+        Student snew (name, number, aux2);
+        students.erase(sst);
+        students.insert(snew);
 
 
 
+        low = 0;
+        high = subjects.size() - 1;
+        while(low <= high){
+            c = low + (high - low) / 2;
+            if(cur < subjects[c]) high = c - 1;
+            else if(cur > subjects[c]) low = c + 1;
+            else break;
+        }
 
+        low = 0;
+        high = subjects.size() - 1;
+        while(low <= high){
+            n = low + (high - low) / 2;
+            if(next < subjects[n]) high = n - 1;
+            else if(next > subjects[n]) low = n + 1;
+            else break;
+        }
 
+        //cout <<"current: " <<subjects[c].get_UCcode() << subjects[c].get_ClassCode() << endl;
+        //cout <<"next: " <<subjects[n].get_UCcode() << subjects[n].get_ClassCode() << endl;
+        //cout << subjects[c].get_number_of_student()<< ' ' <<  subjects[n].get_number_of_student() << endl;
+        subjects[c].minus_student_n();
+        subjects[n].plus_student_n();
+        //cout << subjects[c].get_number_of_student()<< ' ' <<  subjects[n].get_number_of_student();
         log_file << "Estudante com numero: " << st.get_StudentCode() << ": " << '(' << cur.get_UCcode() << ',' << cur.get_ClassCode() << ')' << " --> " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << "\n";
-
 
         Changes.pop();
     }
 
+    rs.setStudents(students);
+    rs.setSubjects(subjects);
     log_file.close();
+
 
 }
 

@@ -31,15 +31,15 @@ Read_classes::Read_classes() {
     classes_PL = {};
 }
 
-set<Class> Read_classes::get_classes_T(){
+set<Class> Read_classes::get_classes_T() const {
     return classes_T;
 }
 
-set<Class> Read_classes::get_classes_TP() {
+set<Class> Read_classes::get_classes_TP() const {
     return classes_TP;
 }
 
-set<Class> Read_classes::get_classes_PL() {
+set<Class> Read_classes::get_classes_PL() const {
     return classes_PL;
 }
 

@@ -14,10 +14,10 @@ Subject::Subject(const string& input_line){
     number_of_student = 0;
 }
 
-Subject::Subject(const string& s1, const string& s2){
+Subject::Subject(const string& s1, const string& s2, int i){
     UCcode = s1;
     ClassCode = s2;
-    number_of_student = 0;
+    number_of_student = i;
 }
 
 string Subject::get_UCcode() const {

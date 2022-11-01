@@ -32,6 +32,9 @@ class Student {
          */
         explicit Student(const string& input_line);
 
+        Student(const string& name, int code, set<Subject>& UC);
+
+
         /// @brief Empty constructor
         Student();
 
@@ -53,6 +56,8 @@ class Student {
          */
         set<Subject> getSubjects() const;
 
+
+        void setSubjects(set<Subject>& s);
 
         /**
          * @brief Adds subject to a existing student
