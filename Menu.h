@@ -32,8 +32,8 @@ public:
     /// @brief Show options and calls functions for students operations.
     void students_operations();
 
-    /// @brief Calls function to show number of students in year.
-    void number_of_students_in_year();
+    /// @brief Calls function to show number of students in year divided per UC.
+    void number_of_students_in_year_per_uc();
 
     /// @brief Calls function to search for students with specific name.
     void students_with_name();

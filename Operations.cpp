@@ -187,9 +187,9 @@ map<string, int> Operations::N_of_students_in_year(int n) const {
         }
     }
     vector<Subject> subjects =  rs.get_subjects();
-    for(auto i : subjects) cout << i.get_UCcode() << ' ' << i.get_ClassCode() << endl;
+    //for(auto i : subjects) cout << i.get_UCcode() << ' ' << i.get_ClassCode() << endl;
     if(n == 1){
-        R_l.insert({"Total students in year: ",R});
+        R_l.insert({"Total students in year",R});
         for(int i = 0; subjects[i].get_year()==1; i++ ){
             if(R_l.find(subjects[i].get_UCcode()) != R_l.end()){
                 R_l[subjects[i].get_UCcode()] += subjects[i].get_number_of_student();
@@ -199,7 +199,7 @@ map<string, int> Operations::N_of_students_in_year(int n) const {
         }
     }
     if(n == 3){
-        R_l.insert({"Total students in year: ",R});
+        R_l.insert({"Total students in year",R});
         for(int i = subjects.size() - 1; subjects[i].get_year() == 3; i--){
             if(R_l.find(subjects[i].get_UCcode()) != R_l.end()){
                 R_l[subjects[i].get_UCcode()] += subjects[i].get_number_of_student();
@@ -209,7 +209,7 @@ map<string, int> Operations::N_of_students_in_year(int n) const {
         }
     }
     if(n == 2){
-        R_l.insert({"Total students in year: ",R});
+        R_l.insert({"Total students in year",R});
         int low = 0;
         int high = subjects.size() - 1;
         int mid;
