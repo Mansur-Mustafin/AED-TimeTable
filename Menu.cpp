@@ -6,6 +6,7 @@
 #include "Menu.h"
 #include <fstream>
 #include <algorithm>
+#include <iomanip>
 
 Menu::Menu() {
 
@@ -307,18 +308,28 @@ void Menu::uc_operations() {
 
         case 1:
             cout << "How would you like to sort the list?" << endl;
-            cout << "1 - Sort by number of students ascending" << endl;
-            cout << "2 - Sort by number of students descending" << endl;
+            cout << "1 - Sort by class code ascending" << endl;
+            cout << "2 - Sort by class code descending" << endl;
+            cout << "3 - Sort by number of students ascending" << endl;
+            cout << "4 - Sort by number of students descending" << endl;
 
             int sort_choice;
             cin >> sort_choice;
             cout << endl;
 
+
+
             switch (sort_choice) {
                 case 1:
-                    sub.sort(sortClassesByStudentNumberAscending);
+                    sub.sort(sortUCbyClassNumberAscending);
                     break;
                 case 2:
+                    sub.sort(sortUCbyClassNumberDescending);
+                    break;
+                case 3:
+                    sub.sort(sortClassesByStudentNumberAscending);
+                    break;
+                case 4:
                     sub.sort(sortClassesByStudentNumberDescending);
                     break;
                 default:
@@ -378,6 +389,8 @@ void Menu::uc_operations() {
     }
 }
 
+
+
 void Menu::students_with_more_uc() {
     cout << "Please enter base number of UC (the program will show students with more UCs than that number):" << endl;
     int n;
@@ -390,6 +403,8 @@ void Menu::students_with_more_uc() {
     cout << "2 - Sort by name descending" << endl;
     cout << "3 - Sort by student code ascending" << endl;
     cout << "4 - Sort by student code descending" << endl;
+    cout << "5 - Sort by number of UCs taken by student ascending" << endl;
+    cout << "6 - Sort by number of UCs taken by student descending" << endl;
 
     int choice;
     cin >> choice;
@@ -398,25 +413,37 @@ void Menu::students_with_more_uc() {
         case 1:
             v.sort(sortStudentsByNameAscending);
             for(auto s : v){
-                cout << s << endl;
+                cout << setfill(' ')  << left << setw(20) << s << " | has " << s.getSubjects().size() << " subjects"<< endl;
             }
             break;
         case 2:
             v.sort(sortStudentsByNameDescending);
             for(auto s : v){
-                cout << s << endl;
+                cout << setfill(' ')  << left << setw(20) << s << " | has " << s.getSubjects().size() << " subjects"<< endl;
             }
             break;
         case 3:
             v.sort(sortStudentsbyStCodeAscending);
             for(auto s : v){
-                cout << s << endl;
+                cout << setfill(' ')  << left << setw(20) << s << " | has " << s.getSubjects().size() << " subjects"<< endl;
             }
             break;
         case 4:
             v.sort(sortStudentsbyStCodeDescending);
             for(auto s : v){
-                cout << s << endl;
+                cout << setfill(' ')  << left << setw(20) << s << " | has " << s.getSubjects().size() << " subjects"<< endl;
+            }
+            break;
+        case 5:
+            v.sort(sortStudentsByUCCountAscending);
+            for(auto s : v){
+                cout << setfill(' ')  << left << setw(20) << s << " | has " << s.getSubjects().size() << " subjects"<< endl;
+            }
+            break;
+        case 6:
+            v.sort(sortStudentsByUCCountDescending);
+            for(auto s : v){
+                cout << setfill(' ')  << left << setw(20) << s << " | has " << s.getSubjects().size() << " subjects"<< endl;
             }
             break;
         default:
@@ -472,6 +499,13 @@ void Menu::request_change_class() {
 
 }
 
+void Menu::process_requests() {
+    op.processChanges("requests.csv");
+
+    cout << "The requests have been processed." << endl;
+    cout << "See log file for details." << endl;
+}
+
 void Menu::main_menu(){
 
 
@@ -488,7 +522,7 @@ void Menu::main_menu(){
             "|                    UC's                     |                   Requests                  |\n"
             "|=============================================|=============================================|\n"
             "|  See data from specific UC             [31] |  Request to change class               [41] |\n"
-            "|  Show students with more than 'X' UCs  [32] |                                             |\n"
+            "|  Show students with more than 'X' UCs  [32] |  Process requests (end of day)         [42] |\n"
             "|=============================================|=============================================|\n"
             "|               Other operations              |                                              \n"
             "|=============================================|                                              \n"
@@ -534,6 +568,10 @@ void Menu::main_menu(){
             case 41:
                 request_change_class();
                 break;
+            case 42:
+                process_requests();
+                break;
+
             default: cout << "Invalid input" << endl;
 
         }

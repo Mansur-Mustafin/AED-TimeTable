@@ -53,7 +53,8 @@ public:
     /// @brief Gets data for a request to change class and writes it to a file.
     void request_change_class();
 
-
+    /// @brief Calls function to process requests from students.
+    void process_requests();
 private:
 
     //void students_operations();

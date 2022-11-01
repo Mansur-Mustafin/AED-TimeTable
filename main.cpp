@@ -59,7 +59,7 @@ int main() {
     for(auto s : v){
         cout << s << endl;
     }*/
-
+/*
      s = op.N_of_students_in_UC(Subject("L.EIC025,xXXXXxx"));
      R = 0;
     for(auto i : s){
@@ -67,7 +67,7 @@ int main() {
         R += i.get_number_of_student();
     }
     cout << R << " total";
-
+*/
 
     Menu menu = Menu();
     menu.main_menu();

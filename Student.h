@@ -32,6 +32,12 @@ class Student {
          */
         explicit Student(const string& input_line);
 
+        /**
+         * @brief Constructor.
+         * @param name -> Student name.
+         * @param code -> Student code.
+         * @param UC -> Subjects taken by student.
+         */
         Student(const string& name, int code, set<Subject>& UC);
 
 
@@ -65,7 +71,6 @@ class Student {
          */
         void add_subject(const string& input_line);
 
-        // FALTA AQUI!!!
 
         ///@brief Overload of <em>operator<< </em>
         friend ostream& operator<< (ostream& out, const Student& s1);

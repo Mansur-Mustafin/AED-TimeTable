@@ -57,9 +57,9 @@ public:
     int N_of_students_in_class(Subject s) const; // input: uma turma, output: numero de estudantes inscritos testa turma
 
     /**
-     * @brief Gets number of students in a year.
+     * @brief Gets number of students in a year mapping with UCs.
      * @param n -> Year to search.
-     * @return Number of Students in year.
+     * @return map with UCs and number of students in UCs.
      */
     map<string, int> N_of_students_in_year(int n) const; // input year
 
@@ -105,7 +105,10 @@ public:
      */
     list<Student> students_with_name(const string& name) const;
 
-
+    /**
+     * @brief Proccess requests of students.
+     * @param fn -> file name with queue of requirements
+     */
     void processChanges(const string& fn);
 
     /// @brief Gets maximum capacity of a class;
