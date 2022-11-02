@@ -47,3 +47,4 @@ static bool sortUCbyClassNumberAscending(const Subject& s1, const Subject& s2) {
 static bool sortUCbyClassNumberDescending(const Subject& s1, const Subject& s2) {
     return s1.get_ClassCode() > s2.get_ClassCode();
 }
+

@@ -72,8 +72,10 @@ void Menu::number_of_students_in_year_per_uc() {
         map<string, int> m = op.N_of_students_in_year(year);
 
         cout << "How would you like to sort the list?" << endl;
-        cout << "1 - Sort by number of students ascending" << endl;
-        cout << "2 - Sort by number of students descending" << endl;
+        cout << "1 - Sort by class code ascending" << endl;
+        cout << "2 - Sort by class code descending" << endl;
+        cout << "3 - Sort by number of students ascending" << endl;
+        cout << "4 - Sort by number of students descending" << endl;
 
         int sort_choice;
         cin >> sort_choice;
@@ -87,9 +89,14 @@ void Menu::number_of_students_in_year_per_uc() {
 
         switch (sort_choice) {
             case 1:
-                sort(A.begin(), A.end(), sortUCsbyStudentNumberAscending);
                 break;
             case 2:
+                reverse(A.begin(), A.end());
+                break;
+            case 3:
+                sort(A.begin(), A.end(), sortUCsbyStudentNumberAscending);
+                break;
+            case 4:
                 sort(A.begin(), A.end(), sortUCsbyStudentNumberDescending);
                 break;
             default:
