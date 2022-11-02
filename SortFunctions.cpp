@@ -31,3 +31,19 @@ static bool sortClassesByStudentNumberAscending(const Subject& s1, const Subject
 static bool sortClassesByStudentNumberDescending(const Subject& s1, const Subject& s2){
     return s1.get_number_of_student() > s2.get_number_of_student();
 }
+
+static bool sortStudentsByUCCountAscending(const Student& s1, const Student& s2) {
+    return s1.getSubjects().size() < s2.getSubjects().size();
+}
+
+static bool sortStudentsByUCCountDescending(const Student& s1, const Student& s2) {
+    return s1.getSubjects().size() > s2.getSubjects().size();
+}
+
+static bool sortUCbyClassNumberAscending(const Subject& s1, const Subject& s2) {
+    return s1.get_ClassCode() < s2.get_ClassCode();
+}
+
+static bool sortUCbyClassNumberDescending(const Subject& s1, const Subject& s2) {
+    return s1.get_ClassCode() > s2.get_ClassCode();
+}

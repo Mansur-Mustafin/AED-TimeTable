@@ -64,6 +64,18 @@ int main() {
 
 
 
+
+/*
+     s = op.N_of_students_in_UC(Subject("L.EIC025,xXXXXxx"));
+     R = 0;
+    for(auto i : s){
+        cout << i.get_UCcode() << ',' << i.get_ClassCode() << ' ' << i.get_number_of_student() << endl;
+        R += i.get_number_of_student();
+    }
+    cout << R << " total";
+*/
+
+
     Menu menu = Menu();
     menu.main_menu();
 
