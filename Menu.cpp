@@ -136,25 +136,25 @@ void Menu::students_with_name() {
         case 1:
             v.sort(sortStudentsByNameAscending);
             for(auto s : v){
-                cout << s << endl;
+                cout << setfill(' ')  << left << setw(20) << s << endl;
             }
             break;
         case 2:
             v.sort(sortStudentsByNameDescending);
             for(auto s : v){
-                cout << s << endl;
+                cout<< setfill(' ')  << left << setw(20) << s << endl;
             }
             break;
         case 3:
             v.sort(sortStudentsbyStCodeAscending);
             for(auto s : v){
-                cout << s << endl;
+                cout<< setfill(' ')  << left << setw(20) << s << endl;
             }
             break;
         case 4:
             v.sort(sortStudentsbyStCodeDescending);
             for(auto s : v){
-                cout << s << endl;
+                cout<< setfill(' ')  << left << setw(20) << s << endl;
             }
             break;
         default:
@@ -184,25 +184,25 @@ void Menu::show_students_in_year() {
             case 1:
                 v.sort(sortStudentsByNameAscending);
                 for(auto s : v){
-                    cout << s << endl;
+                    cout<< setfill(' ')  << left << setw(20) << s << endl;
                 }
                 break;
             case 2:
                 v.sort(sortStudentsByNameDescending);
                 for(auto s : v){
-                    cout << s << endl;
+                    cout<< setfill(' ')  << left << setw(20) << s << endl;
                 }
                 break;
             case 3:
                 v.sort(sortStudentsbyStCodeAscending);
                 for(auto s : v){
-                    cout << s << endl;
+                    cout<< setfill(' ')  << left << setw(20) << s << endl;
                 }
                 break;
             case 4:
                 v.sort(sortStudentsbyStCodeDescending);
                 for(auto s : v){
-                    cout << s << endl;
+                    cout<< setfill(' ')  << left << setw(20) << s << endl;
                 }
                 break;
             default:
@@ -259,25 +259,25 @@ void Menu::classes_operations() {
                 case 1:
                     v.sort(sortStudentsByNameAscending);
                     for(auto s : v){
-                        cout << s << endl;
+                        cout<< setfill(' ')  << left << setw(20) << s << endl;
                     }
                     break;
                 case 2:
                     v.sort(sortStudentsByNameDescending);
                     for(auto s : v){
-                        cout << s << endl;
+                        cout<< setfill(' ')  << left << setw(20) << s << endl;
                     }
                     break;
                 case 3:
                     v.sort(sortStudentsbyStCodeAscending);
                     for(auto s : v){
-                        cout << s << endl;
+                        cout<< setfill(' ')  << left << setw(20) << s << endl;
                     }
                     break;
                 case 4:
                     v.sort(sortStudentsbyStCodeDescending);
                     for(auto s : v){
-                        cout << s << endl;
+                        cout<< setfill(' ')  << left << setw(20) << s << endl;
                     }
                     break;
                 default:

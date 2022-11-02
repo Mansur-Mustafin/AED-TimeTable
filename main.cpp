@@ -75,10 +75,7 @@ int main() {
     cout << R << " total";
 */
 
-
     Menu menu = Menu();
     menu.main_menu();
-
-
     return 0;
 }
