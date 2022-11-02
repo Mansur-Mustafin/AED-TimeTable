@@ -9,7 +9,7 @@
 
 int main() {
 
-    Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
+    //Operations op ("students_classes.csv", "classes_per_uc.csv","classes.csv");
 
 
     //list<Subject> s = op.N_of_students_in_UC(Subject("L.EIC025,xXXXXxx"));

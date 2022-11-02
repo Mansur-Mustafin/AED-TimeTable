@@ -1,0 +1,150 @@
+\hypertarget{class_student}{}\doxysection{Student Class Reference}
+\label{class_student}\index{Student@{Student}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_student_aa47f533421a74a8cb2239978a47b47b3}{Student}} (const string \&input\+\_\+line)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_student_a16a56d893113b99d260e36d7bfe18451}{Student}} (const string \&name, int code, set$<$ \mbox{\hyperlink{class_subject}{Subject}} $>$ \&UC)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}\label{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}} 
+{\bfseries Student} ()
+\begin{DoxyCompactList}\small\item\em Empty constructor. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_student_ae489956a740c6fb570344c7010aa6841}{get\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Gets student\textquotesingle{}s name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_student_a1204d59c058d1dfb44f806c67342915a}{get\+\_\+\+Student\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Gets student\textquotesingle{}s code. \end{DoxyCompactList}\item 
+set$<$ \mbox{\hyperlink{class_subject}{Subject}} $>$ \mbox{\hyperlink{class_student_a9672af6a65d05dee8444a262fe18e47d}{get\+Subjects}} () const
+\begin{DoxyCompactList}\small\item\em Gets student\textquotesingle{}s subjects. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_a65fe7aaa4e264328328197c6e4245157}\label{class_student_a65fe7aaa4e264328328197c6e4245157}} 
+void {\bfseries set\+Subjects} (set$<$ \mbox{\hyperlink{class_subject}{Subject}} $>$ \&s)
+\item 
+void \mbox{\hyperlink{class_student_adcf69c030abdcb843fd689a4ec99d8ad}{add\+\_\+subject}} (const string \&input\+\_\+line)
+\begin{DoxyCompactList}\small\item\em Adds subject to a existing student. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_a684c89e3452e2aee069029ede12a2519}\label{class_student_a684c89e3452e2aee069029ede12a2519}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_student}{Student}} \&right) const
+\begin{DoxyCompactList}\small\item\em Overload of {\itshape operator\texorpdfstring{$<$}{<} }. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_a4a4bc75441f4faeef4267bf43ff659e1}\label{class_student_a4a4bc75441f4faeef4267bf43ff659e1}} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{class_student}{Student}} \&right) const
+\begin{DoxyCompactList}\small\item\em Overload of {\itshape operator\texorpdfstring{$>$}{>} }. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_a2aa9d57e11af3b6cf7a0c84204d8cfb7}\label{class_student_a2aa9d57e11af3b6cf7a0c84204d8cfb7}} 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{class_student}{Student}} \&right) const
+\begin{DoxyCompactList}\small\item\em Overload of {\itshape operator\texorpdfstring{$<$}{<}= }. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_a98f36ac6916408772c5307ffc02a2da4}\label{class_student_a98f36ac6916408772c5307ffc02a2da4}} 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{class_student}{Student}} \&right) const
+\begin{DoxyCompactList}\small\item\em Overload of {\itshape operator=\texorpdfstring{$>$}{>} }. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_a1a012725e0e2b6528d5c972ac1d2c4b0}\label{class_student_a1a012725e0e2b6528d5c972ac1d2c4b0}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_student}{Student}} \&right) const
+\begin{DoxyCompactList}\small\item\em Overload of {\itshape operator== }. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_a7dbb8ab52becbd635a6cb985ce8b4ee9}\label{class_student_a7dbb8ab52becbd635a6cb985ce8b4ee9}} 
+bool {\bfseries is\+\_\+less\+\_\+than\+\_\+by\+\_\+name} (const \mbox{\hyperlink{class_student}{Student}} \&right)
+\begin{DoxyCompactList}\small\item\em Compares students by name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_aac56f49c0abd5b1ca1d9e53c78917300}\label{class_student_aac56f49c0abd5b1ca1d9e53c78917300}} 
+bool {\bfseries is\+\_\+less\+\_\+than\+\_\+by\+\_\+code} (const \mbox{\hyperlink{class_student}{Student}} \&right) const
+\begin{DoxyCompactList}\small\item\em Compares students by student code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_a1765fe2a76a07d863e79740ba87d252c}\label{class_student_a1765fe2a76a07d863e79740ba87d252c}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&out, const \mbox{\hyperlink{class_student}{Student}} \&s1)
+\begin{DoxyCompactList}\small\item\em Overload of {\itshape operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} } \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_aa47f533421a74a8cb2239978a47b47b3}\label{class_student_aa47f533421a74a8cb2239978a47b47b3}} 
+\index{Student@{Student}!Student@{Student}}
+\index{Student@{Student}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{Student()}{Student()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{const string \&}]{input\+\_\+line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+line} & -\/\texorpdfstring{$>$}{>} Line from csv file containing student. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_student_a16a56d893113b99d260e36d7bfe18451}\label{class_student_a16a56d893113b99d260e36d7bfe18451}} 
+\index{Student@{Student}!Student@{Student}}
+\index{Student@{Student}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{Student()}{Student()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{int}]{code,  }\item[{set$<$ \mbox{\hyperlink{class_subject}{Subject}} $>$ \&}]{UC }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/\texorpdfstring{$>$}{>} \mbox{\hyperlink{class_student}{Student}} name. \\
+\hline
+{\em code} & -\/\texorpdfstring{$>$}{>} \mbox{\hyperlink{class_student}{Student}} code. \\
+\hline
+{\em UC} & -\/\texorpdfstring{$>$}{>} Subjects taken by student. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_adcf69c030abdcb843fd689a4ec99d8ad}\label{class_student_adcf69c030abdcb843fd689a4ec99d8ad}} 
+\index{Student@{Student}!add\_subject@{add\_subject}}
+\index{add\_subject@{add\_subject}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{add\_subject()}{add\_subject()}}
+{\footnotesize\ttfamily void Student\+::add\+\_\+subject (\begin{DoxyParamCaption}\item[{const string \&}]{input\+\_\+line }\end{DoxyParamCaption})}
+
+
+
+Adds subject to a existing student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+line} & -\/\texorpdfstring{$>$}{>} line in the format of csv file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_student_ae489956a740c6fb570344c7010aa6841}\label{class_student_ae489956a740c6fb570344c7010aa6841}} 
+\index{Student@{Student}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily string Student\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets student\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+Name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_a1204d59c058d1dfb44f806c67342915a}\label{class_student_a1204d59c058d1dfb44f806c67342915a}} 
+\index{Student@{Student}!get\_StudentCode@{get\_StudentCode}}
+\index{get\_StudentCode@{get\_StudentCode}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{get\_StudentCode()}{get\_StudentCode()}}
+{\footnotesize\ttfamily int Student\+::get\+\_\+\+Student\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets student\textquotesingle{}s code. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_student}{Student}} code 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_a9672af6a65d05dee8444a262fe18e47d}\label{class_student_a9672af6a65d05dee8444a262fe18e47d}} 
+\index{Student@{Student}!getSubjects@{getSubjects}}
+\index{getSubjects@{getSubjects}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getSubjects()}{getSubjects()}}
+{\footnotesize\ttfamily set$<$ \mbox{\hyperlink{class_subject}{Subject}} $>$ Student\+::get\+Subjects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets student\textquotesingle{}s subjects. 
+
+\begin{DoxyReturn}{Returns}
+Subjects 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_student_8h}{Student.\+h}}\item 
+Student.\+cpp\end{DoxyCompactItemize}

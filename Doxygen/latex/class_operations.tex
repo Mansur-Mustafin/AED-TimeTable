@@ -1,0 +1,284 @@
+\hypertarget{class_operations}{}\doxysection{Operations Class Reference}
+\label{class_operations}\index{Operations@{Operations}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_operations_ac8c729c96c46a4fd969380d0a59632a6}{Operations}} (const string \&fm\+\_\+student, const string \&UC\+\_\+student, const string \&fm\+\_\+classes)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_operations_af344ca561c1a08118f686551abb08efb}\label{class_operations_af344ca561c1a08118f686551abb08efb}} 
+{\bfseries Operations} ()
+\begin{DoxyCompactList}\small\item\em Empty constructor. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_class}{Class}} $>$ \mbox{\hyperlink{class_operations_a1a7449f73b2aa1e2cd446724f5e017bd}{Get\+Time\+Table}} (const string \&number)
+\begin{DoxyCompactList}\small\item\em Gets student time table. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_class}{Class}} $>$ \mbox{\hyperlink{class_operations_a0e861f5967025e9c0fb7f225fd0e7adb}{Get\+Time\+Tablefor\+UC}} (const string \&UC)
+\begin{DoxyCompactList}\small\item\em Gets UC time table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_operations_a5255b19d91e028db2bf944f616dc445d}{print\+\_\+time\+\_\+table}} (list$<$ \mbox{\hyperlink{class_class}{Class}} $>$ v) const
+\begin{DoxyCompactList}\small\item\em Prints time table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_operations_ae007b89c237cd2d743ee7b136f727992}{N\+\_\+of\+\_\+students\+\_\+in\+\_\+class}} (\mbox{\hyperlink{class_subject}{Subject}} s) const
+\begin{DoxyCompactList}\small\item\em Gets number of student in a class. \end{DoxyCompactList}\item 
+map$<$ string, int $>$ \mbox{\hyperlink{class_operations_a7e202ea189589f243e3da965e851f30a}{N\+\_\+of\+\_\+students\+\_\+in\+\_\+year}} (int n) const
+\begin{DoxyCompactList}\small\item\em Gets number of students in a year mapping with UCs. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_subject}{Subject}} $>$ \mbox{\hyperlink{class_operations_ad4f5ce37e7e1d15971fb8ac761f712fe}{N\+\_\+of\+\_\+students\+\_\+in\+\_\+\+UC}} (\mbox{\hyperlink{class_subject}{Subject}} s) const
+\begin{DoxyCompactList}\small\item\em Gets number of student in all UCs and list of all classes in uc. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a30fccdfcddba37a464d40308e90314bd}{students\+\_\+in\+\_\+class}} (\mbox{\hyperlink{class_subject}{Subject}} s) const
+\begin{DoxyCompactList}\small\item\em Gets students in a class. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_aa1ffb310811db6fdcc682ae512b25f0e}{students\+\_\+in\+\_\+year}} (int n) const
+\begin{DoxyCompactList}\small\item\em Gets students in a year. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a6137a9e78a190028fb2a6ad6d21ad18a}{students\+\_\+in\+\_\+\+UC}} (\mbox{\hyperlink{class_subject}{Subject}} s) const
+\begin{DoxyCompactList}\small\item\em Gets students in a UC. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a35087b633d88bd88043dcf38401f354e}{students\+\_\+with\+\_\+more\+\_\+\+UC}} (int n) const
+\begin{DoxyCompactList}\small\item\em Gets students with more than \textquotesingle{}X\textquotesingle{} UC. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a9ae0632b423036e07103b25a7ad2a319}{students\+\_\+with\+\_\+name}} (const string \&name) const
+\begin{DoxyCompactList}\small\item\em Search students with specific name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_operations_ad4b0f995d72dce4b1bada5bbd8363d3a}{process\+Changes}} (const string \&fn)
+\begin{DoxyCompactList}\small\item\em Proccess requests of students. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_operations_aac5512e14a4f420dbe2b7e20d66416a6}\label{class_operations_aac5512e14a4f420dbe2b7e20d66416a6}} 
+int {\bfseries get\+Cap} () const
+\begin{DoxyCompactList}\small\item\em Gets maximum capacity of a class;. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_operations_a2369d66db8dffaaa8fe89e20c2851c8a}\label{class_operations_a2369d66db8dffaaa8fe89e20c2851c8a}} 
+int {\bfseries Cap}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_operations_ac8c729c96c46a4fd969380d0a59632a6}\label{class_operations_ac8c729c96c46a4fd969380d0a59632a6}} 
+\index{Operations@{Operations}!Operations@{Operations}}
+\index{Operations@{Operations}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{Operations()}{Operations()}}
+{\footnotesize\ttfamily Operations\+::\+Operations (\begin{DoxyParamCaption}\item[{const string \&}]{fm\+\_\+student,  }\item[{const string \&}]{UC\+\_\+student,  }\item[{const string \&}]{fm\+\_\+classes }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fm\+\_\+student} & -\/\texorpdfstring{$>$}{>} Name of the students\+\_\+classes csv file. \\
+\hline
+{\em UC\+\_\+student} & -\/\texorpdfstring{$>$}{>} Name of the classes\+\_\+per\+\_\+uc csv file. \\
+\hline
+{\em fm\+\_\+classes} & -\/\texorpdfstring{$>$}{>} Name of the classes csv file. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_operations_a1a7449f73b2aa1e2cd446724f5e017bd}\label{class_operations_a1a7449f73b2aa1e2cd446724f5e017bd}} 
+\index{Operations@{Operations}!GetTimeTable@{GetTimeTable}}
+\index{GetTimeTable@{GetTimeTable}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{GetTimeTable()}{GetTimeTable()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_class}{Class}} $>$ Operations\+::\+Get\+Time\+Table (\begin{DoxyParamCaption}\item[{const string \&}]{number }\end{DoxyParamCaption})}
+
+
+
+Gets student time table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & -\/\texorpdfstring{$>$}{>} \mbox{\hyperlink{class_student}{Student}} code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List with classes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_a0e861f5967025e9c0fb7f225fd0e7adb}\label{class_operations_a0e861f5967025e9c0fb7f225fd0e7adb}} 
+\index{Operations@{Operations}!GetTimeTableforUC@{GetTimeTableforUC}}
+\index{GetTimeTableforUC@{GetTimeTableforUC}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{GetTimeTableforUC()}{GetTimeTableforUC()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_class}{Class}} $>$ Operations\+::\+Get\+Time\+Tablefor\+UC (\begin{DoxyParamCaption}\item[{const string \&}]{UC }\end{DoxyParamCaption})}
+
+
+
+Gets UC time table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em UC} & -\/\texorpdfstring{$>$}{>} UC code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List with classes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_ae007b89c237cd2d743ee7b136f727992}\label{class_operations_ae007b89c237cd2d743ee7b136f727992}} 
+\index{Operations@{Operations}!N\_of\_students\_in\_class@{N\_of\_students\_in\_class}}
+\index{N\_of\_students\_in\_class@{N\_of\_students\_in\_class}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{N\_of\_students\_in\_class()}{N\_of\_students\_in\_class()}}
+{\footnotesize\ttfamily int Operations\+::\+N\+\_\+of\+\_\+students\+\_\+in\+\_\+class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_subject}{Subject}}}]{s }\end{DoxyParamCaption}) const}
+
+
+
+Gets number of student in a class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/\texorpdfstring{$>$}{>} \mbox{\hyperlink{class_subject}{Subject}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of students. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_ad4f5ce37e7e1d15971fb8ac761f712fe}\label{class_operations_ad4f5ce37e7e1d15971fb8ac761f712fe}} 
+\index{Operations@{Operations}!N\_of\_students\_in\_UC@{N\_of\_students\_in\_UC}}
+\index{N\_of\_students\_in\_UC@{N\_of\_students\_in\_UC}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{N\_of\_students\_in\_UC()}{N\_of\_students\_in\_UC()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_subject}{Subject}} $>$ Operations\+::\+N\+\_\+of\+\_\+students\+\_\+in\+\_\+\+UC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_subject}{Subject}}}]{s }\end{DoxyParamCaption}) const}
+
+
+
+Gets number of student in all UCs and list of all classes in uc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/\texorpdfstring{$>$}{>} \mbox{\hyperlink{class_subject}{Subject}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of subjects with the number of students 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_a7e202ea189589f243e3da965e851f30a}\label{class_operations_a7e202ea189589f243e3da965e851f30a}} 
+\index{Operations@{Operations}!N\_of\_students\_in\_year@{N\_of\_students\_in\_year}}
+\index{N\_of\_students\_in\_year@{N\_of\_students\_in\_year}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{N\_of\_students\_in\_year()}{N\_of\_students\_in\_year()}}
+{\footnotesize\ttfamily map$<$ string, int $>$ Operations\+::\+N\+\_\+of\+\_\+students\+\_\+in\+\_\+year (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Gets number of students in a year mapping with UCs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/\texorpdfstring{$>$}{>} Year to search. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+map with UCs and number of students in UCs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_a5255b19d91e028db2bf944f616dc445d}\label{class_operations_a5255b19d91e028db2bf944f616dc445d}} 
+\index{Operations@{Operations}!print\_time\_table@{print\_time\_table}}
+\index{print\_time\_table@{print\_time\_table}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{print\_time\_table()}{print\_time\_table()}}
+{\footnotesize\ttfamily void Operations\+::print\+\_\+time\+\_\+table (\begin{DoxyParamCaption}\item[{list$<$ \mbox{\hyperlink{class_class}{Class}} $>$}]{v }\end{DoxyParamCaption}) const}
+
+
+
+Prints time table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & -\/\texorpdfstring{$>$}{>} List with classes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_operations_ad4b0f995d72dce4b1bada5bbd8363d3a}\label{class_operations_ad4b0f995d72dce4b1bada5bbd8363d3a}} 
+\index{Operations@{Operations}!processChanges@{processChanges}}
+\index{processChanges@{processChanges}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{processChanges()}{processChanges()}}
+{\footnotesize\ttfamily void Operations\+::process\+Changes (\begin{DoxyParamCaption}\item[{const string \&}]{fn }\end{DoxyParamCaption})}
+
+
+
+Proccess requests of students. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & -\/\texorpdfstring{$>$}{>} file name with queue of requirements \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_operations_a30fccdfcddba37a464d40308e90314bd}\label{class_operations_a30fccdfcddba37a464d40308e90314bd}} 
+\index{Operations@{Operations}!students\_in\_class@{students\_in\_class}}
+\index{students\_in\_class@{students\_in\_class}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{students\_in\_class()}{students\_in\_class()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ Operations\+::students\+\_\+in\+\_\+class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_subject}{Subject}}}]{s }\end{DoxyParamCaption}) const}
+
+
+
+Gets students in a class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/\texorpdfstring{$>$}{>} \mbox{\hyperlink{class_subject}{Subject}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of students. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_a6137a9e78a190028fb2a6ad6d21ad18a}\label{class_operations_a6137a9e78a190028fb2a6ad6d21ad18a}} 
+\index{Operations@{Operations}!students\_in\_UC@{students\_in\_UC}}
+\index{students\_in\_UC@{students\_in\_UC}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{students\_in\_UC()}{students\_in\_UC()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ Operations\+::students\+\_\+in\+\_\+\+UC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_subject}{Subject}}}]{s }\end{DoxyParamCaption}) const}
+
+
+
+Gets students in a UC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/\texorpdfstring{$>$}{>} \mbox{\hyperlink{class_subject}{Subject}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of students. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_aa1ffb310811db6fdcc682ae512b25f0e}\label{class_operations_aa1ffb310811db6fdcc682ae512b25f0e}} 
+\index{Operations@{Operations}!students\_in\_year@{students\_in\_year}}
+\index{students\_in\_year@{students\_in\_year}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{students\_in\_year()}{students\_in\_year()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ Operations\+::students\+\_\+in\+\_\+year (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Gets students in a year. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/\texorpdfstring{$>$}{>} Year to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of students. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_a35087b633d88bd88043dcf38401f354e}\label{class_operations_a35087b633d88bd88043dcf38401f354e}} 
+\index{Operations@{Operations}!students\_with\_more\_UC@{students\_with\_more\_UC}}
+\index{students\_with\_more\_UC@{students\_with\_more\_UC}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{students\_with\_more\_UC()}{students\_with\_more\_UC()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ Operations\+::students\+\_\+with\+\_\+more\+\_\+\+UC (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Gets students with more than \textquotesingle{}X\textquotesingle{} UC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/\texorpdfstring{$>$}{>} Base number of UC. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of students. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_operations_a9ae0632b423036e07103b25a7ad2a319}\label{class_operations_a9ae0632b423036e07103b25a7ad2a319}} 
+\index{Operations@{Operations}!students\_with\_name@{students\_with\_name}}
+\index{students\_with\_name@{students\_with\_name}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{students\_with\_name()}{students\_with\_name()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ Operations\+::students\+\_\+with\+\_\+name (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Search students with specific name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/\texorpdfstring{$>$}{>} Name to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of Students. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_operations_8h}{Operations.\+h}}\item 
+Operations.\+cpp\end{DoxyCompactItemize}

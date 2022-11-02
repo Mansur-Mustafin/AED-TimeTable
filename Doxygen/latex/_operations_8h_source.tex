@@ -1,0 +1,55 @@
+\hypertarget{_operations_8h_source}{}\doxysection{Operations.\+h}
+\mbox{\hyperlink{_operations_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Mansur on 16.10.2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef UNTITLED\_OPERATIONS\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define UNTITLED\_OPERATIONS\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_read__student_8h}{Read\_student.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_read_requests_8h}{ReadRequests.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_operations}{Operations}} \{}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_operations_ac8c729c96c46a4fd969380d0a59632a6}{Operations}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& fm\_student, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& UC\_student,\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& fm\_classes);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30     \mbox{\hyperlink{class_operations_af344ca561c1a08118f686551abb08efb}{Operations}}();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{37     list<Class> \mbox{\hyperlink{class_operations_a1a7449f73b2aa1e2cd446724f5e017bd}{GetTimeTable}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& number); \textcolor{comment}{// encontra horario por numero up recebe string mesmo}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{44     list<Class> \mbox{\hyperlink{class_operations_a0e861f5967025e9c0fb7f225fd0e7adb}{GetTimeTableforUC}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& UC);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_operations_a5255b19d91e028db2bf944f616dc445d}{print\_time\_table}}(list<Class> v) \textcolor{keyword}{const};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_operations_ae007b89c237cd2d743ee7b136f727992}{N\_of\_students\_in\_class}}(\mbox{\hyperlink{class_subject}{Subject}} s) \textcolor{keyword}{const}; \textcolor{comment}{// input: uma turma, output: numero de estudantes inscritos testa turma}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{64     map<string, int> \mbox{\hyperlink{class_operations_a7e202ea189589f243e3da965e851f30a}{N\_of\_students\_in\_year}}(\textcolor{keywordtype}{int} n) \textcolor{keyword}{const}; \textcolor{comment}{// input year}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{71     list<Subject> \mbox{\hyperlink{class_operations_ad4f5ce37e7e1d15971fb8ac761f712fe}{N\_of\_students\_in\_UC}}(\mbox{\hyperlink{class_subject}{Subject}} s) \textcolor{keyword}{const};  \textcolor{comment}{// input : Subject("{}L.EIC001,xXXXXxx"{}) se quiseres a UC L.EIC001}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{78     list<Student> \mbox{\hyperlink{class_operations_a30fccdfcddba37a464d40308e90314bd}{students\_in\_class}}(\mbox{\hyperlink{class_subject}{Subject}} s) \textcolor{keyword}{const};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{85     list<Student> \mbox{\hyperlink{class_operations_aa1ffb310811db6fdcc682ae512b25f0e}{students\_in\_year}}(\textcolor{keywordtype}{int} n) \textcolor{keyword}{const};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{92     list<Student> \mbox{\hyperlink{class_operations_a6137a9e78a190028fb2a6ad6d21ad18a}{students\_in\_UC}}(\mbox{\hyperlink{class_subject}{Subject}} s) \textcolor{keyword}{const};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{99     list<Student> \mbox{\hyperlink{class_operations_a35087b633d88bd88043dcf38401f354e}{students\_with\_more\_UC}}(\textcolor{keywordtype}{int} n) \textcolor{keyword}{const};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{106     list<Student> \mbox{\hyperlink{class_operations_a9ae0632b423036e07103b25a7ad2a319}{students\_with\_name}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& name) \textcolor{keyword}{const};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_operations_ad4b0f995d72dce4b1bada5bbd8363d3a}{processChanges}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& fn);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{115     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_operations_aac5512e14a4f420dbe2b7e20d66416a6}{getCap}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{keywordtype}{int} Cap; }
+\DoxyCodeLine{118 \textcolor{keyword}{private}:}
+\DoxyCodeLine{119     \mbox{\hyperlink{class_read__classes}{Read\_classes}} rc; }
+\DoxyCodeLine{120     \mbox{\hyperlink{class_read__student}{Read\_student}} rs; }
+\DoxyCodeLine{121 \};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//UNTITLED\_OPERATIONS\_H}}
+
+\end{DoxyCode}

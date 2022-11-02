@@ -1,0 +1,50 @@
+\hypertarget{_hour_8h_source}{}\doxysection{Hour.\+h}
+\mbox{\hyperlink{_hour_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by musta on 08.10.2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef UNTITLED\_HOUR\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define UNTITLED\_HOUR\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{13 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_hour}{Hour}} \{}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \textcolor{comment}{// constructor}}
+\DoxyCodeLine{21     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_hour}{Hour}}(\textcolor{keywordtype}{float} x);}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_hour}{Hour}}()\{hora = 1; minutes = 1;\};}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_hour}{Hour}}(\textcolor{keywordtype}{int} x , \textcolor{keywordtype}{int} y)\{hora = x; minutes = y;\};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_hour}{Hour}} \mbox{\hyperlink{class_hour_a12f195d1d0daee34ce7c4a5ca6ba53a8}{operator+}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_hour}{Hour}}\& right) \textcolor{keyword}{const};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{29     \mbox{\hyperlink{class_hour}{Hour}} \mbox{\hyperlink{class_hour_a083a86bfe8ec0d7171044e23d66cb16c}{operator-\/}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_hour}{Hour}}\& right) \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hour_a4d3b380e2538a01c868190a76ce0137d}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_hour}{Hour}}\& right) \textcolor{keyword}{const};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hour_a6c2c2bc106d72cff2053f56671a8664e}{operator>}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_hour}{Hour}}\& right) \textcolor{keyword}{const};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hour_a84366e830e2b39745efa314a9a5fc625}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_hour}{Hour}}\& right) \textcolor{keyword}{const};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hour_a1a3178388bbed2f6e8daee76745a709d}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_hour}{Hour}}\& right) \textcolor{keyword}{const};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_hour_afc1e60c8436cbb524de1939f732b2a7b}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_hour}{Hour}}\& right) \textcolor{keyword}{const};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hour_ac0fae562d7bf75d518b6be6e0ed94240}{get\_hora}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hour_a111dccd12a14c95e43eb878ce0b8d040}{get\_minutes}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{friend} ostream\& operator<< (ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{class_hour}{Hour}}\& s1);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{private}:}
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} hora; }
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} minutes;}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//UNTITLED\_HOUR\_H}}
+
+\end{DoxyCode}
