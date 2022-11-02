@@ -24,6 +24,10 @@ Operations::Operations() {
     Read_student rs = Read_student ("students_classes.csv", "classes_per_uc.csv");
     this->rs = rs;
     this->rc = rc;
+    ifstream in("Settings.csv");
+    string line;
+    getline(in, line);
+    Cap = stoi(line);
 }
 
 int Operations::getCap() const {
@@ -457,12 +461,12 @@ void Operations::processChanges(const std::string &fn) {
     //for(auto i : subjects) {cout << i.get_UCcode() << ',' << i.get_ClassCode() << endl;}
 
     while(!Changes.empty()){
-
+        bool f = false;
         Subject cur = Changes.front().getCurSub();
         Subject next = Changes.front().getNextSub();
         Student st = Changes.front().getStudent();
         string UC = cur.get_UCcode();
-
+        //cout << getCap() << endl;
         // test para numero numa turma.
         int middle;
         int low = 0;
@@ -472,13 +476,20 @@ void Operations::processChanges(const std::string &fn) {
             if(next < subjects[middle]) high = middle - 1;
             else if(next > subjects[middle]) low = middle + 1;
             else if(subjects[middle].get_number_of_student() > Cap){
+                cout << "fudeu" << Cap << endl;
                 log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque na turma " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << " valor atual de estudantes: " << subjects[middle].get_number_of_student() <<  "\n" ;
                 log_file << "WARNING " << "turma " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << " tem valor max de estudantes: " << subjects[middle].get_number_of_student() <<  "\n" ;
-                return;
+                f = true;
+                break;
             }else if(subjects[middle].get_number_of_student() == Cap){
                 log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque na turma " << '(' << next.get_UCcode() << ',' << next.get_ClassCode() << ')' << " valor atual de estudantes: " << subjects[middle].get_number_of_student() <<  "\n" ;
-                return;
+                f = true;
+                break;
             }else break;
+        }
+        if(f){
+            Changes.pop();
+            continue;
         }
 
         // test para Equilibrio
@@ -503,7 +514,8 @@ void Operations::processChanges(const std::string &fn) {
             log_file << "WARNING, the UC: " << cur.get_UCcode() << " has a desequilibrio" << "\n";
             if(c < n){
                 log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque provoca desequilibrio na UC";
-                return;
+                Changes.pop();
+                continue;
             }
         }
 
@@ -520,7 +532,8 @@ void Operations::processChanges(const std::string &fn) {
             }
             if(Notdesequilibrio(aux) > 4){
                 log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque vai criar desequilibrio na turma";
-                return;
+                Changes.pop();
+                continue;
             }
         }
 
@@ -566,7 +579,8 @@ void Operations::processChanges(const std::string &fn) {
 
         if(have_overlapping(Aulas)){
             log_file << "Estudante com numero: " << st.get_StudentCode() << " o pedido foi rejetado porque vai ser overlapping de aulas TP ou PL";
-            return;
+            Changes.pop();
+            continue;
         }
 
         // agora alteramos
@@ -617,7 +631,5 @@ void Operations::processChanges(const std::string &fn) {
     rs.setStudents(students);
     rs.setSubjects(subjects);
     log_file.close();
-
-
 }
 
