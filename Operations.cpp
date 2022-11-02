@@ -200,13 +200,18 @@ map<string, int> Operations::N_of_students_in_year(int n) const {
     }
     if(n == 3){
         R_l.insert({"Total students in year",R});
-        for(int i = subjects.size() - 1; subjects[i].get_year() == 3; i--){
+        int i = subjects.size() - 1;
+        while(subjects[i].get_year() == 1) i--;
+        //for(auto k : subjects) cout << k.get_UCcode() << ' ' << k.get_ClassCode() << endl;
+        for(; subjects[i].get_year() == 3; i--){
+            //cout << "hello";
             if(R_l.find(subjects[i].get_UCcode()) != R_l.end()){
                 R_l[subjects[i].get_UCcode()] += subjects[i].get_number_of_student();
             }else{
                 R_l.insert({subjects[i].get_UCcode(),subjects[i].get_number_of_student()});
             }
         }
+
     }
     if(n == 2){
         R_l.insert({"Total students in year",R});
