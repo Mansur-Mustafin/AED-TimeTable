@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AED Proj 1 / Group 12: ReadRequests Class Reference</title>
+<title>AED 2223 Project 1: ReadRequests Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AED Proj 1 / Group 12
+   <div id="projectname">AED 2223 Project 1<span id="projectnumber">&#160;Final</span>
    </div>
-   <div id="projectbrief">sigarra project</div>
+   <div id="projectbrief">Group 12</div>
   </td>
  </tr>
  </tbody>
@@ -100,11 +100,11 @@ $(document).ready(function(){initNavTree('class_read_requests.html',''); initRes
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa5a7d6fcc2c7eacdc85e144b74eddb34"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_read_requests.html#aa5a7d6fcc2c7eacdc85e144b74eddb34">ReadRequests</a> (const string &amp;inputline)</td></tr>
-<tr class="memdesc:aa5a7d6fcc2c7eacdc85e144b74eddb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_read_requests.html#aa5a7d6fcc2c7eacdc85e144b74eddb34">More...</a><br /></td></tr>
+<tr class="memdesc:aa5a7d6fcc2c7eacdc85e144b74eddb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. complex: O(N)  <a href="class_read_requests.html#aa5a7d6fcc2c7eacdc85e144b74eddb34">More...</a><br /></td></tr>
 <tr class="separator:aa5a7d6fcc2c7eacdc85e144b74eddb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad281228db41f016c48cbce4c3013b594"><td class="memItemLeft" align="right" valign="top"><a id="ad281228db41f016c48cbce4c3013b594" name="ad281228db41f016c48cbce4c3013b594"></a>
 queue&lt; <a class="el" href="class_change.html">Change</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getChanges</b> () const</td></tr>
-<tr class="memdesc:ad281228db41f016c48cbce4c3013b594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets queue with requests in the file. <br /></td></tr>
+<tr class="memdesc:ad281228db41f016c48cbce4c3013b594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets queue with requests in the file. complex: O(1) <br /></td></tr>
 <tr class="separator:ad281228db41f016c48cbce4c3013b594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -132,7 +132,7 @@ queue&lt; <a class="el" href="class_change.html">Change</a> &gt;&#160;</td><td c
 </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Constructor. complex: O(N) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inputline</td><td>-&gt; Line from the csv file. </td></tr>

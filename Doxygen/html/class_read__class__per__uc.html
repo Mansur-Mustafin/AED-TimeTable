@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AED Proj 1 / Group 12: Read_class_per_uc Class Reference</title>
+<title>AED 2223 Project 1: Read_class_per_uc Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AED Proj 1 / Group 12
+   <div id="projectname">AED 2223 Project 1<span id="projectnumber">&#160;Final</span>
    </div>
-   <div id="projectbrief">sigarra project</div>
+   <div id="projectbrief">Group 12</div>
   </td>
  </tr>
  </tbody>
@@ -100,15 +100,15 @@ $(document).ready(function(){initNavTree('class_read__class__per__uc.html',''); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a688ef52a8a0f081aa579c47eae7dd995"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_read__class__per__uc.html#a688ef52a8a0f081aa579c47eae7dd995">Read_class_per_uc</a> (const string &amp;input_name_file)</td></tr>
-<tr class="memdesc:a688ef52a8a0f081aa579c47eae7dd995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_read__class__per__uc.html#a688ef52a8a0f081aa579c47eae7dd995">More...</a><br /></td></tr>
+<tr class="memdesc:a688ef52a8a0f081aa579c47eae7dd995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. Complex O(N)  <a href="class_read__class__per__uc.html#a688ef52a8a0f081aa579c47eae7dd995">More...</a><br /></td></tr>
 <tr class="separator:a688ef52a8a0f081aa579c47eae7dd995"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea01adb7767e9fc2d3d912efb4c0a870"><td class="memItemLeft" align="right" valign="top"><a id="aea01adb7767e9fc2d3d912efb4c0a870" name="aea01adb7767e9fc2d3d912efb4c0a870"></a>
 vector&lt; <a class="el" href="class_subject.html">Subject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_subjects</b> () const</td></tr>
-<tr class="memdesc:aea01adb7767e9fc2d3d912efb4c0a870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets subjects. <br /></td></tr>
+<tr class="memdesc:aea01adb7767e9fc2d3d912efb4c0a870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets subjects. complex: O(1) <br /></td></tr>
 <tr class="separator:aea01adb7767e9fc2d3d912efb4c0a870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad78e4193db367474dbe32abeb8c3d1c4"><td class="memItemLeft" align="right" valign="top"><a id="ad78e4193db367474dbe32abeb8c3d1c4" name="ad78e4193db367474dbe32abeb8c3d1c4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Binary_search</b> (const <a class="el" href="class_subject.html">Subject</a> &amp;key) const</td></tr>
-<tr class="memdesc:ad78e4193db367474dbe32abeb8c3d1c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary search of subject. <br /></td></tr>
+<tr class="memdesc:ad78e4193db367474dbe32abeb8c3d1c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary search of subject. complex: O(log(N)) <br /></td></tr>
 <tr class="separator:ad78e4193db367474dbe32abeb8c3d1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -136,7 +136,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Binary_search</b> (con
 </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Constructor. Complex O(N) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input_name_file</td><td>-&gt; Name of the csv file. </td></tr>

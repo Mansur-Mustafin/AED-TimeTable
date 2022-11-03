@@ -13,5 +13,6 @@ var class_class =
     [ "is_more", "class_class.html#ad893e2dca48af347cdf48dc893e6c8f9", null ],
     [ "operator<", "class_class.html#a2da84148b9f8505c8eeae7293427ce2e", null ],
     [ "operator==", "class_class.html#a744cb4ec84793c544b4b66c81c06500a", null ],
-    [ "operator>", "class_class.html#a80bdb8da59af38f326bf3bb8acde6712", null ]
+    [ "operator>", "class_class.html#a80bdb8da59af38f326bf3bb8acde6712", null ],
+    [ "operator<<", "class_class.html#a091ae148650b8f7170a241e3eb17fba8", null ]
 ];

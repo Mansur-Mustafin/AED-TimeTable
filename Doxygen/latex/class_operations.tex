@@ -4,37 +4,37 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_operations_ac8c729c96c46a4fd969380d0a59632a6}{Operations}} (const string \&fm\+\_\+student, const string \&UC\+\_\+student, const string \&fm\+\_\+classes)
-\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructor. Complex O(\+Nlog(\+N)) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_operations_af344ca561c1a08118f686551abb08efb}\label{class_operations_af344ca561c1a08118f686551abb08efb}} 
 {\bfseries Operations} ()
-\begin{DoxyCompactList}\small\item\em Empty constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Empty constructor. Complex O(\+Nlog(\+N)) \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_class}{Class}} $>$ \mbox{\hyperlink{class_operations_a1a7449f73b2aa1e2cd446724f5e017bd}{Get\+Time\+Table}} (const string \&number)
-\begin{DoxyCompactList}\small\item\em Gets student time table. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets student time table. Complex O(\+Nlog(\+N)) \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_class}{Class}} $>$ \mbox{\hyperlink{class_operations_a0e861f5967025e9c0fb7f225fd0e7adb}{Get\+Time\+Tablefor\+UC}} (const string \&UC)
 \begin{DoxyCompactList}\small\item\em Gets UC time table. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_operations_a5255b19d91e028db2bf944f616dc445d}{print\+\_\+time\+\_\+table}} (list$<$ \mbox{\hyperlink{class_class}{Class}} $>$ v) const
-\begin{DoxyCompactList}\small\item\em Prints time table. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Prints time table. Complex O(\+N) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_operations_ae007b89c237cd2d743ee7b136f727992}{N\+\_\+of\+\_\+students\+\_\+in\+\_\+class}} (\mbox{\hyperlink{class_subject}{Subject}} s) const
-\begin{DoxyCompactList}\small\item\em Gets number of student in a class. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets number of student in a class. Complex O(log(\+N)) \end{DoxyCompactList}\item 
 map$<$ string, int $>$ \mbox{\hyperlink{class_operations_a7e202ea189589f243e3da965e851f30a}{N\+\_\+of\+\_\+students\+\_\+in\+\_\+year}} (int n) const
-\begin{DoxyCompactList}\small\item\em Gets number of students in a year mapping with UCs. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets number of students in a year mapping with UCs. Complex O(\+Nlog(\+N)) \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_subject}{Subject}} $>$ \mbox{\hyperlink{class_operations_ad4f5ce37e7e1d15971fb8ac761f712fe}{N\+\_\+of\+\_\+students\+\_\+in\+\_\+\+UC}} (\mbox{\hyperlink{class_subject}{Subject}} s) const
-\begin{DoxyCompactList}\small\item\em Gets number of student in all UCs and list of all classes in uc. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets number of student in all UCs and list of all classes in uc. Complex O(\+N) \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a30fccdfcddba37a464d40308e90314bd}{students\+\_\+in\+\_\+class}} (\mbox{\hyperlink{class_subject}{Subject}} s) const
-\begin{DoxyCompactList}\small\item\em Gets students in a class. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets students in a class. Complex O(\+Nlog(\+N)) \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_aa1ffb310811db6fdcc682ae512b25f0e}{students\+\_\+in\+\_\+year}} (int n) const
-\begin{DoxyCompactList}\small\item\em Gets students in a year. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets students in a year. Complex O(\+Nlog(\+N)) \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a6137a9e78a190028fb2a6ad6d21ad18a}{students\+\_\+in\+\_\+\+UC}} (\mbox{\hyperlink{class_subject}{Subject}} s) const
-\begin{DoxyCompactList}\small\item\em Gets students in a UC. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets students in a UC. Complex O(\+Nlog(\+N)) \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a35087b633d88bd88043dcf38401f354e}{students\+\_\+with\+\_\+more\+\_\+\+UC}} (int n) const
-\begin{DoxyCompactList}\small\item\em Gets students with more than \textquotesingle{}X\textquotesingle{} UC. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets students with more than \textquotesingle{}X\textquotesingle{} UC. Complex O(\+N) \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a9ae0632b423036e07103b25a7ad2a319}{students\+\_\+with\+\_\+name}} (const string \&name) const
-\begin{DoxyCompactList}\small\item\em Search students with specific name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Search students with specific name. Complex O(\+N$^\wedge$2) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_operations_ad4b0f995d72dce4b1bada5bbd8363d3a}{process\+Changes}} (const string \&fn)
-\begin{DoxyCompactList}\small\item\em Proccess requests of students. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Proccess requests of students. Complex O(\+N$^\wedge$2) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_operations_aac5512e14a4f420dbe2b7e20d66416a6}\label{class_operations_aac5512e14a4f420dbe2b7e20d66416a6}} 
 int {\bfseries get\+Cap} () const
-\begin{DoxyCompactList}\small\item\em Gets maximum capacity of a class;. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets maximum capacity of a class; Complex O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -52,7 +52,7 @@ int {\bfseries Cap}
 
 
 
-Constructor. 
+Constructor. Complex O(\+Nlog(\+N)) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -74,7 +74,7 @@ Constructor.
 
 
 
-Gets student time table. 
+Gets student time table. Complex O(\+Nlog(\+N)) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -110,7 +110,7 @@ List with classes.
 
 
 
-Gets number of student in a class. 
+Gets number of student in a class. Complex O(log(\+N)) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -128,7 +128,7 @@ Number of students.
 
 
 
-Gets number of student in all UCs and list of all classes in uc. 
+Gets number of student in all UCs and list of all classes in uc. Complex O(\+N) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -146,7 +146,7 @@ List of subjects with the number of students
 
 
 
-Gets number of students in a year mapping with UCs. 
+Gets number of students in a year mapping with UCs. Complex O(\+Nlog(\+N)) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -164,7 +164,7 @@ map with UCs and number of students in UCs.
 
 
 
-Prints time table. 
+Prints time table. Complex O(\+N) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -179,7 +179,7 @@ Prints time table.
 
 
 
-Proccess requests of students. 
+Proccess requests of students. Complex O(\+N$^\wedge$2) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -194,7 +194,7 @@ Proccess requests of students.
 
 
 
-Gets students in a class. 
+Gets students in a class. Complex O(\+Nlog(\+N)) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -212,7 +212,7 @@ List of students.
 
 
 
-Gets students in a UC. 
+Gets students in a UC. Complex O(\+Nlog(\+N)) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -230,7 +230,7 @@ List of students.
 
 
 
-Gets students in a year. 
+Gets students in a year. Complex O(\+Nlog(\+N)) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -248,7 +248,7 @@ List of students.
 
 
 
-Gets students with more than \textquotesingle{}X\textquotesingle{} UC. 
+Gets students with more than \textquotesingle{}X\textquotesingle{} UC. Complex O(\+N) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -266,7 +266,7 @@ List of students.
 
 
 
-Search students with specific name. 
+Search students with specific name. Complex O(\+N$^\wedge$2) 
 
 
 \begin{DoxyParams}{Parameters}

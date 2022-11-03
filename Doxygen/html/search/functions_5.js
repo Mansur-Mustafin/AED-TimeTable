@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['main_5fmenu_0',['main_menu',['../class_menu.html#a670b01c91a1c1a77302f1e5a1566bf6a',1,'Menu']]],
-  ['menu_1',['Menu',['../class_menu.html#ad466dd83355124a6ed958430450bfe94',1,'Menu']]],
-  ['minus_5fstudent_5fn_2',['minus_student_n',['../class_subject.html#a0cfb625705b33274376473134b05c8be',1,'Subject']]]
+  ['is_5fequal_0',['is_equal',['../class_class.html#a9b3fa89aa97e333c2e9a4fe1ceb14615',1,'Class']]],
+  ['is_5fless_1',['is_less',['../class_class.html#a7dc9aa82baa5318d37c3fc817ba6e402',1,'Class']]],
+  ['is_5fless_5fthan_5fby_5fcode_2',['is_less_than_by_code',['../class_student.html#aac56f49c0abd5b1ca1d9e53c78917300',1,'Student']]],
+  ['is_5fless_5fthan_5fby_5fname_3',['is_less_than_by_name',['../class_student.html#a7dbb8ab52becbd635a6cb985ce8b4ee9',1,'Student']]],
+  ['is_5fmore_4',['is_more',['../class_class.html#ad893e2dca48af347cdf48dc893e6c8f9',1,'Class']]]
 ];

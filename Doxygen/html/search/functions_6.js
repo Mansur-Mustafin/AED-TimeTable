@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['n_5fof_5fstudents_5fin_5fclass_0',['N_of_students_in_class',['../class_operations.html#ae007b89c237cd2d743ee7b136f727992',1,'Operations']]],
-  ['n_5fof_5fstudents_5fin_5fuc_1',['N_of_students_in_UC',['../class_operations.html#ad4f5ce37e7e1d15971fb8ac761f712fe',1,'Operations']]],
-  ['n_5fof_5fstudents_5fin_5fyear_2',['N_of_students_in_year',['../class_operations.html#a7e202ea189589f243e3da965e851f30a',1,'Operations']]],
-  ['number_5fof_5fstudents_5fin_5fyear_5fper_5fuc_3',['number_of_students_in_year_per_uc',['../class_menu.html#abd548d79e208047a42d3fb97d4fa3c3d',1,'Menu']]]
+  ['main_5fmenu_0',['main_menu',['../class_menu.html#a670b01c91a1c1a77302f1e5a1566bf6a',1,'Menu']]],
+  ['menu_1',['Menu',['../class_menu.html#ad466dd83355124a6ed958430450bfe94',1,'Menu']]],
+  ['minus_5fstudent_5fn_2',['minus_student_n',['../class_subject.html#a0cfb625705b33274376473134b05c8be',1,'Subject']]]
 ];

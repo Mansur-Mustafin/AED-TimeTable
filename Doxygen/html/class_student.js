@@ -14,5 +14,6 @@ var class_student =
     [ "operator==", "class_student.html#a1a012725e0e2b6528d5c972ac1d2c4b0", null ],
     [ "operator>", "class_student.html#a4a4bc75441f4faeef4267bf43ff659e1", null ],
     [ "operator>=", "class_student.html#a98f36ac6916408772c5307ffc02a2da4", null ],
+    [ "setSubjects", "class_student.html#a65fe7aaa4e264328328197c6e4245157", null ],
     [ "operator<<", "class_student.html#a1765fe2a76a07d863e79740ba87d252c", null ]
 ];
