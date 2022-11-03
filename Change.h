@@ -19,17 +19,21 @@ class Change {
 public:
     /**
      * @brief Constructor.
+     * Complex O(1)
      * @param s -> line from the requests csv file.
      */
     explicit Change(const string& s);
 
     /// @brief Gets student requesting the change
+    /// Complex O(1)
     Student getStudent() const;
 
     /// @brief Gets current class of the student.
+    /// Complex O(1)
     Subject getCurSub() const;
 
     /// @brief Gets the class the student wants to change to.
+    /// Complex O(1)
     Subject getNextSub() const;
 
 private:

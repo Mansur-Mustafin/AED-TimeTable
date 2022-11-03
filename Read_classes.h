@@ -20,20 +20,25 @@ public:
 
     /**
      * @brief Constructor.
+     * complex: O(N)
      * @param input_name_file -> Name of the csv file.
      */
     explicit Read_classes(const string& input_name_file);
 
     ///@brief Empty constructor.
+    ///complex: O(1)
     Read_classes();
 
     /// @brief Gets classes of type T
+    ///complex: O(1)
     set<Class> get_classes_T() const;
 
     /// @brief Gets classes of type TP
+    ///complex: O(1)
     set<Class> get_classes_TP() const;
 
     /// @brief Gets classes of type PL
+    ///complex: O(1)
     set<Class> get_classes_PL() const;
 
 private:

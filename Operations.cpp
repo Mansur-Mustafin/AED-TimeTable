@@ -102,7 +102,7 @@ list<Class> Operations::GetTimeTableforUC(const std::string &UC)  {
             Aulas.push_back(*it);
             auto it_new = it;
             it_new++;
-            while(it->get_day_index() == it_new->get_day_index() && it->get_hora_s() == it_new->get_hora_s() && it != T.end()){
+            while(it->get_day_index() == it_new->get_day_index() && it->get_hora_s() == it_new->get_hora_s() && it_new != T.end()){
                 it_new++;
                 it++;
             }
@@ -112,7 +112,6 @@ list<Class> Operations::GetTimeTableforUC(const std::string &UC)  {
 
     it = TP.lower_bound(s1);
     while(it->get_Subject().get_UCcode() == UC){
-
         Aulas.push_back(*it);
         it++;
     }
@@ -168,12 +167,12 @@ list<Subject> Operations::N_of_students_in_UC(Subject key) const{
 
 map<string, int> Operations::N_of_students_in_year(int n) const {
     map<string, int> R_l = {};
-    int R  = 0;
+    int R = 0;
     set<Student> students = rs.get_students();
     for(auto s : students){
         set<Subject> classes = s.getSubjects();
         auto it_e = classes.end();
-        it_e --;
+        it_e--;
         auto it_i = classes.begin();
         if(it_i->get_year() == n){
             R++;
@@ -183,12 +182,15 @@ map<string, int> Operations::N_of_students_in_year(int n) const {
             R++;
             continue;
         }
-        for(it_i; it_i != it_e; it_i++){
-            if(it_i->get_year() == n){
+
+        auto it = classes.lower_bound(Subject("L.EIC011,2LEIC01"));
+        if(it != classes.end()){
+            if(it->get_year() == n){
                 R++;
-                break;
+                continue;
             }
         }
+
     }
     vector<Subject> subjects =  rs.get_subjects();
     //for(auto i : subjects) cout << i.get_UCcode() << ' ' << i.get_ClassCode() << endl;
@@ -365,10 +367,11 @@ list<Student> Operations::students_in_year(int n) const{
             R.push_back(s);
             continue;
         }
-        for(it_i; it_i != it_e; it_i++){
-            if(it_i->get_year() == n){
+        auto it = classes.lower_bound(Subject("L.EIC011,2LEIC01"));
+        if(it != classes.end()){
+            if(it->get_year() == n){
                 R.push_back(s);
-                break;
+                continue;
             }
         }
     }

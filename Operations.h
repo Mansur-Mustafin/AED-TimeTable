@@ -20,6 +20,7 @@ class Operations {
 public:
     /**
      * @brief Constructor.
+     * Complex O(Nlog(N))
      * @param fm_student -> Name of the students_classes csv file.
      * @param UC_student -> Name of the classes_per_uc csv file.
      * @param fm_classes -> Name of the classes csv file.
@@ -27,10 +28,12 @@ public:
     Operations(const string& fm_student, const string& UC_student,const string& fm_classes);
 
     ///@brief Empty constructor.
+    /// Complex O(Nlog(N))
     Operations();
 
     /**
      * @brief Gets student time table.
+     * Complex O(Nlog(N))
      * @param number -> Student code.
      * @return List with classes.
      */
@@ -45,12 +48,14 @@ public:
 
     /**
      * @brief Prints time table.
+     * Complex O(N)
      * @param v -> List with classes.
      */
     void print_time_table(list<Class> v) const;
 
     /**
      * @brief Gets number of student in a class.
+     * Complex O(log(N))
      * @param s -> Subject.
      * @return Number of students.
      */
@@ -58,6 +63,7 @@ public:
 
     /**
      * @brief Gets number of students in a year mapping with UCs.
+     *Complex O(Nlog(N))
      * @param n -> Year to search.
      * @return map with UCs and number of students in UCs.
      */
@@ -65,6 +71,7 @@ public:
 
     /**
      * @brief Gets number of student in all UCs and list of all classes in uc.
+     * Complex O(N)
      * @param s -> Subject.
      * @return List of subjects with the number of students
      */
@@ -72,6 +79,7 @@ public:
 
     /**
      * @brief Gets students in a class.
+     * Complex O(Nlog(N))
      * @param s -> Subject.
      * @return List of students.
      */
@@ -79,6 +87,7 @@ public:
 
     /**
      * @brief Gets students in a year.
+     * Complex O(Nlog(N))
      * @param n -> Year to search for.
      * @return List of students.
      */
@@ -86,6 +95,7 @@ public:
 
     /**
      * @brief Gets students in a UC.
+     * Complex O(Nlog(N))
      * @param s -> Subject.
      * @return List of students.
      */
@@ -93,6 +103,7 @@ public:
 
     /**
      * @brief Gets students with more than 'X' UC.
+     * Complex O(N)
      * @param n -> Base number of UC.
      * @return List of students.
      */
@@ -100,6 +111,7 @@ public:
 
     /**
      * @brief Search students with specific name.
+     * Complex O(N^2)
      * @param name -> Name to search for.
      * @return List of Students.
      */
@@ -107,11 +119,13 @@ public:
 
     /**
      * @brief Proccess requests of students.
+     * Complex O(N^2)
      * @param fn -> file name with queue of requirements
      */
     void processChanges(const string& fn);
 
     /// @brief Gets maximum capacity of a class;
+    /// Complex O(1)
     int getCap() const;
 
     int Cap; /// @brief Maximum capacity of a class.

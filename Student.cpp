@@ -44,7 +44,6 @@ void Student::add_subject(const std::string &input_line) {
     getline(input, feel, ',');
     getline(input, feel1, ',');
     Subject s (feel, feel1);
-
     UCs.insert(s);
 }
 

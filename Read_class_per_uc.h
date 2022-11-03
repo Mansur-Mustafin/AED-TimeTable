@@ -17,14 +17,17 @@ class Read_class_per_uc {
 public:
     /**
      * @brief Constructor.
+     * Complex O(N)
      * @param input_name_file -> Name of the csv file.
      */
     explicit Read_class_per_uc(const string& input_name_file);
 
     /// @brief Gets subjects.
+    ///complex: O(1)
     vector<Subject> get_subjects() const;
 
     /// @brief Binary search of subject.
+    ///complex: O(log(N))
     int Binary_search(const Subject& key) const;
 private:
     vector<Subject> subjects; /// Subjects

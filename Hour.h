@@ -17,38 +17,63 @@ using namespace std;
  */
 class Hour {
 public:
+    /**
+     * @brief Constructor.
+     * Complex O(1)
+     * @param x -> hours in float, (10.5 => 10:30)
+     */
     explicit Hour(float x);
+    /**
+     * @brief Constructor default.
+     * Complex O(1)
+     */
     Hour(){hora = 1; minutes = 1;};
+    /**
+     * @brief Constructor.
+     * Complex O(1)
+     * @param x -> hours
+     * @param y -> minutes
+     */
     Hour(int x , int y){hora = x; minutes = y;};
 
     /// @brief Overload of <em>operator+ </em>.
+    /// Complex O(1)
     Hour operator+(const Hour& right) const;
 
     /// @brief Overload of <em>operator- </em>.
+    /// Complex O(1)
     Hour operator-(const Hour& right) const;
 
     /// @brief Overload of <em>operator< </em>.
+    /// Complex O(1)
     bool operator<(const Hour& right) const;
 
     /// @brief Overload of <em>operator> </em>.
+    /// Complex O(1)
     bool operator>(const Hour& right) const;
 
     /// @brief Overload of <em>operator>= </em>.
+    /// Complex O(1)
     bool operator>=(const Hour& right) const;
 
     /// @brief Overload of <em>operator<= </em>.
+    /// Complex O(1)
     bool operator<=(const Hour& right) const;
 
     /// @brief Overload of <em>operator== </em>.
+    /// Complex O(1)
     bool operator==(const Hour& right) const;
 
     /// @brief Gets hour.
+    /// Complex O(1)
     int get_hora() const;
 
     /// @brief Gets minute.
+    /// Complex O(1)
     int get_minutes() const;
 
-
+    /// @brief Overload of <em>operator<< </em>.
+    /// Complex O(1)
     friend ostream& operator<< (ostream& out, const Hour& s1);
 
 private:
