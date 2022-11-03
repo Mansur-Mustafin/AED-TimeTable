@@ -23,15 +23,18 @@ class Subject {
     public:
         /**
          * @brief Constructor.
+         * complex: O(1)
          * @param input_line -> Line from csv file.
          */
         explicit Subject(const string& input_line);
 
         /// @brief Default constructor.
+        /// complex: O(1)
         Subject(){UCcode = "1";ClassCode = "1";number_of_student = 0;};
 
         /**
          * @brief Constructor.
+         * complex: O(1)
          * @param s1 -> UC code
          * @param s2 -> Class code
          * @param i -> number_of_student
@@ -39,36 +42,47 @@ class Subject {
         Subject(const string& s1, const string& s2, int i = 0);
 
         /// @brief gets UC code.
+        /// complex: O(1)
         string get_UCcode() const;
 
         /// @brief Gets class code.
+        /// complex: O(1)
         string get_ClassCode() const;
 
         ///@brief Gets year of subject.
+        /// complex: O(1)
         int get_year() const;
 
         ///@brief gets student number in UC.
+        /// complex: O(1)
         int get_number_of_student() const;
 
         /// @brief Overload of <em>operator< </em>.
+        /// complex: O(1)
         bool operator<(const Subject& right) const;
 
         /// @brief Overload of <em>operator<= </em>.
+        /// complex: O(1)
         bool operator<=(const Subject& right) const;
 
         /// @brief Overload of <em>operator> </em>.
+        /// complex: O(1)
         bool operator>(const Subject& right) const;
 
         /// @brief Overload of <em>operator=> </em>.
+        /// complex: O(1)
         bool operator>=(const Subject& right) const;
 
         /// @brief Overload of <em>operator== </em>.
+        /// complex: O(1)
         bool operator==(const Subject& right) const;
 
         /// @brief Overload of <em>operator!= </em>.
+        /// complex: O(1)
         bool operator!=(const Subject& right) const;
 
         /// @brief Check if UCs are equal.
+        /// complex: O(1)
         bool UC_is_equal(const Subject& right) const;
 
         /// @brief Compares UC.

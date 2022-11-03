@@ -7,12 +7,12 @@
 Student::Student(const std::string &input_line) {
     string feel, feel1;
     istringstream input (input_line);
-    getline(input, feel, ','); // reed StudentCode
+    getline(input, feel, ',');
     StudentCode = stoi(feel);
-    getline(input, feel, ','); // reed name
+    getline(input, feel, ',');
     name = feel;
-    getline(input, feel, ','); // reed UCcode
-    getline(input, feel1, ','); // reed ClassCode
+    getline(input, feel, ',');
+    getline(input, feel1, ',');
     Subject s (feel, feel1);
     UCs.insert(s);
 }

@@ -19,7 +19,7 @@ public:
      * @brief Constructor.
      * @param input_name_file -> Name of the csv file.
      */
-    explicit Read_class_per_uc(const string& input_name_file); // constr
+    explicit Read_class_per_uc(const string& input_name_file);
 
     /// @brief Gets subjects.
     vector<Subject> get_subjects() const;

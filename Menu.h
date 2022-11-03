@@ -56,9 +56,6 @@ public:
     /// @brief Calls function to process requests from students.
     void process_requests();
 private:
-
-    //void students_operations();
-
     Operations op; /// @brief Operations object with functions to proccess data.
 };
 

@@ -42,7 +42,7 @@ class Class {
          * @brief Gets day index.
          * @return Index of the day(Monday = 0, ... , Friday = 4)
          */
-        int get_day_index() const; // Monday -> 0, Tuesday -> 1 ....
+        int get_day_index() const;
 
         /// @brief Gets start time of the class.
         Hour get_hora_s() const;

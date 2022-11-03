@@ -34,7 +34,7 @@ public:
      * @param number -> Student code.
      * @return List with classes.
      */
-    list<Class> GetTimeTable(const string& number); // encontra horario por numero up recebe string mesmo
+    list<Class> GetTimeTable(const string& number);
 
     /**
      * @brief Gets UC time table.
@@ -54,21 +54,21 @@ public:
      * @param s -> Subject.
      * @return Number of students.
      */
-    int N_of_students_in_class(Subject s) const; // input: uma turma, output: numero de estudantes inscritos testa turma
+    int N_of_students_in_class(Subject s) const;
 
     /**
      * @brief Gets number of students in a year mapping with UCs.
      * @param n -> Year to search.
      * @return map with UCs and number of students in UCs.
      */
-    map<string, int> N_of_students_in_year(int n) const; // input year
+    map<string, int> N_of_students_in_year(int n) const;
 
     /**
      * @brief Gets number of student in all UCs and list of all classes in uc.
      * @param s -> Subject.
      * @return List of subjects with the number of students
      */
-    list<Subject> N_of_students_in_UC(Subject s) const;  // input : Subject("L.EIC001,xXXXXxx") se quiseres a UC L.EIC001
+    list<Subject> N_of_students_in_UC(Subject s) const;
 
     /**
      * @brief Gets students in a class.

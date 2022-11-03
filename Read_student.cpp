@@ -39,8 +39,6 @@ Read_student::Read_student(const string& fname, const string& UC_student) { // v
         }
     }
     v.insert(s_old);
-    //sort(v.begin(),v.end(), [ ] (const Student& s1, const Student& s2) {return s1.get_StudentCode() < s2.get_StudentCode();});
-
 }
 
 
@@ -66,25 +64,3 @@ void Read_student::setSubjects(vector<Subject>& snew) {
     this->s = snew;
 }
 
-/*
-Student Read_student::Bynary_serch_of_student(const std::string &keystr) {
-
-    int key = stoi(keystr);
-
-    int low = 0;
-    int high = get_students().size() - 1;
-
-    while(low <= high){
-        //cout << low << high << endl;
-        int middle = low + (high - low) / 2;
-        if(key < v[middle].get_StudentCode()){
-            high = middle - 1;
-        }
-        else if(key > v[middle].get_StudentCode()){
-            low = middle + 1;
-        }
-        else return v[middle];
-    }
-    return Student("202102355,Mansur,L.EIC014,2LEIC04");
-}
- */

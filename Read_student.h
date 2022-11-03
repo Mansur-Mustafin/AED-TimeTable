@@ -45,8 +45,6 @@ public:
     /// @brief Gets subjects.
     vector<Subject> get_subjects() const;
 
-    /// @brief Finds student in students set by student code.
-    Student Bynary_serch_of_student(const string& key); // encontra estudante em vetor dos estudantes por numero UP
 private:
     set<Student> v; /// @brief Students list.
     vector<Subject> s; /// @brief Subjects list.
