@@ -304,6 +304,7 @@ void Menu::uc_operations() {
     cout << "Choose an option:" << endl;
     cout << "1 - Get number of students in UC" << endl;
     cout << "2 - See students in UC" << endl;
+    cout << "3 - See UC timetable" << endl;
 
     int choice;
     cin >> choice;
@@ -389,6 +390,9 @@ void Menu::uc_operations() {
                     cout << "Invalid input" << endl;
                     uc_operations();
             }
+            break;
+        case 3:
+            op.print_time_table(op.GetTimeTableforUC(ucCode));
             break;
         default:
             cout << "Invalid choice";
