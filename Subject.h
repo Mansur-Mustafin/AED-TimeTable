@@ -86,12 +86,15 @@ class Subject {
         bool UC_is_equal(const Subject& right) const;
 
         /// @brief Compares UC.
+        /// complex: O(1)
         bool UC_is_less(const Subject& right) const;
 
         /// @brief Increases number of student in UC.
+        /// complex: O(1)
         void plus_student_n();
 
         /// @brief Decreases number of student in UC.
+        /// complex: O(1)
         void minus_student_n();
 
 
