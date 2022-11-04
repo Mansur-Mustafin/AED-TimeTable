@@ -119,7 +119,7 @@ public:
 
     /**
      * @brief Proccess requests of students.
-     * Complex O(N^2)
+     * Complex O(N^2*log(N))
      * @param fn -> file name with queue of requirements
      */
     void processChanges(const string& fn);

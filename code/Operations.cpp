@@ -460,8 +460,8 @@ void Operations::processChanges(const std::string &fn) {
     ofstream log_file("LOGS.txt");
     ReadRequests rq (fn);
     queue<Change> Changes = rq.getChanges();  // fila de pedidos de mudanca
+    queue<Change> new_fila = {};
 
-    //for(auto i : subjects) {cout << i.get_UCcode() << ',' << i.get_ClassCode() << endl;}
 
     while(!Changes.empty()){
         bool f = false;
@@ -469,7 +469,12 @@ void Operations::processChanges(const std::string &fn) {
         Subject next = Changes.front().getNextSub();
         Student st = Changes.front().getStudent();
         string UC = cur.get_UCcode();
-        //cout << getCap() << endl;
+        if(cur == next){
+            log_file << "St N:" << st.get_StudentCode() << "has the same classes\n";
+            Changes.pop();
+            continue;
+        }
+
         // test para numero numa turma.
         int middle;
         int low = 0;
@@ -490,6 +495,7 @@ void Operations::processChanges(const std::string &fn) {
             }else break;
         }
         if(f){
+            new_fila.push(Changes.front());
             Changes.pop();
             continue;
         }
@@ -511,11 +517,11 @@ void Operations::processChanges(const std::string &fn) {
             if(j.get_ClassCode() == next.get_ClassCode()) n = j.get_number_of_student();
         }
 
-
         if(Notdesequilibrio(subjectsOfUC) > 4){
             log_file << "WARNING, the UC: " << cur.get_UCcode() << " has a unbalance in the number of students" << "\n";
             if(c < n){
-                log_file << "St N: " << st.get_StudentCode() << " the request was rejected because increases an unbalance in the number of students";
+                log_file << "St N: " << st.get_StudentCode() << " the request was rejected because increases an unbalance in the number of students \n";
+                new_fila.push(Changes.front());
                 Changes.pop();
                 continue;
             }
@@ -533,7 +539,8 @@ void Operations::processChanges(const std::string &fn) {
                 }
             }
             if(Notdesequilibrio(aux) > 4){
-                log_file << "St N: " << st.get_StudentCode() << " the request was rejected because causes an unbalance in the number of students";
+                log_file << "St N: " << st.get_StudentCode() << " the request was rejected because causes an unbalance in the number of students \n";
+                new_fila.push(Changes.front());
                 Changes.pop();
                 continue;
             }
@@ -544,6 +551,7 @@ void Operations::processChanges(const std::string &fn) {
         vector<Class> Aulas = {};
         set<Class> TP = rc.get_classes_TP();
         set<Class> PL = rc.get_classes_PL();
+        bool flag = false;
         for(const auto& subject : subjectsOfStudent){
             if(subject != cur){
                 string str = subject.get_ClassCode()+',' + subject.get_UCcode()+ ",Monday,8.0,2,0";
@@ -563,6 +571,19 @@ void Operations::processChanges(const std::string &fn) {
                     }
                 }
             }
+            if(subject == next){
+                log_file << "St N: "<< st.get_StudentCode() <<  "is already in the class he is trying to move\n";
+                Changes.pop();
+                continue;
+            }
+            if(subject == cur){
+                flag = true;
+            }
+        }
+        if(!flag){
+            log_file << "St N: "<< st.get_StudentCode() <<  " student doesn't have this current class \n";
+            Changes.pop();
+            continue;
         }
         string str = next.get_ClassCode()+',' + next.get_UCcode()+ ",Monday,8.0,2,0";
         Class cl (str);
@@ -580,7 +601,7 @@ void Operations::processChanges(const std::string &fn) {
         }
 
         if(have_overlapping(Aulas)){
-            log_file << "St N: " << st.get_StudentCode() << "the request was rejected because it will cause an overlapping between TP or PL classes";
+            log_file << "St N: " << st.get_StudentCode() << "the request was rejected because it will cause an overlapping between TP or PL classes \n";
             Changes.pop();
             continue;
         }
@@ -624,6 +645,17 @@ void Operations::processChanges(const std::string &fn) {
 
     rs.setStudents(students);
     rs.setSubjects(subjects);
+
+
+    ofstream request_file("requests.csv");
+    while(!new_fila.empty()){
+        cout << '1';
+        request_file << new_fila.front().getCurSub().get_UCcode() << ',' << new_fila.front().getCurSub().get_ClassCode() << ',' << new_fila.front().getStudent().get_StudentCode() <<  ',' << new_fila.front().getCurSub().get_UCcode() << ',' << new_fila.front().getNextSub().get_ClassCode() << '\n';
+        new_fila.pop();
+    }
+    request_file.close();
+
+
     log_file.close();
 }
 
