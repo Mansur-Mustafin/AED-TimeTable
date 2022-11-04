@@ -31,7 +31,7 @@ list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_ope
 list$<$ \mbox{\hyperlink{class_student}{Student}} $>$ \mbox{\hyperlink{class_operations_a9ae0632b423036e07103b25a7ad2a319}{students\+\_\+with\+\_\+name}} (const string \&name) const
 \begin{DoxyCompactList}\small\item\em Search students with specific name. Complex O(\+N$^\wedge$2) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_operations_ad4b0f995d72dce4b1bada5bbd8363d3a}{process\+Changes}} (const string \&fn)
-\begin{DoxyCompactList}\small\item\em Proccess requests of students. Complex O(\+N$^\wedge$2) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Proccess requests of students. Complex O(\+N$^\wedge$2$\ast$log(\+N)) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_operations_aac5512e14a4f420dbe2b7e20d66416a6}\label{class_operations_aac5512e14a4f420dbe2b7e20d66416a6}} 
 int {\bfseries get\+Cap} () const
 \begin{DoxyCompactList}\small\item\em Gets maximum capacity of a class; Complex O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -179,7 +179,7 @@ Prints time table. Complex O(\+N)
 
 
 
-Proccess requests of students. Complex O(\+N$^\wedge$2) 
+Proccess requests of students. Complex O(\+N$^\wedge$2$\ast$log(\+N)) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -280,5 +280,5 @@ List of Students.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_operations_8h}{Operations.\+h}}\item 
-Operations.\+cpp\end{DoxyCompactItemize}
+code/\mbox{\hyperlink{_operations_8h}{Operations.\+h}}\item 
+code/Operations.\+cpp\end{DoxyCompactItemize}
