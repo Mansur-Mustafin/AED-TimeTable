@@ -3,6 +3,6 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(untitled main.cpp Student.cpp Student.h Class.cpp Class.h Hour.cpp Hour.h Subject.cpp Subject.h Read_class_per_uc.cpp Read_class_per_uc.h Read_classes.cpp Read_classes.h Read_student.cpp Read_student.h Operations.cpp Operations.h Menu.cpp Menu.h SortFunctions.cpp ReadRequests.cpp ReadRequests.h Change.cpp Change.h)
+add_executable(untitled main.cpp code/Student.cpp code/Student.h code/Class.cpp code/Class.h code/Hour.cpp code/Hour.h code/Subject.cpp code/Subject.h code/Read_class_per_uc.cpp code/Read_class_per_uc.h code/Read_classes.cpp code/Read_classes.h code/Read_student.cpp code/Read_student.h code/Operations.cpp code/Operations.h code/Menu.cpp code/Menu.h code/SortFunctions.cpp code/ReadRequests.cpp code/ReadRequests.h code/Change.cpp code/Change.h)
 
 #Doxygen build made by Doxygen Wizard

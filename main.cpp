@@ -1,11 +1,7 @@
-#include <iostream>
 #include <algorithm>
-#include <list>
-#include "Operations.h"
-#include "Hour.h"
-#include "Menu.h"
-#include "SortFunctions.cpp"
-#include "Change.h"
+#include "code/Menu.h"
+#include "code/SortFunctions.cpp"
+
 
 int main() {
     Menu menu = Menu();
