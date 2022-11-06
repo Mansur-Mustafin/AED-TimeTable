@@ -649,7 +649,6 @@ void Operations::processChanges(const std::string &fn) {
 
     ofstream request_file("requests.csv");
     while(!new_fila.empty()){
-        cout << '1';
         request_file << new_fila.front().getCurSub().get_UCcode() << ',' << new_fila.front().getCurSub().get_ClassCode() << ',' << new_fila.front().getStudent().get_StudentCode() <<  ',' << new_fila.front().getCurSub().get_UCcode() << ',' << new_fila.front().getNextSub().get_ClassCode() << '\n';
         new_fila.pop();
     }
