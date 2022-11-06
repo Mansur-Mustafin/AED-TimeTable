@@ -601,7 +601,7 @@ void Operations::processChanges(const std::string &fn) {
         }
 
         if(have_overlapping(Aulas)){
-            log_file << "St N: " << st.get_StudentCode() << "the request was rejected because it will cause an overlapping between TP or PL classes \n";
+            log_file << "St N: " << st.get_StudentCode() << " the request was rejected because it will cause an overlapping between TP or PL classes \n";
             Changes.pop();
             continue;
         }
