@@ -12,8 +12,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "read_student.h"
+#include <fstream>
+#include <algorithm>
+#include <iomanip>
+#include <climits>
+#include "Read_student.h"
 #include "Operations.h"
+
 
 using namespace std;
 

@@ -2,11 +2,8 @@
 // Created by ianbe on 27/10/2022.
 //
 
-#include "SortFunctions.cpp"
 #include "Menu.h"
-#include <fstream>
-#include <algorithm>
-#include <iomanip>
+#include "SortFunctions.cpp"
 
 Menu::Menu() {
 
