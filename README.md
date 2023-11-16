@@ -18,4 +18,9 @@ You need to move `.csv` files from `data` folder to `cmake-build-debug`
 ![img](img/list_of_students.png)
 &nbsp;
 
-Grade 19.98 / 20
+## Contributors and Grade
+
+* [Mansur Mustafin](https://github.com/Mansur-Mustafin) 
+* [Ian Beltrão](https://github.com/ianbeltrao)
+
+Grade: 19.98/20
